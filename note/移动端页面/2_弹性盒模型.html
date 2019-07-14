@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        #div0{
+            height: 300px;;
+            background: #ccc;
+            display:flex;
+        }
+        #div1{
+            height: 100px;
+            background: #00f;
+            width: 300px;
+            flex:1;
+            margin-right: 20px;
+            /* float: left; */
+        }
+        #div2{
+            height: 100px;
+            background: #f00;
+            /* margin-left: 300px; */
+            flex:2;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <!-- div1 占300 div2充满剩余部分 
+    div1固定300宽度并且浮动 div2加300左侧外边距
+    -->
+    <!--
+        父元素设置display:flex; 子元素设置flex:1(份数 占剩余空间的份数);
+        父元素 设置 flex-direction:row;按行，正常
+                                  row-reverse;反方向(所设元素会反方向显示)
+                                  column;按列(垂直方向显示)
+                                  column-reverse;垂直方向颠倒显示
+    -->
+    <div id="div0">
+        <div id="div1"></div>
+        <div id="div2"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 
+    rem.js 会根据屏幕宽度 等比设备html的font-size
+    设置元素用rem单位的时候 在其他设备上会自适应
+    html的font-size  随着设备的宽度变化而变化
+    html元素的宽度 会随着html的font-size的变化而变化
+    -->
+    <script src="rem.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+         #div1{
+             width: 1rem;
+             height: 1rem;
+             background: #0ff;
+         }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

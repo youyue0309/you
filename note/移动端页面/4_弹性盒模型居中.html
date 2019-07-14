@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 800px;
+            height: 500px;
+            background: #ccc;
+            display: flex;
+            /* 设置水平对齐方式
+            justify-content:center;水平居中
+                            flex-start;水平居左
+                            flex-end;水平居右
+                            space-between;平均分份
+                            space-around;每个元素左右有相同大小的空隙
+            */
+            justify-content: center;
+            /* 垂直对齐方式
+            align-items:center;垂直居中
+                        flex-start;上
+                        flex-end;下
+                        baseline;以中间内容对齐
+                        strecth;将元素全都拉伸到相同高度
+            */
+            align-items: center;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+        #div3{
+            width: 200px;
+            height: 200px;
+            background: #00f;
+        }
+        #div4{
+            width: 200px;
+            height: 200px;
+            background: #0f0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="div1">
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4"></div>
+    </div>
+</body>
+</html>
