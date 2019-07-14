@@ -75,13 +75,16 @@
 .my-car{
     font-size: 12px;
 }
+.phone{
+    font-size: 12px;
+}
 /*header 结束*/
 
 /*搜索 开始*/
 .logo-box{
     overflow: hidden;
 }
-.logo{
+.search-logo{
     width: 240px;
     height: 130px;
     float: left;

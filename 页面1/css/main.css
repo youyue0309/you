@@ -1,0 +1,128 @@
+/* header 开始 */
+*{
+    margin:0;
+    padding:0;
+}
+.wrapper{
+    width:1280px;
+    margin:0 auto;
+}
+.header{
+    height:120px;
+    position:relative;
+    background:#ffffff;
+}
+.pic-logo{
+    width:189px;
+    height:47px;
+    position:absolute;
+    left:139px;
+    top:37px;
+}
+.hide{
+    margin: 0;
+    padding: 0;
+    border:none;
+    height: 20px;
+    overflow: hidden;
+    position: absolute;
+    top:55px;
+    left:469px;
+}
+.header-lead li{
+    border-right:1px;
+    letter-spacing: -1.5px;
+    padding: 0px 24px;
+    float:left;
+    list-style:none;
+    position:relative;
+    top:0;
+    left:-1px;
+}
+.header-lead li::after{
+    content: '';
+    width: 1px;
+    height: 14px;
+    background: #626262;
+    position: absolute;
+    left: 0;
+    top:2px;
+}
+.header-lead li.header-list{
+    font-family:PTSans-Regular;
+    font-weight:400;
+    color:rgba(98,98,98,1);
+}
+.header-lead li.header-list-different{
+    font-size:15px;
+    color:#00AEFF;
+    font-family:PTSans-Regular;
+}
+.search{
+    width: 130px;
+    height: 30px;
+    background: #F1F3F6;
+    position: absolute;
+    top:45px;
+    left:1011px;
+}
+.search input{
+    width: 109px;
+    height: 30px;
+    border: none;
+    background: #F1F3F6;
+}
+
+/* header 结束 */
+
+/* picture开始 */
+.picture{
+    height: 460px;
+    background: #31333E;
+    position:relative;
+}
+.picture-one{
+    height: 110px;
+    /* background: #ff00ff; */
+}
+.picture-one-dic{
+    font-size: 36.64px;
+    font-weight: 200;
+    letter-spacing: -1px;
+    color: #FFFFFF;
+    font-family: PTSans-Regular;
+    float: left;
+    position: absolute;
+    top:47px;
+    left:287px;
+}
+.picture-one-button{
+    font-size: 18px;
+    color: #FFFFFF;
+    font-family:PTSans-Regular;
+    border-radius: 3px;
+    width: 180px;
+    border:none;
+    height: 50px;
+    background: #00AEFF;
+    float: left;
+    position: absolute;
+    top:39px;
+    left:839px;
+}
+.picture-two-one{
+    position:absolute;
+    top:205px;
+    left:139px;
+}
+.picture-two-three{
+    position:absolute;
+    top:114px;
+    left:368px;
+}
+.picture-two-two{
+    position:absolute;
+    top:205px;
+    left:1112px;
+}
+/* picture 结束 */
