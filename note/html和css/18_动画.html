@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div0{
+            background: #eeeeee
+        }
+        #div0 div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            
+        }
+        div1{
+            transition: width 2s linear ;
+        }
+        div2{
+            transition: width 2s ease ;
+        }
+        div3{
+            transition: width 2s ease-in ;
+        }
+        div4{
+            transition: width 2s ease-in-out ;
+
+        }
+        div5{
+            transition: width 2s ease-out;
+        }
+        #div0:hover{
+            width: 600px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="div1">111</div>
+    <div id="div2">111</div>
+    <div id="div3">111</div>
+    <div id="div4">111</div>
+    <div id="div5">111</div>
+</body>
+</html>
