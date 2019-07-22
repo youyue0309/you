@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <!-- 利用全局变量和函数，设计模拟幸运数字机游戏。设卒运数字为8，
+            每次由计算机随机产生3个1-9之间(包括1和9）的随机数
+            ，当这3个随机数中有一个数字为8时，就算赢了一次，要求利用函数计算获胜率。 -->
+    <script>
+        var str="";
+        var sum=0;
+        var win=0;
+        function fn(){
+            str="";
+            var num=Math.floor(Math.random()*9+1);
+            var num1=Math.floor(Math.random()*9+1);
+            var num2=Math.floor(Math.random()*9+1);
+            str=str+num+num1+num2+"\n";
+            if(num==8||num1==8||num2==8){
+                str+="赢"+"\n"
+                win++;
+            }else{
+                str+="输"+"\n"
+            }
+            sum++;
+            str+=(win/sum*100)+"%";
+
+        }
+        do{
+            fn();
+        }while(confirm(str));
+    </script>
+</body>
+</html>

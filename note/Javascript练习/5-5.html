@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <!-- 5.编写一个非递归函数factorial(n)，计算12!-10!的结果。 -->
+    <script>
+        function fn(n){
+            var a=1;
+            for(i=1;i<n+1;i++){
+                a=a*i;
+            }
+            //document.write(a);
+            return a;
+        }
+        var y;
+        y=fn(12)-fn(10);
+        document.write(y);
+    </script>
+</body>
+</html>
