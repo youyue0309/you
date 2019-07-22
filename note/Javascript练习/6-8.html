@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <!-- 8.设计一个函数DayOfYear(d)
+        ，它接必一个日期参数d，返回一个该日期是所在年份的第几天，
+        如DayOfYear(2000,2,8)的返回值是39. -->
+    <script>
+        function nian(year){
+            return ((year%4==0&&year%100!=0)||year%400==0)
+        }
+        var arr=[31,28,31,30,31,30,31,30,31,30,31,30];
+        function DayOfYear(year,month,day){
+            var result=0;
+            if(nian(year)){
+                arr[1]=29;
+            }/* else{
+                arr[1]=28;
+            } */
+            for(var i=0;i<month-1;i++){
+                result+=arr[i];
+            }
+            result+=day;
+            return result;
+        }
+        document.write(DayOfYear(2001,3,8));
+    </script>
+</body>
+</html>

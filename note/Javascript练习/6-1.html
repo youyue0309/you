@@ -7,21 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-        <!-- 编制一个从字符串中收集数字字符（"0"',"1"，…"9"）的函数CollectDigits(s)，
-            它从字符串s中顺序取出数字，并且合并为一个独立的字符串作为函数的返回值。
-            例如函数调用CollectDigits("1abc23def4"）的返回值是字符串"1234"。 -->
+        <!-- 1.编写程序，根据用户输入的数值，计算其平方、平方根和自然对数。 -->
     <script>
-        function CollectDigits(s){
-            var rest=""
-            for(var i=0;i<s.length;i++){
-                var char=s.charAt(i);
-                if(char>=0&&char<=9){
-                    rest+=char;
-                }
-            }
-            return rest;
-        }
-        document.write(CollectDigits("1abc23def4"));
+        var num=prompt("请输入要计算的值",0);
+        num*=1;
+        sq=num*num;
+        sq1=Math.sqrt(num);
+        ln=Math.log(num);
+        document.write(sq+" ");
+        document.write(sq1+" ");
+        document.write(ln);
     </script>
 </body>
 </html>

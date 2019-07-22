@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <!-- 6.设计一个程序，它（使用一个数组）接收用户输入的7门课程的成绩，
+            然后在页面上显示其总成绩和平均分，并列出小于60的成绩。 -->
+    <script>
+        var arr=new Array(7);
+        function shuru(){
+            var avg=0;
+            for(i=0;i<7;i++){
+                var num=prompt("请输入成绩",0);
+                num*=1;
+                arr[i]=num;
+                if(arr[i]<60){
+                    document.write(arr[i]+" ");
+                }
+                avg+=arr[i];
+            }
+            avg=avg/7;
+            document.write("平均成绩："+avg+"</dr>");
+
+        }
+        shuru();
+    </script>
+</body>
+</html>
