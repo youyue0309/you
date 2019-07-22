@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 3.编写程序，计算10!(即 1*2*3＊·…10)的结果(10的阶乘)。 -->
+        <!-- 编写程序，计算 1!+2!+3!+…..＋10！的结果。     -->
+    <script>
+        var num=prompt("输入数字",1);
+        num*=1;
+        var a=1;
+        var numb=0;
+        for(var i=1;i<num+1;i++){
+            a=i*a;
+            numb=numb+a;
+        }
+        console.log(a);
+        console.log(numb);
+    </script>
+</body>
+</html>

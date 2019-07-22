@@ -252,7 +252,7 @@
     width: 0.4rem;
     height: 0.42rem;
     float: left;
-    margin: 0.14rem;
+    margin: 0.14rem 0.16rem;
 }
 .bottom a span{
     font-size:0.2rem;
@@ -261,7 +261,7 @@
     float: left;
     margin: 0 0.14rem;
 }
-.bottom a:hover{
+.bottom a:hover .bottom-text{
     color: #EF1C00;
 }
 .line{

@@ -41,6 +41,7 @@
     border: 1px solid #ccc;
     border-top: none;
     display: none;
+    z-index: 1;
 }
 .sub-list-tb{
     width: 72px;
@@ -151,7 +152,7 @@
 
 /*menu开始*/
 .menu{
-    padding: 200px;
+    padding: 0 200px;
     width: 1030px;
     overflow: hidden;
 }
@@ -179,23 +180,25 @@
 .slide-box{
     height: 500px;
     background: #ccc;
-    border-top: 1px solid #ff0036 ;
 }
-.slide-wrapper{
+.slide-box .wrapper{
     height: 500px;
-    background:#ff0036;
     position: relative;
 }
 .menu-box{
-    width: 200px;
-    background: #ff0000;
-    height: 500px;
     position: absolute;
+    background: #ff0000;
     top:-35px;
+    left:0;
+    width: 200px;
+    height: 535px;
+}
+.img-box{
+    height: 500px;
+    overflow: hidden;
 }
 .img-box img{
     width: 1230px;
-    height: 500px;
 }
 
 
