@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div0{
+            margin: 200px;
+        }
+        ul{
+            list-style: none;
+        }
+        #button{
+            overflow: hidden;
+        }
+        #button li{
+            width: 50px;
+            height: 30px;
+            background:  #F1F1F1;
+            color: #666;
+            font-size:14px;
+            float: left;
+            margin-right: 10px;
+            border-top:1px solid #898989;
+            border-left:1px solid #898989;
+            border-right:1px solid #898989;
+            text-align: center;
+            line-height: 30px;
+        }
+        #div1{
+            width: 500px;
+            height: 300px;
+            border:1px solid #898989;
+        }
+        #div1 div{
+            display: none;
+        }
+        #div1 .div2{
+            display: block;
+        }
+        #button li.cli{
+            background: #666;
+            color:#F1F1F1;
+        }
+    </style>
+</head>
+<body>
+    <div id="div0">
+        <ul id="button">
+            <li class="cli">时事</li>
+            <li>体育</li>
+            <li>娱乐</li>
+        </ul>
+        <div id="div1">
+            <div class="div2">时事</div>
+            <div>体育</div>
+            <div>娱乐</div>
+        </div>
+    </div>
+    <script>
+        var oUL=document.getElementById("button")
+        var aLi = oUL.getElementsByTagName('li');
+        var oDiv=document.getElementById("div1");
+        var aLi1=oDiv.getElementsByTagName("div");
+        for(var i=0; i<aLi.length; i++ ){
+            aLi[i].index=i;
+            aLi[i].onclick=function(){
+                for(var j=0;j<aLi.length;j++){
+                    aLi[j].className="";
+                    aLi1[j].className="";
+
+                }
+                this.className= "cli";
+                aLi1[this.index].className="div2";
+                
+            }
+        
+        }
+    </script>
+</body>
+</html>
