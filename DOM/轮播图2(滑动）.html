@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div0{
+            width: 760px;
+            height: 295px;
+            /* background: #ffff00; */
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #div1{
+            overflow: hidden;
+            position:absolute;
+            top:0;
+            left:0;
+            width: 3800px;
+            transition: left 1s linear ;
+        }
+        #div1 img{
+            width: 760px;
+            height: 295px;
+
+        }
+        ul{
+            list-style: none;
+            
+        }
+        #left li{
+            float: left;
+            width: 25px;
+            height:25px;
+            background:rgba(0, 0,0, .3);
+            margin-right: 10px;
+            text-align: center;
+            line-height: 25px;
+            color: #ffffff;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #right li{
+            color: #ffffff;
+            float: left;
+            width: 25px;
+            height:25px;
+            background:rgba(0, 0,0, .3);
+            margin-right: 10px;
+            text-align: center;
+            line-height: 25px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #div1 a{
+            float: left;
+        }
+        
+        #right{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        #left{
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+        #left .active{
+            background: #f6696b;
+        }
+        #right .active{
+            background: #f6696b;
+        }
+    </style>
+</head>
+<body>
+    <div id="div0">
+        <div id="div1">
+            <a href="#"><img class="img1" src="images/1.jpg" alt=""></a>
+            <a href="#"><img src="images/2.jpg" alt=""></a>
+            <a href="#"><img src="images/3.jpg" alt=""></a>
+            <a href="#"><img src="images/4.jpg" alt=""></a>
+            <a href="#"><img src="images/5.jpg" alt=""></a>
+        </div>
+        <ul id="left">
+            <li id="top">&lt</li>
+            <li id="next">&gt</li>
+        </ul>
+        <ul id="right">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script>
+        var oDiv1=document.getElementById("div0");
+        var oTop= document.getElementById("top");
+        var oNext=document.getElementById("next");
+        var oDiv=document.getElementById("div1")
+        var aLi1=oDiv.getElementsByTagName("img")
+        var oUL=document.getElementById("right");
+        var aLi=oUL.getElementsByTagName("li"); 
+        var iNow=0;
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].idx=i;
+            aLi[i].onclick=function(){
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].className="";
+                
+                }
+                this.className="active";
+                oDiv.style.left=-this.idx*760+"px";
+                iNow=this.idx;
+            }
+            
+        } 
+        oNext.onclick=function(){
+            /* oNext.className="";
+            oTop.className="";
+            oNext.className="active"; */
+            iNow++;
+            if(iNow==5){
+                iNow=0;
+            }
+            for(var i=0;i<aLi.length;i++){
+                    aLi[i].className="";
+                
+                }
+            aLi[iNow].className="active";
+            oDiv.style.left=-iNow*760+"px";
+        }
+        oTop.onclick=function(){
+            /* oNext.className="";
+            oTop.className="";
+            oNext.className="active"; */
+            iNow--;
+            if(iNow==-1){
+                iNow=4;
+            }
+            for(var i=0;i<aLi.length;i++){
+                    aLi[i].className="";
+                
+                }
+            aLi[iNow].className="active";
+            oDiv.style.left=-iNow*760+"px";
+        }
+        var test=setInterval("oNext.onclick()",2000); 
+        oDiv1.onmouseout=function(){
+            test=setInterval("oNext.onclick()",2000);
+        }
+        oDiv1.onmousemove=function(){
+            clearInterval(test);
+        }
+            
+        
+    </script>
+</body>
+</html>
