@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #top{
+            width: 300px;
+            /* height: 100px; */
+            border-right:2px solid #000;
+        }
+        #bottom{
+            width: 300px;
+            /* height: 100px; */
+            border-right:2px solid #000;
+            border-bottom:2px solid #000;
+        }
+        #top-header,#bottom-header{
+            height: 40px;
+            background: #000;
+            color: #fff;
+            font-size: 25px;
+            text-align: center;
+            list-style-position: 25px;
+            cursor: pointer;
+        }
+        #buju{
+            height: 2px;
+        }
+        #top-text,#bottom-text{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="top">
+        <div id="top-header">管理区</div>
+        <div id="buju"></div>
+        <ul id="top-text">
+            <li>456</li>
+            <li>999</li>
+            <li>666</li>
+        </ul>
+    </div>
+    <div id="bottom">
+        <div id="bottom-header">交流区</div>
+        <ul id="bottom-text">
+            <li>456</li>
+            <li>999</li>
+            <li>666</li>
+        </ul>
+    </div>
+    <script>
+        var oDiv = document.getElementById("top");
+        var oDiv1 = document.getElementById("bottom");
+        var oToph=document.getElementById("top-header");
+        var oBottomh=document.getElementById("bottom-header");
+        var oTopt= document.getElementById("top-text");
+        var oBottomt=document.getElementById("bottom-text");
+        var flag=true;
+        oToph.onclick=function(){
+            if(flag){
+                oTopt.style.display="block";
+            }else{
+                oTopt.style.display="none"
+            }
+            flag=!flag;
+        }
+        oBottomh.onclick=function(){
+            //var oBottomt=next(oBottomh);
+            if(flag){
+                oBottomt.style.display="block";
+            }else{
+                oBottomt.style.display="none"
+            }
+            flag=!flag;
+        }
+    </script>
+</body>
+</html>
