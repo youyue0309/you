@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var screen =document.documentElement.clientWidth||document.body.clientWidth
+        var screenh =document.documentElement.clientHeight||document.body.clientHeight
+        function Leaf(){
+            this.width=Math.random()*50+100;
+            this.pos={
+                left:Math.random()*(screen-this.width),
+                top:0
+            }
+            this.speed=5;
+            var oImg=new Image();
+            oImg.src="img/"+(Math.floor(Math.random()*4)+1)+".png"; 
+            oImg.style.width=this.width+"px";
+            oImg.style.left=this.pos.left+"px";
+            oImg.style.top=this.pos.top+"px";
+            this.img=oImg;
+        }
+        Leaf.prototype.init=function(){
+            document.body.appendChild(this.img);
+        }
+        Leaf.prototype.fall=function(){
+            var thiss=this;
+            setTimeout(function() {
+                this.timer= setInterval(function(){
+                    if(thiss.img.offsetTop>=screenh-thiss.img.offsetHeight){
+                        clearInterval(thiss.timer);
+                    }else{
+                        thiss.img.style.top=thiss.img.offsetTop+thiss.speed+"px";
+                    }
+                },10);
+            }, Math.random()*1000);
+        }
+        var arr=[];
+        for(var i=0;i<5;i++){
+            var leaf = new Leaf();
+            arr.push(leaf);
+            leaf.init();
+        }
+        
+        document.onclick=function(){
+            for(var j=0;j<arr.length;j++){
+                arr[j].fall();
+            }
+        }
+        //document.body.appendChild(leaf.img);
+    </script>
+</body>
+</html>
