@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            /* background: #000000; */
+            perspective: 800px;
+            background: url(1.jpg);
+        }
+        #container{
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            /* border: 1px dotted #fff; */
+            position: relative;
+            transform-style: preserve-3d;
+            animation: run 2s linear infinite;
+        }
+        @keyframes run{
+            100%{
+                transform: rotateY(360deg);
+            }
+        }
+        #container div{
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            /* font-size: 50px;
+            color:#000000;
+            text-align: center;
+            line-height: 200px; */
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        .one{
+            transform: rotateY(-90deg) translateZ(100px)  ;
+        }
+        .two{
+            transform: rotateY(90deg) translateZ(100px)  ;
+        }
+        .three{
+            transform: rotateX(90deg) translateZ(100px)  ;
+        }
+        .four{
+            transform: rotateX(-90deg) translateZ(100px)  ;
+        }
+        .five{
+            transform:rotateY(180deg) translateZ(100px);
+        }
+        .six{
+            transform: translateZ(100px);
+        }
+        #container img{
+            width: 200px;
+            height: 200px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="one"><img src="1.jpg" alt=""></div>
+        <div class="two"><img src="2.jpg" alt=""></div>
+        <div class="three"><img src="3.jpg" alt=""></div>
+        <div class="four"><img src="1.jpg" alt=""></div>
+        <div class="five"><img src="2.jpg" alt=""></div>
+        <div class="six"><img src="3.jpg" alt=""></div>
+    </div>
+</body>
+</html>
