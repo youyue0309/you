@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            /* 视觉效果 父元素添加视角*/
+            perspective:800px;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin:0 auto;
+            /* 旋转正值为顺时针 位移  缩放 扭曲*/
+            /* transform:rotate(-30deg) translate(300px) scale(2) skew(30deg); */
+            transform:rotateY(30deg);
+            /* 维持3D效果 里面子元素也要3d变换 */
+            transform-style:preserve-3d;
+        }
+        #div2{
+            width: 200px;
+            height:200px;
+            background: blue;
+            transform:rotateY(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2"></div>
+    </div>
+</body>
+</html>

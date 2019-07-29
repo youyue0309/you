@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: red;
+            /* 默认开始与结束一样 infinite执行次数（不停） forwards停在最后一帧 */
+            animation: run 2s ease 2s infinite forwards;
+        }
+        @keyframea run{
+            30%{
+                width:800px;
+            }
+            50%{
+                width: 200px;
+            }
+            100%{
+                width: 1000px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>
