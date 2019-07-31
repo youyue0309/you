@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var oImg = new Image();
+        oImg.onload = function(){//onload等待图片加载完成
+            console.log(oImg.offsetWidth);
+        }
+        oImg.src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564589657657&di=e3f7b798887ca806e61ca12c306aa52e&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F66aa5c170dc44f876a1ca65fb717394e093f0c1b.jpg";
+
+        document.body.appendChild(oImg);
+        //因从网上直接下载，造成下载未完成，输出的宽度为0
+        /* 解决方法：下载完成之后再执行oImg.onload = function(){
+            console.log(oImg.offsetWidth);
+        } */
+        console.log(oImg.offsetWidth);
+    </script>
+</body>
+</html>

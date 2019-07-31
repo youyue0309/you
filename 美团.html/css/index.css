@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding:0;
+}
+body{
+    font-size:16px;
+}
+#nav{
+    display:flex;
+    background: #06c1ae;
+}
+.nav-add{
+    width: 1.67rem;
+    height: 1.01rem;
+    line-height: 1.01rem;
+    text-align: center;
+    color: #ffffff;
+}
+.nav-mine{
+    width: 0.94rem;
+    height: 1.01rem;
+    line-height: 1.01rem;
+    text-align: center;
+    color: #ffffff;
+}
+.nav-search{
+    flex:1;
+    background: #00a494;
+    border-radius: 0.06rem;
+    height: 0.64rem;
+    margin-top:0.2rem;
+    /* width: 1rem; */
+}
