@@ -132,6 +132,7 @@
                         var x = -aBox[i].col*125;
                         var y = -aBox[i].row*125;
                         oSpan.style.opacity=1;
+                        oSpan.style.transitionDelay=0;
                         oSpan.style.background="url(img/"+(this.index+1)+".jpg) "+x+"px "+y+"px no-repeat";
                     }
                     oNext.style.display="block";
@@ -145,6 +146,7 @@
                         aBox[i].style.transform = "rotate(" + (Math.random() * 40 - 20) + "deg)";
                         var oSpan = aBox[i].getElementsByTagName('span')[0]
                         oSpan.style.opacity = 0;
+                        oSpan.style.transitionDelay=0;
                         //aBox[i].style.top=(aBox[i].row+1)*disY+aBox[i].row*oBoxHeight+"px";
                     }
                     oNext.style.display="none";
