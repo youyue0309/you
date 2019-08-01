@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>秦霄贤</title>
     <style>
         *{
             margin:0;
@@ -27,27 +27,55 @@
             top:-135px;
             transition:all 2s ease;
         }
+        .box span{
+            position:absolute;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+            background:url(img/1.jpg) 0 0 no-repeat;
+            opacity: 0;
+        }
+        #next{
+            position:absolute;
+            top:50%;
+            transform: translateY(-50%);
+            right: 0;
+            display:none;
+            /* background: #fff; */
+        }
+        #top{
+            position:absolute;
+            top:50%;
+            transform: translateY(-50%);
+            left: 0;
+            display:none;
+        }
     </style>
 </head>
 <body>
-    <div id="container"></div>
+    <div id="container">
+        <div id="next">
+            <img src="img/next.png" alt="">
+        </div>
+        <div id="top">
+            <img src="img/prev.png" alt="">
+        </div>
+    </div>
     <script>
         var oContainer =document.getElementById("container");
         var count = 0;
+        var now=0;
         //加载小图
         for(var i=0;i<24;i++){
             var oImg = new Image();
             oImg.onload=function(){
-                oImg.style.width=125+"px";
-                oImg.style.height=125+"px";
                 count++;
                 if(count==48){
                     loadSuccess();
                 }
             }
             oImg.src = "img/thumbs/"+(i+1)+".jpg";
-            oImg.style.width=125+"px";
-            oImg.style.height=125+"px";
         }
         //大图加载
         for(var i=0;i<24;i++){
@@ -61,14 +89,19 @@
             oImg.src = "img/"+(i+1)+".jpg";
         }
         /* 等待所有图片加载完成 再继续 保证能够获取图片的属性 */
+        var dis = 0;
         function loadSuccess(){
             for(var i=0;i<4;i++){//行
                 for(var j=0;j<6;j++){//列
                     var oDiv= document.createElement('div');
-                    oDiv.style.background="url(img/thumbs/"+(i*6+j+1)+".jpg)";
+                    oDiv.style.background="url(img/thumbs/"+(dis+1)+".jpg)";
                     oDiv.className="box";
                     oDiv.row=i;
                     oDiv.col=j;
+                    oDiv.index=dis;
+                    dis++;
+                    oDiv.onclick=fn;
+                    oDiv.innerHTML="<span></span>";
                     oContainer.appendChild(oDiv);
                 }
             }
@@ -84,7 +117,72 @@
                 aBox[i].style.left=(aBox[i].col+1)*disX+aBox[i].col*oBoxWidth+"px";
                 aBox[i].style.top=(aBox[i].row+1)*disY+aBox[i].row*oBoxHeight+"px";
             }
-
+            var bigX = (oContainer.offsetWidth-6*127)/2;
+            var bigY = (oContainer.offsetHeight-4*127)/2;
+            var flag=true;
+            function fn(){
+                if(flag){
+                    for(var i=0;i<aBox.length;i++){
+                        aBox[i].style.transitionDelay="0ms";
+                        aBox[i].style.left= bigX+aBox[i].col*127+"px";
+                        aBox[i].style.top= bigY+aBox[i].row*127+"px";
+                        aBox[i].style.transform="rotate(0deg)";
+                        aBox[i].style.borderWidth="1px";
+                        var oSpan=aBox[i].getElementsByTagName("span")[0];
+                        //console.log(aBox[i].getElementsByTagName("span"));
+                        var x = -aBox[i].col*125;
+                        var y = -aBox[i].row*125;
+                        oSpan.style.opacity=1;
+                        oSpan.style.transitionDelay=0;
+                        oSpan.style.background="url(img/"+(this.index+1)+".jpg) "+x+"px "+y+"px no-repeat";
+                    }
+                    oNext.style.display="block";
+                    oTop.style.display="block";
+                    now=this.index;
+                    for(var i=0;i<aSpan.length;i++){
+                            aSpan[i].style.transitionDelay=0+"ms";
+                        }
+                }else{//分开
+                    for(var i=0;i<aBox.length;i++){
+                        aBox[i].style.left=(aBox[i].col+1)*disX+aBox[i].col*oBoxWidth+"px";
+                        var row = aBox[i].row;
+                        aBox[i].style.top = (row + 1) * disY + row * oBoxHeight + "px";
+                        aBox[i].style.transform = "rotate(" + (Math.random() * 40 - 20) + "deg)";
+                        var oSpan = aBox[i].getElementsByTagName('span')[0]
+                        oSpan.style.opacity = 0;
+                        //aBox[i].style.top=(aBox[i].row+1)*disY+aBox[i].row*oBoxHeight+"px";
+                    }
+                    oNext.style.display="none";
+                    oTop.style.display="none";
+                    for(var i=0;i<aSpan.length;i++){
+                            aSpan[i].style.transitionDelay=0+"ms";
+                        }
+                }
+                flag=!flag;
+            }
+            var oNext = document.getElementById("next");
+            var oTop = document.getElementById("top");
+            var aSpan = oContainer.getElementsByTagName("span");
+            oNext.onclick=function(){
+                now++;
+                if(now==24){
+                    now=0;
+                }
+                for(var i=0;i<aSpan.length;i++){
+                    aSpan[i].style.transitionDelay=Math.random()*500+"ms";
+                    aSpan[i].style.backgroundImage="url(img/"+(now+1)+".jpg)";
+                }
+            }
+            oTop.onclick=function(){
+                now--;
+                if(now==-1){
+                    now=23;
+                }
+                for(var i=0;i<aSpan.length;i++){
+                    aSpan[i].style.transitionDelay=Math.random()*500+"ms";
+                    aSpan[i].style.backgroundImage="url(img/"+(now+1)+".jpg)";
+                }
+            }
         }
     </script>
 </body>
