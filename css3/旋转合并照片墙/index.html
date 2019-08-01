@@ -138,6 +138,9 @@
                     oNext.style.display="block";
                     oTop.style.display="block";
                     now=this.index;
+                    for(var i=0;i<aSpan.length;i++){
+                            aSpan[i].style.transitionDelay=0+"ms";
+                        }
                 }else{//分开
                     for(var i=0;i<aBox.length;i++){
                         aBox[i].style.left=(aBox[i].col+1)*disX+aBox[i].col*oBoxWidth+"px";
@@ -146,11 +149,13 @@
                         aBox[i].style.transform = "rotate(" + (Math.random() * 40 - 20) + "deg)";
                         var oSpan = aBox[i].getElementsByTagName('span')[0]
                         oSpan.style.opacity = 0;
-                        oSpan.style.transitionDelay=0;
                         //aBox[i].style.top=(aBox[i].row+1)*disY+aBox[i].row*oBoxHeight+"px";
                     }
                     oNext.style.display="none";
                     oTop.style.display="none";
+                    for(var i=0;i<aSpan.length;i++){
+                            aSpan[i].style.transitionDelay=0+"ms";
+                        }
                 }
                 flag=!flag;
             }
