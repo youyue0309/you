@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div2{
+            background: red;
+        }
+        .aa{
+            color:#ff0;
+        }
+    </style>
+</head>
+<body>
+    <div id='div1' class="aa bb"></div>
+    <div id='div2' class="aa">hahah</div>
+    <button id="btn">click</button>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        //都修改
+        /* var oDiv = document.getElementById('div1');
+        oDiv.className='cc'; */
+        //$('#div1').addClass('cc');
+        $('#btn').on('click',function(){
+            //切换样式
+            //$('#div2').toggleClass('aa');
+            //高度改变
+            $('#div2').height(500);
+            //$('#div2').height();取值
+            
+        })
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        //文档就绪函数 等待页面结构加载完 但不会等待所有资源加载完
+        //下面两个函数都生效 不会覆盖
+        /* $(document).ready(function(){
+            //console.log('hahaha');
+            var oDiv = document.getElementById('div1');
+            console.log(oDiv.innerHTML);
+        }); */
+       /*  $(document).ready(function(){
+            console.log('hahaha');
+        }); */
+        window.onload=function(){
+            console.log('hehehe');
+        }
+        $(document).ready(function(){
+            console.log('hahaha');
+        });
+        //$(document).ready(function(){ 简写方式
+        $(function(){
+            console.log('xixixix');
+        })
+    </script>
+</head>
+<body>
+    <div id="div1">hhhhhhhhhh</div>
+</body>
+</html>

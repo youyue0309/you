@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1" class="aa" name="aa"></div>
+    <input type="text" value="haha">
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        //attr可修改所有属性  修改name
+        //$('#div1').attr('name','bb');
+        //修改class
+        //$('#div1').attr('class','bb');
+        //选取class
+      // console.log($('#div1').attr('class'));
+
+
+        //remove 移除属性
+        //$('#div1').removeAttr('name');
+
+        //取value $('input').val();
+
+        //blur失去焦点  focus获取焦点
+        $('input').on('blur',function(){
+            console.log($('input').val());
+            console.log($(this).val());
+        });
+    </script>
+</body>
+</html>

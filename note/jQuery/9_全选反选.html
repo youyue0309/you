@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>你爱好的运动是？</h2>
+    <input type="checkbox" name="items" value="足球">足球
+    <input type="checkbox" name="items" value="篮球">篮球
+    <input type="checkbox" name="items" value="羽毛球">羽毛球
+    <input type="checkbox" name="items" value="乒乓球">乒乓球
+    <br/>
+    <input type="button" id="checkall" value="全选">
+    <input type="button" id="checknot" value="全不选">
+    <input type="button" id="checkarev" value="反选">
+    <input type="button" id="send" value="提交">
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        //prop 特性
+        //arrt 属性
+        $('#checkall').on('click',function(){
+            $(":checkbox").prop('checked',true);
+        });
+        $('#checknot').on('click',function(){
+            $(':checkbox').prop('checked',false);
+        });
+        $('#checkarev').on('click',function(){
+            //参数是 索引和原生dom对象
+            $(':checkbox').each(function(index,elem){
+                //$(elem).prop('checked',!$(elem).prop('checked'));
+                elem.checked=!elem.checked;
+            })
+        })
+    </script>
+</body>
+</html>
