@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #div0{
+            margin:100px;
+        }
+        ul{
+            list-style: none;
+            height: 31px;
+        }
+        ul li{
+            width:50px;
+            height:30px;
+            float:left;
+            border:1px solid #000;
+            text-align:center;
+            line-height: 30px;
+            margin-right:10px;
+        }
+        .text{
+            width: 300px;
+            height: 200px;
+            border:1px solid #000;
+            display:none;
+        }
+
+        .one{
+            display: block;
+        }
+        .aa{
+            background:#f56eee;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="div0">
+        <ul>
+            <li class="aa" id="on">时事</li>
+            <li id="tw">新闻</li>
+            <li id="th">体育</li>
+        </ul>
+        <div  class="text one">时事</div>
+        <div class="text">新闻</div>
+        <div  class="text">体育</div>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $('li').on('click',function(){
+            var index = $(this).index();
+            $('li').eq(index).addClass('aa').siblings().removeClass('aa');
+            $('.text').eq(index).addClass('one').siblings().removeClass("one");
+            //console.log(index);
+        })
+    </script>
+</body>
+</html>

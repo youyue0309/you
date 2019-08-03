@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div0{
+            width: 760px;
+            height: 295px;
+            /* background: #ffff00; */
+            margin: 100px auto;
+            position: relative;
+        }
+        #div1 img{
+            width: 760px;
+            height: 295px;
+        }
+        ul{
+            list-style: none;
+            
+        }
+        #left li{
+            float: left;
+            width: 25px;
+            height:25px;
+            background:rgba(0, 0,0, .3);
+            margin-right: 10px;
+            text-align: center;
+            line-height: 25px;
+            color: #ffffff;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #right li{
+            color: #ffffff;
+            float: left;
+            width: 25px;
+            height:25px;
+            background:rgba(0, 0,0, .3);
+            margin-right: 10px;
+            text-align: center;
+            line-height: 25px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #div1 img{
+            float: left;
+            display: none;
+        }
+        #div1 .img1{
+            display: block;
+        }
+        #right{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        #left{
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+        #left .active{
+            background: #f6696b;
+        }
+        #right .active{
+            background: #f6696b;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="div0">
+        <div id="div1">
+            <a href="#"><img class="imge img1" src="images/1.jpg" alt=""></a>
+            <a href="#"><img class="imge" src="images/2.jpg" alt=""></a>
+            <a href="#"><img class="imge" src="images/3.jpg" alt=""></a>
+            <a href="#"><img class="imge" src="images/4.jpg" alt=""></a>
+            <a href="#"><img class="imge" src="images/5.jpg" alt=""></a>
+        </div>
+        <ul id="left">
+            <li id="top">&lt</li>
+            <li id="next">&gt</li>
+        </ul>
+        <ul id="right">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        var now=0;
+        $('#right').children().on('click',function(){
+            var index = $(this).index();
+            now=index;
+            $(this).addClass('active').siblings().removeClass('active');
+            $('a').children().removeClass('img1');
+            $('.imge').eq(index).addClass('img1');
+        });
+        $('#top').on('click',function(){
+            now--;
+            if(now==-1){
+                now=4;
+            }
+            $('#right').children().eq(now).addClass('active').siblings().removeClass('active');
+            $('a').children().removeClass('img1');
+            $('.imge').eq(now).addClass('img1');
+        });
+        $('#next').on('click',function(){
+            now++;
+            if(now==5){
+                now=0;
+            }
+            $('#right').children().eq(now).addClass('active').siblings().removeClass('active');
+            $('a').children().removeClass('img1');
+            $('.imge').eq(now).addClass('img1');
+        });
+        var test = setInterval(function(){
+           $('#next').trigger('click');
+        },2000);
+        $('#div1').hover(function(){
+            clearInterval(test);
+        },function(){
+            test=setInterval(function(){
+                $('#next').trigger('click');
+            },2000);
+        })
+
+    </script>
+</body>
+</html>

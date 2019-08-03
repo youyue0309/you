@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #top{
+            width: 300px;
+            /* height: 100px; */
+            border-right:2px solid #000;
+        }
+        #bottom{
+            width: 300px;
+            /* height: 100px; */
+            border-right:2px solid #000;
+            border-bottom:2px solid #000;
+        }
+        h2{
+            height: 40px;
+            background: #000;
+            color: #fff;
+            font-size: 25px;
+            text-align: center;
+            list-style-position: 25px;
+            cursor: pointer;
+        }
+        #buju{
+            height: 2px;
+        }
+        ul{
+            display: none;
+        }
+        .aa{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <div id="top">
+        <h2>管理区</h2>
+        <div id="buju"></div>
+        <ul id="top-text">
+            <li>456</li>
+            <li>999</li>
+            <li>666</li>
+        </ul>
+    </div>
+    <div id="bottom">
+        <h2>交流区</h2>
+        <ul id="bottom-text">
+            <li>456</li>
+            <li>999</li>
+            <li>666</li>
+        </ul>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $('h2').on('click',function(){
+            var index = $(this).index();
+            $('ul').eq(index).addClass('aa');
+        })
+    </script>
+</body>
+</html>
