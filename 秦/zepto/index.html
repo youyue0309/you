@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../jqurey/jquery-1.12.4.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            touch-action: none;
+        }
+        body{
+            background:#000;
+        }
+        #div0{
+            display:flex;
+            flex-wrap: wrap;
+
+        }
+        #div0 img{
+            width: 25%;
+            box-sizing: border-box;
+            border-right: 1px solid #000;
+            border-bottom:1px solid #000;
+        }
+        #big{
+            width: 100%;
+            height: 100%;
+            background: #000 url("img/1.jpg") center center no-repeat;
+            background-size: contain;
+            position:absolute;
+            top:0;
+            left:0;
+            display: none;
+        }
+    </style>
+</head>    
+<body>
+    <div id="div0">
+    </div>
+    <div id="big"></div>
+    <script src="zepto.js"></script>
+    <script src="touch.js"></script>
+    <script>
+        var now=0;
+        for(var i=0;i<24;i++){
+            $('<img src="img/thumbs/'+(i+1)+'.jpg"/>').appendTo('#div0');
+            
+        }
+        $('#div0 img').on('click',function(){
+            var index = $(this).index();
+            $("#big").css("background-image","url(img/"+(index+1)+".jpg)");
+            $('#big').show();
+            now=index;
+        })
+        $('#big').on('click',function(){
+            $(this).hide();
+        }).on('swipeLeft',function(){
+            now++;
+            if(now==$('#div0 img').size()){
+                now=0;
+            }
+            $("#big").css('background-image',"url(img/"+(now+1)+".jpg");
+        }).on('swipeRight',function(){
+            now--;
+            if(now==-1){
+                now=$('#div0 img').size()-1;
+            }
+            $("#big").css('background-image',"url(img/"+(now+1)+".jpg");
+        })
+    </script>
+</body>
+</html>
