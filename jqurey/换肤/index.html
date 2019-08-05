@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        li{
+            width:15px;
+            height:15px;
+            margin-right:10px;
+            background-image: url(theme.gif);
+            float: left;
+            /* background-color:#ff0000;  */
+        }
+        #skin_0{
+            background-position: 0 0;
+        }
+        #skin_0.select{
+            background-position: 0 -15px;
+        }
+        #skin_1{
+            background-position: -20px 0;
+        }
+        #skin_1.select{
+            background-position: -20px -15px;
+        }
+        #skin_2{
+            background-position: -40px 0;
+        }
+        #skin_2.select{
+            background-position: -40px -15px;
+        }
+        #skin_3{
+            background-position: -60px 0;
+        }
+        #skin_3.select{
+            background-position: -60px -15px;
+        }
+        #skin_4{
+            background-position: -80px 0;
+        }
+        #skin_4.select{
+            background-position: -80px -15px;
+        }
+        .div1_0{
+            background: #b1b1b1;
+        }
+        .div1_1{
+            background: #b4d61e;
+        }
+        .div1_2{
+            background: #faab1a;
+        }
+        .div1_3{
+            background: #08bece;
+        }
+        .div1_4{
+            background: #e44c79;
+        }
+        .div1{
+            width: 80px;
+            height:30px;
+            float: left;
+            margin-right:10px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li id="skin_0" class="select"></li>
+        <li id="skin_1"></li>
+        <li id="skin_2"></li>
+        <li id="skin_3"></li>
+        <li id="skin_4"></li>
+    </ul>
+    <div class="div1 div1_0">qin</div>
+    <div class="div1 div1_0">xiaoxian</div>
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+        $('li').on('click',function(){
+            var index = $(this).index();
+            $(this).addClass('select').siblings().removeClass('select');
+            $('div').attr('class','div1 div1_'+index);
+            setCookie('skin','skin_'+index,30);
+        })
+        var skin = getCookie('skin');
+        $('#'+skin).triggerHandler('click');
+        function setCookie(attr,value,day){
+            var str="";
+            str += attr+"="+value+";";
+            if(day){
+                var date = new Date();
+                var today = date.getDate();
+                date.setDate(today+day);
+                str += "expires="+date;
+            }
+            document.cookie = str;
+        }
+        function getCookie(key){
+            var str=document.cookie;
+            var arr=str.split('; ');
+            for(var i=0;i<arr.length;i++){
+                var arr1=arr[i].split('=');
+                if(arr1[0]==key){
+                    return arr1[1];
+                }
+                return "";
+            }
+        }
+        //console.log(getCookie('name'));
+    </script>
+</body>
+</html>

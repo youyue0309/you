@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+        function setCookie(attr,value,day){
+            var str="";
+            str += attr+"="+value+";";  //"age=22;"
+            if(day){ //传day   "age=22;expires="+date;
+                var date = new Date();
+                var today = date.getDate();
+                date.setDate(today+day);
+                str += "expires="+date;
+            }
+            document.cookie = str;
+        }
+        setCookie('name','111',12);
+        function getCookie(key){
+            var str=document.cookie;
+            var arr=str.split('; ');
+            for(var i=0;i<arr.length;i++){
+                var arr1=arr[i].split('=');
+                if(arr1[0]==key){
+                    return arr1[1];
+                }
+                return "";
+            }
+        }
+        console.log(getCookie('name'));
+    </script>
+</body>
+</html>
