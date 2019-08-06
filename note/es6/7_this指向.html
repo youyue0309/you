@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.val = 1;
+        var obj = {
+            val:2,
+            dbl:function(){
+                this.val*=2;
+                val*=2;
+                console.log(val);
+                console.log(this.val);
+            }
+        }
+        obj.dbl();
+        //console.log(window.val);
+        var func=obj.dbl;
+        //console.log(window.val);
+        func();
+    </script>
+</body>
+</html>

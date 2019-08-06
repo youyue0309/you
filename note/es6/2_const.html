@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        const有和let相同的四点
+        1.let没有变量提升
+        2.let不能重复命名
+        3.块级作用域{  }
+        4.临时失效区 （暂时性死区） 当前作用域不允许同名的变量进来
+        * const定义常量 不能修改 
+        * 引用数据类型 地址不能修改（地址中存的内容是可以修改的）
+        * 如果内容不想修改用 Object.freeze(obj)方法冻结
+     -->    
+     <script>
+         //1.定义常量 不能被修改
+        /* const a = 10;
+        a = 20;
+        console.log(a);//报错  */
+
+        //2.引用数据类型 内容可以修改 但地址不能修改
+        /* const arr = [1,2,2,3];
+        arr=[1,6];
+        arr[0]=55;
+        console.log(arr); */
+
+
+        /* 3.如果内容不想修改用 Object.freeze(obj)方法冻结
+        const obj = {
+            name:'zs'
+        }
+        // 冻结
+        Object.freeze(obj);
+
+        obj.name = "lisi";
+
+        console.log(obj); */
+        
+     </script>
+</body>
+</html>
