@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,age){
+            this.name=name;
+            this.age=age;
+        }
+
+        Person.prototype.say=function(){
+            console.log(this.name);
+        }
+
+        var p1 = new Person("qin",23);
+        p1.say();
+        function Coder(name,age){
+            Person.call(this,name,age);//继承属性 改变this指向 否则this指向window
+
+        }
+        Coder.prototype = new Person();//继承方法
+        Coder.prototype.constructor = Coder;//添加函数 改变原型
+        var c1 = new Coder("xiao",23);
+        console.log(c1); 
+
+
+    </script>
+</body>
+</html>

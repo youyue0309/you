@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+            <input type="text" @keyup="check(msg)" v-model="msg" value="">
+            <button v-on:click="add(msg)">add</button>
+            <ul>
+                <li @click="change(obj)" :class="{red:obj.isRed}" v-show="obj.isShow" v-for="(obj,index) in list">{{obj.name}}
+                    
+                    <button v-on:click.stop="del(index)">del</button>
+                </li>
+            </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#div1",
+            data:{
+                msg:"",
+                list:[
+                    {
+                        name:'a',
+                        isRed:false,
+                        isShow:true
+                    },
+                //this.check()
+            
+                ],
+            },
+            methods:{
+                add(value){
+                    this.list.push({name:value,isRed:false,isShow:true});
+                    this.msg="";
+                    this.check();
+                },
+                del(index){
+                    //console.log(index);
+                    this.list.splice(index,1);
+                    //this.list[index].isRed="false";
+                    //var index = this.list.find(value1);
+                   // this.list.remove('value1');
+                },
+                change(obj){
+                    obj.isRed=!obj.isRed
+                },
+                check(){
+                    let msg=this.msg;
+                    this.list.forEach(function(obj,index){
+                        if(obj.name.includes(msg)){
+                            obj.isShow=true
+                        }else{
+                            obj.isShow=false
+                        }
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
