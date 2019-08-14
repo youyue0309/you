@@ -1,67 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        *{
-            margin:0;
-            padding:0;
+        * {
+            margin: 0;
+            padding: 0;
         }
-        #div1{
+
+        #div1 {
             width: 400px;
             margin: 50px auto;
         }
-        .line{
-            background:#cccccc;
+
+        .line {
+            background: #cccccc;
             height: 2px;
         }
-        ul{
+
+        ul {
             list-style: none;
         }
-        li{
+
+        li {
             background: #cccccc;
             height: 50px;
-            margin-bottom:10px;
+            margin-bottom: 10px;
             line-height: 50px;
         }
-        .size{
+
+        .size {
             color: #ff0000;
-            float:right;
-            margin-right:10px;
+            float: right;
+            margin-right: 10px;
         }
-        .price{
-            float:right;
-            margin-right:10px;
+
+        .price {
+            float: right;
+            margin-right: 10px;
         }
-        .check{
-            margin-left:10px;
+
+        .check {
+            margin-left: 10px;
         }
-        .good{
+
+        .good {
             background: pink;
         }
     </style>
 </head>
+
 <body>
     <div id="div1">
         <h1>todolist</h1>
-        <div class="line"></div>
+        <hr>
+        <!-- <div class="line"></div> -->
         <div id="header">
-            <span>名称</span>
-            <input v-model="name" type="text" placeholder="请输入产品名">
-            <span>价格</span>
-            <input v-model="price" type="text" placeholder="请输入产品价格">
+            <label for="proName"></label>
+            <input id="proName" v-model="name" type="text" placeholder="请输入产品名">
+            <label for="proPrice">价格</label>
+            <input id="proPrice" v-model="price" type="text" placeholder="请输入产品价格">
             <button @click="add()">添加</button>
         </div>
         <div id="search">
-            <input type="text" placeholder="请输入搜索内容">
+            <input v-model="searchname" type="text" placeholder="请输入搜索内容">
             <button @click="search">搜索</button>
         </div>
         <ul>
-            <li @click="change(obj,index)" :class="{good:obj.isChoose}" v-for="(obj,index) in goodsList">
-                <input class="check" v-model="checkee" type="checkbox" :value="index">
+            <li @click="change(obj,index)" :class="{good:obj.isChoose}" v-show="obj.isShow"
+                v-for="(obj,index) in goodsList">
+                <input class="check" v-model="obj.isChoose" type="checkbox" :value="obj.name">
                 <span>{{obj.name}}</span>
                 <!-- <span class="price">{{obj.price}}</span> -->
                 <span class="size">[X]</span>
@@ -77,67 +89,90 @@
     <script src="vue.js"></script>
     <script>
         new Vue({
-            el:"#div1",
-            data:{
-                goodsList:[
+            el: "#div1",
+            data: {
+                searchname: "",
+                goodsList: [
                     {
-                        name:"裤子",
-                        price:50,
-                        isChoose:false
+                        name: "裤子",
+                        price: 50,
+                        isChoose: false,
+                        isShow: true
                     },
                     {
-                        name:"衣服",
-                        price:100,
-                        isChoose:false
+                        name: "衣服",
+                        price: 100,
+                        isChoose: false,
+                        isShow: true
                     },
                     {
-                        name:"电脑",
-                        price:6000,
-                        isChoose:false
+                        name: "电脑",
+                        price: 6000,
+                        isChoose: false,
+                        isShow: true
                     },
                     {
-                        name:"手机",
-                        price:5000,
-                        isChoose:false
+                        name: "手机",
+                        price: 5000,
+                        isChoose: false,
+                        isShow: true
                     }
                 ],
-                checkee:[],
-                name:"",
-                price:""
+                name: "",
+                price: ""
             },
-            methods:{
-                add(){
-                    this.goodsList.push({name:this.name,price:this.price,isChoose:false});
-                    this.name="";
-                    this.price="";
-                },
-                change(obj,index){
-                    if(obj.isChoose){
-                        this.checkee.splice(this.checkee.indexOf(index),1)
+            methods: {
+                add() {
+                    if (this.name && this.price) {
+                        this.goodsList.push({ name: this.name, price: this.price, isChoose: false, isShow: true });
+                        this.name = "";
+                        this.price = "";
                     }
-                    else{
-                        this.checkee.push(index);
-                    }
-                    obj.isChoose=!obj.isChoose
                 },
-                sum(){
+                change(obj, index) {
+                    /* if (obj.isChoose) {
+                        this.checkee.splice(index, 1)
+                    }
+                    else {
+                        this.checkee.push(obj.name);
+                    } */
+                    obj.isChoose = !obj.isChoose
+                },
+                sum() {
                     let num = 0;
-                    this.goodsList.forEach(function(obj1,index){
-                        if(obj1.isChoose){
-                            num+=obj1.price*1;
+                    this.goodsList.forEach(function (obj1, index) {
+                        if (obj1.isChoose) {
+                            num += obj1.price * 1;
                         }
                     })
                     return num;
                 },
-                del(){
-                    var checke = this.goodsList.filter(function(obj){
-                        return (obj.isChoose!=true)
+                del() {
+                    var checke = this.goodsList.filter(function (obj) {
+                        return (obj.isChoose != true)
                     })
                     this.goodsList = checke;
-                    this.checkee=[];
+                    this.checkee = [];
+                },
+                search() {
+                    let sah = this.searchname;
+                    this.goodsList.forEach(function (obj, index) {
+                        if (obj.name.includes(sah)|| sah == "") {
+                            obj.isShow = true;
+                        }
+                        /* if(sah==""){
+                            this.goodsList.forEach(function(obj1,idx){
+                                obj1.isShow=true;
+                            })
+                        } */
+                        else {
+                            obj.isShow = false;
+                        }
+                    })
                 }
             }
         })
     </script>
 </body>
+
 </html>

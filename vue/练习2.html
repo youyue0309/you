@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <div id="header">
+            <span>是否需要额外付费设施？</span>
+            <input type="checkbox" v-model="isShow" @click="fn()">
+            <br>
+            <ul v-show="isShow">
+                <li v-for="obj in List">{{obj.name}}  ({{obj.price}})  
+                    <input :value="obj" v-model="orderList" type="checkbox">
+                </li>
+            </ul>
+        </div>
+        <div id="order">
+            <span>订单费用信息</span>
+            <br>
+            <ul>
+                <li v-for="obj1 in orderList">{{obj1.name}} ({{obj1.price}})</li>
+            </ul>
+            <span>总金额：{{sum()}}</span>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#div1",
+            data:{
+                //checke:[],
+                isShow:false,
+                List:[
+                    {
+                        name:"沙发",
+                        price:100, 
+                    },
+                    {
+                        name:"wifi",
+                        price:50,
+                        
+                    },
+                    {
+                        name:"电脑",
+                        price:200,
+                    }
+                ],
+                orderList:[
+                    {
+                        name:"群里花园豪华型",
+                        price:400
+                    }
+                ]
+            },
+            methods:{
+                sum(){
+                    let count = 0;
+                    this.orderList.forEach((obj,index)=>{
+                            count+=obj.price*1;
+                       
+                    })
+                    return count;
+                },
+                fn(){
+                    this.orderList.splice(1);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
