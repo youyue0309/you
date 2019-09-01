@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+
+        #div2 {
+            width: 200px;
+            height: 200px;
+            background: greenyellow;
+        }
+
+        #div3 {
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+        /* 塌陷：子元素浮动 会导致父元素没有高度 
+           解决方式：1.父元素 overflow: hidden;
+                    2.父元素添加固定高度
+                    3.添加一个伪元素，并在伪元素里设置display:block;
+                                                   clear:both;
+        */
+        .parent div {
+            /* 元素浮动 left right 
+               浮动的元素会脱离文档流 空间释放
+            */
+            float: left;
+        }
+        .parent{
+            /* 溢出隐藏 */
+            overflow: hidden;
+        }
+        h2 {
+            height: 220px;
+            background: #eeeeee;
+            /* 清除浮动 left right both */
+            /* clear: both; */
+        }
+        /* .clearfix{
+            clear:both;
+        } */
+        .parent::after{
+            content: "";
+            /* 将after设置成块级元素 */
+            display:block;
+            clear:both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <p class="clearfix"></p>
+    </div>
+    <h2></h2>
+</body>
+
+</html>

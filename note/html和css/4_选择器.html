@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 1.标签选择器 */
+        /* div{
+            color:rebeccapurple;
+            background:red;
+        } */
+        /* 2.id选择器 */
+        #aa {
+            color: rebeccapurple;
+            background: red;
+        }
+
+        /* 3.类选择器 */
+        .list {
+            color: pink;
+        }
+
+        /* .child{
+            color: yellow;
+        } */
+        /* 4.后代选择器(只要是后代都能选中) */
+        /* .parent .child {
+            color: yellow;
+        } */
+        /* 5.子代选择器 （只能选中子代里class为child的）*/
+        .parent > .child {
+            color: yellow;
+        }
+        a{
+            color:springgreen;
+        }
+        /* 6.伪类选择器(鼠标滑过) */
+        a:hover{
+            color:tomato;
+        }
+        /* 7.相邻兄弟选择器 */
+        .aa + .bb{
+            color:cornflowerblue;
+        }
+        /* 8.群组选择器 */
+        .aa,.bb,.cc{
+            color:darkviolet;
+        }
+        /* 9.伪元素选择器 (after/before)*/
+        .dd::after{
+            content: "ggg";
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        hhhhh
+    </div>
+    <div id="aa">ffff</div>
+    <div>ddddd</div>
+    <p>
+        ggdgsdhg
+    </p>
+    <ul>
+        <li class="list">1111</li>
+        <li id="list-2">2222</li>
+        <li class="list">3333</li>
+        <li>4444</li>
+    </ul>
+    <p class="list">llllll</p>
+    <div class="parent">
+        111111
+        <div>
+            2222
+            <div class="child">
+                44444
+            </div>
+        </div>
+        <div class="child">
+            5555
+        </div>
+        <p>3333</p>
+    </div>
+    <div class="parent1">
+        111111
+        <div class="child">
+            22222
+        </div>
+        <p>3333</p>
+    </div>
+    <a href="http://www.baidu.com">baidu</a>
+    <div class="aa">aaa</div>
+    <div class="bb">bbb</div>
+    <div class="bb">4444</div>
+    <div class="cc">555</div>
+
+
+    <div class="dd">fdbdhdh</div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* div{
+            color:red;
+        }
+        .aa{
+            color:green;
+        }
+        #bb{
+            color: blue;
+        } */
+        /*
+        选择器优先级
+        
+        style 内联样式优先级最高  1000
+        # id id选择器   100
+        . class class选择器   伪类选择器   10
+        div 元素选择器  伪元素选择器  1
+        
+        */
+
+        /* 优先级相同 写在后面的会覆盖写在前面的 */
+        .aa{
+            color:red;
+        }
+        .bb{
+            color:green;
+        }
+
+        /* 选择器种类多的情况 优先级可计算 但10个class不比一个id高 id永远高于class */
+        h1{
+            color:red;
+        }
+        .aa h1{
+            color:green;
+        }
+    </style>
+</head>
+<body>
+    <div class="aa bb cc" >
+        <h1>ghhfgghfgh</h1>
+        1111
+    </div>
+    <div class="div1">
+        <div class="div2"></div>
+    </div>
+</body>
+</html>
