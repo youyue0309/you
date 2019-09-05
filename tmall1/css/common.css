@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    font:12px/1.5 tahoma,arial,"\5b8b\4f53";
+    -webkit-font-smoothing:antialiased;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+/* 居中 */
+.wrapper{
+    width: 1230px;
+    margin: 0 auto;
+    /* height: 32px;
+    background: #00f; */
+}
+.list-arrow::after{
+    content: "";
+    width: 0;
+    height: 0;
+    border:3px solid transparent;
+    border-top:3px solid #bbb;
+    font-size:0;
+    line-height: 0;
+    position: absolute;
+    right: 6px;
+    top:15px;
+}

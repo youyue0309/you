@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+        }
+        #div0{
+            width: 500px;
+            height: 500px;
+            background:#eeeeee;
+            /* margin-left:200px; */
+            position:relative;
+            left:200px;
+        }
+        #div1{
+            width: 150px;
+            height: 100px;
+            background: #ff0000;
+            float:left;
+        }
+        #div2{
+            width: 150px;
+            height: 100px;
+            background: #00ff00;
+            float:left;
+            /* 相对定位 relative
+            1.相对于自己初始位置定位
+            2.定位以后空间不释放
+            3.定位后宽度 为内容撑得
+            */
+            /* position:relative;
+            top:300px;
+            left:300px; */
+            /* 绝对定位absolute
+            1.相对于最近已定位的祖先元素 如果没有最近已定位的祖先元素 相对于body
+            2.定位后空间释放
+            3.定位后宽度 为内容撑得
+             */
+            position: fixed;
+            /* left:10px;
+            top:30px; */
+            right:0;
+            bottom: 0;
+            /* left: 0;
+            top:  0; */
+        }
+        #div3{
+            width: 150px;
+            height: 100px;
+            background: #00f;
+            float:left;
+        }
+        #div4{
+            /* 固定定位fixed
+            1.相对于浏览器可视区
+            2.定位后空间释放
+            3.定位后宽度 为内容撑得
+             */
+            position: fixed;
+            left:0;
+            top:0;
+            background: #00f;
+
+        }
+        /* static静态的  默认值 */
+    </style>
+</head>
+<body>
+    <div id="div0">
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+    </div>
+    <div id="div4">
+        hahaha
+    </div>
+</body>
+</html>

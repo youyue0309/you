@@ -1,0 +1,36 @@
+/* header开始 */
+#header{
+    height: 32px;
+    background: #a9180a;
+    border-bottom:1px solid #a9180a;
+    line-height: 32px;
+}
+.header-login{
+    height: 32px;
+    /* line-height: 32px; */
+    float:left;
+}
+.header-login span,.header-login a{
+    color: #fff;
+    font-size:12px;
+}
+.header-login a{
+    /* text-decoration: none; */
+    padding:0 10px 0 20px;
+}
+.header-list{
+    float:right;
+}
+.header-list > li{
+    float:left;
+    padding:0 14px 0 10px;
+}
+.header-list > li > a{
+    color:#fff;
+}
+.list-arrow{
+    position: relative;
+}
+
+
+/* header结束 */
