@@ -19,8 +19,7 @@ ul{
     /* height: 32px;
     background: #00f; */
 }
-.list-arrow::after{
-    content: "";
+.list-arrow .arrow{
     width: 0;
     height: 0;
     border:3px solid transparent;
@@ -30,4 +29,5 @@ ul{
     position: absolute;
     right: 6px;
     top:15px;
+    transition: transform 0.2s ease;
 }
