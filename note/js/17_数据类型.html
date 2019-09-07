@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        基本数据类型
+        string number boolean null undefined
+        引用数据类型
+        array object
+     -->
+    <script>
+        var str = "abc";
+        console.log(typeof str);
+        var arr=[1,2,3];
+        console.log(typeof arr);//"object"
+        var obj ={
+
+            name:"kk",
+            age:20
+        }
+        console.log(typeof obj);//"object"
+
+
+
+        console.log(arr instanceof Array);//判断arr是否是Array的一个实例化对象
+        console.log(obj instanceof Array);//判断arr是否是Array的一个实例化对象
+        console.log(arr.constructor==Array);//返回arr的构造函数
+        console.log(obj.constructor==Object);
+    </script>
+</body>
+
+</html>

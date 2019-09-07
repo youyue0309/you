@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        基本数据类型
+        string number boolean null undefined
+        引用数据类型
+        array object
+     -->
+    <script>
+        /* var a= "123";
+        var b=a;
+        a="456";
+        console.log(a,b);
+
+
+        var arr1=[1,2,3];
+        var arr2=arr1;
+        console.log(arr2);
+        arr1[0]=66;
+        console.log(arr1);
+        console.log(arr2); */
+
+
+        var obj = {
+            name:"df",
+            age:20,
+            father:{
+                name:"pp"
+            }
+        }
+        /* console.log(obj);
+        var obj2=obj;
+        obj2.name="ff";
+        console.log(obj); */
+
+        var obj2 = {
+            name:obj.name,
+            age:obj.age,
+            father:obj.father
+        }
+        obj.name="ll";//obj2不改
+        obj.father.name="hh";//两个都改变 引用数据类型
+        console.log(obj);
+        console.log(obj2);
+    </script>
+</body>
+</html>

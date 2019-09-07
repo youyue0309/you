@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* function fn(){
+            console.log("hhhh");
+        }
+        //调用
+        fn(); */
+
+         //函数不写返回值 默认返回undefined
+        /* function add(n1,n2){
+            //console.log(n1+n2);
+            return n1+n2;
+        }
+        //add(3,6); */
+
+        /* var x =add(2,3);
+        console.log(x);
+
+        console.log(add(2,3)); */
+
+
+        /* var fn = function(){
+            console.log("ppp");
+        }
+        fn(); */
+
+
+
+
+
+        //f1();
+        //函数提升
+        console.log(f1);//undefined
+        f2();
+        var f1 = function(){
+            console.log("aaa");
+        }
+        //函数提升
+        function f2(){
+            console.log("bbb");
+        }
+        f1();
+        f2();
+    </script>
+</body>
+</html>

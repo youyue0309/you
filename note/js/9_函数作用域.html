@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //定义变量不写var 全局变量
+        var x = 10;
+        //console.log(x);
+        function fn(){//局部变量
+            var y = 100;
+            var x= 20;
+            console.log(x+y);//先找自己作用域的变量 再找全局
+        }
+        fn();
+        console.log(y);
+    </script>
+</body>
+</html>

@@ -186,6 +186,9 @@
 
 
 /* search 开始 */
+.logo-box{
+    overflow: hidden;
+}
 .logo{
     width: 240px;
     height: 130px;
@@ -251,3 +254,30 @@
 
 
 /* search 结束  */
+
+
+/* nav 开始 */
+.nav{
+    width: 1030px;
+    padding-left:200px;
+}
+.nav li{
+    float:left;
+}
+.nav li img{
+    width: 100px;
+    height: 30px;
+    margin-top:3px;
+}
+.nav >li>a{
+    font-size:16px;
+    color:#333;
+    font-weight: 500;
+    display:inline-block;
+    height: 35px;
+    line-height: 35px;
+    padding:0 8px;
+}
+
+
+/* nav结束 */
