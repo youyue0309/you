@@ -8,14 +8,23 @@
 </head>
 <body>
     <div id="div0">
+        <!-- v-model 双向绑定  -->
         <input type="text" v-model="age" value="23">
+        <h3>爱好：</h3>
+        <input type="checkbox" v-model="hoddy" value="篮球">篮球
+        <input type="checkbox" v-model="hoddy" value="唱歌">唱歌
+        <input type="checkbox" v-model="hoddy" value="跳舞">跳舞
+        <h2>{{msg}}</h2>
     </div>
     <script src="vue.js"></script>
     <script>
         new Vue({
             el:"#div0",
             data:{
-                age:23
+                msg:"ddd",
+                age:23,
+                hoddy:["唱歌"]
+
             }
         })
     </script>

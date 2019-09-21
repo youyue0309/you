@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 不频繁切换 v-if初始化开销小 -->
+        <h2 v-if="flag">{{msg}}</h2>
+        <!-- v-show display:none  频繁切换 -->
+        <h2 v-show="flag">{{msg}}</h2>
+        <h3 v-if="a==1">1111</h3>
+        <h3 v-else-if="a==2">2222</h3>
+        <h3 v-else>3333</h3>
+        <button @click="fn()">click</button>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"ppp",
+                flag:true,
+                a:4
+            },
+            methods:{
+                fn(){
+                    this.flag = !this.flag
+                }
+            }
+        })
+    </script>
+</body>
+</html>

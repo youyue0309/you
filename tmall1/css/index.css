@@ -260,6 +260,7 @@
 .nav{
     width: 1030px;
     padding-left:200px;
+    overflow: hidden;
 }
 .nav li{
     float:left;
@@ -281,3 +282,28 @@
 
 
 /* nav结束 */
+
+
+
+
+
+
+/* 轮播图开始 */
+.lunbo{
+    background: #f56a00;
+    height: 500px;
+}
+.dhh{
+    position: relative;
+}
+.daohang{
+    width: 200px;
+    height: 536px;
+    background:rgba(0,0,0,.55);
+    position: absolute;
+    top:-36px;
+    left:0;
+}
+
+
+/* 轮播图结束 */

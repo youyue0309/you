@@ -9,7 +9,8 @@
 <body>
     <div id="div0">
         <ul>
-            <li v-for="obj in studentList">{{obj:name}} | {{obj:age}}</li>
+            <!-- 循环studentList数组  obj取到每一个元素 -->
+            <li v-for="obj in studentList">{{obj.name}} | {{obj.age}}</li>
         </ul>
     </div>
     <script src="vue.js"></script>

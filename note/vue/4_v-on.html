@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <span>{{msg}}</span>
+        <button v-on:click="msg='hrhr'">click</button>
+        <button v-on:click="change('vvv')">click</button>
+        <!-- 简写 -->
+        <button @click="msg='hrhr'">click</button>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"fff"
+            },
+            methods:{//定义方法
+                change(value){
+                    this.msg = value;
+                    //获取事件对象 用event
+                    console.log(event.target);//事件源
+                }
+            }
+        })
+    </script>
+</body>
+</html>
