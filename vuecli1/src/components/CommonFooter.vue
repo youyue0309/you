@@ -27,6 +27,7 @@
                    },
                    {
                        path:"/music",
+                       path1:'/music/musicdetail',
                        title:"音乐",
                        color:"#3cc47c"
                    },
@@ -37,6 +38,8 @@
         created(){
             this.menu.forEach((obj,index)=>{
                 if (obj.path==this.$route.path){
+                    this.change({title:obj.title,color:obj.color})
+                }else if(obj.path1==this.$route.path){
                     this.change({title:obj.title,color:obj.color})
                 }
             })

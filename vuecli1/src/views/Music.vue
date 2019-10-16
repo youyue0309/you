@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul class="musiclist">
-            <li v-for="(obj,index) in musicList" :key="index">
+            <li v-for="(obj,index) in musicList" :key="index" @click="getDetail(obj.id)">
                 <img :src="obj.bg" alt="">
             </li>
         </ul>
@@ -24,6 +24,14 @@ import axios from 'axios';
             }).catch((res)=>{
                 alert('服务器错误');
             })
+        },
+        methods:{
+            getDetail(id){
+                this.$router.push({
+                    path:"/music/musicdetail",
+                    query:{id}
+                })
+            }
         }
     }
 </script>
