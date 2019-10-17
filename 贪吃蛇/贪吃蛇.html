@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>贪吃蛇</title>
+    <link rel="stylesheet" href="贪吃蛇.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="map-panel">
+            <table id="map-background">
+
+            </table>
+        </div>
+        <div id="map-control">
+            <button id="start" class="btn">开始游戏</button>
+            <button id="stop" class="btn">游戏暂停</button>
+            <button id="exit" class="btn">重新开始</button>
+            <button id="help" class="btn">帮助</button>
+            <div class="speed">
+                速度
+                <button id="speedone" class="speed-change">x1</button>
+                <button id="speedtwo" class="speed-change">x2</button>
+                <button id="speedfive" class="speed-change">x5</button>
+            </div>
+        </div>
+        <div id="alert-mask"></div>
+        <div id="alert">
+            <div id="alert-header">
+                <button id="alert-close">x</button>
+            </div>
+            <div id="alert-text">
+                Game Over !
+            </div>
+        </div>
+        <div id="help-detail">
+            <div class="help-detail-header">
+                <button id="help-close">x</button>
+            </div>
+            <div class="help-detail-text">
+                <h2>游戏说明：</h2>
+                <span>经典贪吃蛇游戏，收集豆点，避开墙体和自己的尾巴！！！</span>
+            </div>
+        </div>
+        <div id="stop-alert">
+            <button id="ctn">继续游戏</button>
+        </div>
+    </div>
+    <script>
+        var oPanel = document.getElementById('map-panel');
+        var oStart = document.getElementById('start');
+        var direction = 'right';
+        var oAlert = document.getElementById('alert');
+        var oAlertMask = document.getElementById('alert-mask');
+        var oAlertClose = document.getElementById('alert-close');
+        var oSpeedone = document.getElementById('speedone');
+        var oSpeedtwo = document.getElementById('speedtwo');
+        var oSpeedfive = document.getElementById('speedfive');
+        var oHelp = document.getElementById('help');
+        var oHelpDetail = document.getElementById('help-detail');
+        var oHelpClose = document.getElementById('help-close');
+        var oStop = document.getElementById('stop');
+        var oStopAlert = document.getElementById('stop-alert');
+        var oCtn = document.getElementById('ctn');
+        var oExit = document.getElementById('exit');
+
+        var timer;
+        var oFood;
+        var flag;
+        var speed = 500;
+
+
+        oExit.onclick = function () {
+            history.go(0);
+        };
+        oStop.onclick = function () {
+            if (flag) {
+                oStopAlert.style.display = "block";
+                oAlertMask.style.display = "block";
+                clearInterval(timer);
+            }
+        };
+        oCtn.onclick = function () {
+            oStopAlert.style.display = "none";
+            oAlertMask.style.display = "none";
+            timer = setInterval(function () {
+                snakeMove();
+            }, speed);
+
+        };
+        oHelp.onclick = function () {
+            oHelpDetail.style.display = "block";
+            oAlertMask.style.display = 'block';
+        };
+        oHelpClose.onclick = function () {
+            oHelpDetail.style.display = "none";
+            oAlertMask.style.display = 'none';
+        };
+
+        // 地图
+        var oMap = document.getElementById("map-background");
+        for (var row = 0; row < 20; row++) {
+            var oTr = document.createElement('tr');
+            for (var clo = 0; clo < 30; clo++) {
+                var oTd = document.createElement('td');
+                oTr.appendChild(oTd);
+            }
+            oMap.appendChild(oTr);
+        }
+        //蛇
+        var snakebody = [];
+        for (var i = 2; i >= 0; i--) {
+            var oDiv = document.createElement('div');
+            oDiv.className = "snake";
+            oDiv.style.left = i * 21 + 1 + "px";
+            oDiv.pos = {
+                left: i * 21 + 1,
+                top: 64
+            }
+            oPanel.appendChild(oDiv);
+            snakebody.push(oDiv);
+            // console.log(snakebody);
+        }
+
+        oSpeedone.onclick = function () {
+            speed = 500;
+            oSpeedtwo.style.background = "coral";
+            oSpeedfive.style.background = "coral";
+            oSpeedone.style.background = "darkorange";
+        };
+        oSpeedtwo.onclick = function () {
+            speed = 250;
+            oSpeedfive.style.background = "coral";
+            oSpeedone.style.background = "coral";
+            oSpeedtwo.style.background = "darkorange";
+        };
+        oSpeedfive.onclick = function () {
+            speed = 100;
+            oSpeedtwo.style.background = "coral";
+            oSpeedone.style.background = "coral";
+            oSpeedfive.style.background = "darkorange";
+        };
+        //食物
+        bringFood();
+        function bringFood() {
+            do {
+                var iflag = true;
+                oFood = document.createElement('div');
+                oFood.className = "food";
+                var y = parseInt(Math.random() * 30);
+                var x = parseInt(Math.random() * 20);
+                x = x * 21 + 1;
+                y = y * 21 + 1;
+                for (var i = 0; i < snakebody.length; i++) {
+                    if (snakebody[i].offsetTop == x && snakebody[i].offsetLeft == y) {
+                        iflag = false;
+                        continue;
+                    }
+                }
+                oFood.pos = {
+                    left: x,
+                    top: y
+                };
+                oFood.style.top = x + 'px';
+                oFood.style.left = y + 'px';
+                oPanel.appendChild(oFood);
+            } while (!iflag);
+        }
+        //移动
+        oStart.onclick = function () {
+            if (!timer) {
+                flag=true;
+                timer = setInterval(function () {
+                    snakeMove();
+                }, speed);
+            };
+        };
+        function snakeMove() {
+            if (direction == 'down') {
+                snakebody[0].style.top = snakebody[0].offsetTop + 21 + 'px';
+            };
+            if (direction == 'right') {
+                snakebody[0].style.left = snakebody[0].offsetLeft + 21 + 'px';
+            };
+            if (direction == 'up') {
+                snakebody[0].style.top = snakebody[0].offsetTop - 21 + 'px';
+            };
+            if (direction == 'left') {
+                snakebody[0].style.left = snakebody[0].offsetLeft - 21 + 'px';
+            };
+            if (snakebody[0].offsetTop == oFood.offsetTop && snakebody[0].offsetLeft == oFood.offsetLeft) {
+                oFood.className = 'snake';
+                oFood.style.top = snakebody[0].pos.top + 'px';
+                oFood.style.left = snakebody[0].pos.left + 'px';
+                snakebody.splice(1, 0, oFood);
+                bringFood();
+            } else {
+                for (var i = 1; i < snakebody.length; i++) {
+                    snakebody[i].style.left = snakebody[i - 1].pos.left + 'px';
+                    snakebody[i].style.top = snakebody[i - 1].pos.top + 'px';
+                };
+            };
+            for (var k = 0; k < snakebody.length; k++) {
+                snakebody[k].pos.left = snakebody[k].offsetLeft;
+                snakebody[k].pos.top = snakebody[k].offsetTop;
+            };
+            for (var i = 4; i < snakebody.length; i++) {
+                if (snakebody[0].offsetTop == snakebody[i].offsetTop && snakebody[0].offsetLeft == snakebody[i].offsetLeft) {
+                    oAlert.style.display = "block";
+                    oAlertMask.style.display = 'block';
+                    flag = false;
+                    clearInterval(timer);
+                }
+            };
+            if (snakebody[0].offsetTop == -20 || snakebody[0].offsetTop == 421 || snakebody[0].offsetLeft == -20 || snakebody[0].offsetLeft == 631) {
+                oAlert.style.display = "block";
+                oAlertMask.style.display = 'block';
+                flag = false;
+                clearInterval(timer);
+            }
+        };
+        oAlertClose.onclick = function () {
+            oAlert.style.display = "none";
+            oAlertMask.style.display = 'none';
+        };
+        document.onkeydown = function (e) {
+            e = e || window.event;
+            var key = e.which || e.keyCode;
+            if (key == 40) {
+                if (direction != 'up') {
+                    direction = "down";
+                    snakeMove();
+                }
+            } else if (key == 39) {
+                if (direction != 'left') {
+                    direction = "right";
+                    snakeMove();
+                }
+            } else if (key == 38) {
+                if (direction != 'down') {
+                    direction = "up";
+                    snakeMove();
+                }
+            } else if (key == 37) {
+                if (direction != 'right') {
+                    direction = "left";
+                    snakeMove();
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
