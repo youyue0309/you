@@ -6,6 +6,7 @@ import Book from './views/Book.vue';
 import Picture from './views/Picture.vue';
 import Moviedetail from './views/Moviedetail.vue';
 import Musicdetail from './views/Musicdetail.vue';
+import PictureDetail from './views/PictureDetail.vue'
 
 Vue.use(Router);
 
@@ -42,6 +43,11 @@ export default new Router({
       path: '/picture',
       name: 'picture',
       component: Picture,
+    },
+    {
+      path: '/picture/picturedetail',
+      name: 'picturedetail',
+      component: PictureDetail,
     },
   ],
 });

@@ -32,6 +32,7 @@
     position: relative;
 }
 .sub-list{
+    z-index: 91003;
     position:absolute;
     left:-0.5px;
     top:32px;
@@ -96,7 +97,7 @@
     display: block;
 }
 .web-list{
-    z-index: 1;
+    z-index: 93110;
     width: 1232px;
     position:absolute;
     right:-1px;
@@ -289,21 +290,85 @@
 
 
 /* 轮播图开始 */
-.lunbo{
+.slide-box{
     background: #f56a00;
     height: 500px;
+    border-top:2px solid #ff0036;
 }
-.dhh{
+.slide-box .wrapper{
+    height: 500px;
     position: relative;
 }
-.daohang{
+.menu-box{
     width: 200px;
-    height: 536px;
+    height: 537px;
     background:rgba(0,0,0,.55);
     position: absolute;
-    top:-36px;
+    top:-37px;
     left:0;
 }
+.menu-title{
+    color:#fff;
+    height: 37px;
+    line-height: 35px;
+    background: #ff0036;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+.menu-title .iconfont{
+    margin:0 8px 0 14px;
+}
+.img-box{
+    height: 500px;
+    overflow: hidden;
+}
+.img-box img{
+    width: 1230px;
+}
+.main-list{
+    height: 31.2px;
+    line-height: 31.2px;
+    font-size: 14px;
+    color:#fff;
+
+}
+.main-list a{
+    color:#fff;
+    font-size: 14px;
+    height: 31px;
+}
+.main-list .iconfont{
+    font-size: 16px;
+    height: 31px;
+    line-height: 31px;
+    margin:0 4px 0 14px;
+    opacity: 0.5;
+}
+.img-box-btn{
+    position: absolute;
+    left:50%;
+    bottom:30px;
+    margin-left:-100px;
+    /* width: 100px;
+    height: 90px; */
+}
+.img-box-btn li{
+    height: 5px;
+    width: 25px;
+    background: #000;
+    opacity: 0.3;
+    float:left;
+    margin-right:10px;
+}
+.img-box-btn li.img-btn{
+    background: #fff;
+    opacity: 0.6;
+}
+
 
 
 /* 轮播图结束 */

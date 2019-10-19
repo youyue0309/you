@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel">
+        class Welcome extends React.Component{
+            constructor(){
+                super();
+                this.state={
+                    num:100
+                }
+                this.addHandel = this.addHandel.bind(this);
+            }
+            addHandel(){
+                console.log(this);
+                this.setState({
+                    num:this.state.num+1
+                })
+            }
+            render(){
+                return(
+                    <div>
+                        <h1>{this.state.num}</h1>
+                        <button onClick={this.addHandel}>add</button>    
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Welcome></Welcome>,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>
