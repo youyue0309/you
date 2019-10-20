@@ -261,7 +261,7 @@
         <li><a href="#">飞猪旅行</a></li>
         <li><a href="#">苏宁易购</a></li>
     </ul>
-    <div class="slide-box">
+    <div id="slide-box">
         <div class="wrapper">
             <div class="menu-box">
                 <h3 class="menu-title"><span class="iconfont">&#xe606;</span>商品分类</h3>
@@ -350,14 +350,14 @@
                     </li>
                 </ul>
             </div>
-            <div class="img-box">
+            <div id="img-box">
                 <a href="#"><img class="img-active" src="../images/img01.jpg" alt=""></a>
                 <a href="#"><img src="../images/img02.jpg" alt=""></a>
                 <a href="#"><img src="../images/img03.jpg" alt=""></a>
                 <a href="#"><img src="../images/img04.jpg" alt=""></a>
                 <a href="#"><img src="../images/img05.jpg" alt=""></a>
                 <a href="#"><img src="../images/img06.jpg" alt=""></a>
-                <ul class="img-box-btn">
+                <ul id="img-box-btn">
                     <li class="img-btn"></li>
                     <li></li>
                     <li></li>
@@ -368,6 +368,45 @@
             </div>
         </div>
     </div>
+    <script>
+        var oBack = document.getElementById('slide-box');
+        var oDiv = document.getElementById('img-box');
+        var aLi = oDiv.getElementsByTagName('img');
+        var oBtn = document.getElementById('img-box-btn');
+        var aBtn = oBtn.getElementsByTagName('li');
+        var index = 0;
+        var color=["#e8e8e8","#e8e8e8","#fd9514","#0f0f0f","#101920","#fe6675"];
+        function change(n){
+            for (var i = 0; i < aLi.length; i++) {
+                aLi[i].className = "";
+                aBtn[i].className = "";
+            }
+            aLi[n].className = "img-active";
+            aBtn[n].className = "img-btn";
+            oBack.style.background=color[n];
+        }
+        function next() {
+            index++;
+            if (index == aLi.length) {
+                index = 0;
+            };
+            change(index);
+        }
+        for(var i = 0;i<aBtn.length;i++){
+            aBtn[i].index = i;
+            aBtn[i].onmousemove=function(){
+                change(this.index);
+                index=this.index;
+            }
+        }
+        var timer = setInterval('next()', 3000);
+        oDiv.onmouseout = function () {
+            timer = setInterval('next()',3000);
+        }
+        oDiv.onmousemove = function () {
+            clearInterval(timer);
+        }
+    </script>
 </body>
 
 </html>

@@ -11,31 +11,29 @@
     <script src="react.development.js"></script>
     <script src="react-dom.development.js"></script>
     <script src="browser.min.js"></script>
-    <script type="text/babel">
-        class Title extends React.Component{
+    <!-- jsx -->
+    <script type="text/babel" >
+        // 父组件
+        class Main extends React.Component{
             render(){
-                return(
+                return (
                     <div>
-                        <h1></h1>
-                    </div>
-                )
-            }
-        }
-        class Count extends React.Component{
-            render(){
-                return(
-                    <div>
-                        <button></button>
-                        <button></button>
+                        <input type="text" ref={(input)=>this.myInput = input} />    
+                        <button onClick={
+                            ()=>{
+                                console.log(this.myInput.value);
+                            }
+                        }>click</button>
                     </div>
                 )
             }
         }
         ReactDOM.render(
-            <Title></Title>,
-            <Count></Count>,
+            <Main></Main>,
             document.getElementById('root')
         )
+
     </script>
+
 </body>
 </html>

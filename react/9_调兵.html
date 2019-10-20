@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel">
+        class Title extends React.Component{
+            constructor(){
+                super();
+                this.state={
+                    num:120,
+                    a:50,
+                    b:70
+                }
+                this.changeNuma = this.changeNuma.bind(this);
+            }
+            changeNuma(val,name){
+                if(this.state.num>val){
+                    if(name=='A'){
+                        this.setState({
+                            num:this.state.num-val,
+                            a:this.state.a+val,
+                        })
+                    }else{
+                        this.setState({
+                             num:this.state.num-val,
+                            b:this.state.b+val
+                         })
+                    }
+                }else{
+                    alert('数目不足');
+                }
+            }
+            render(){
+                return(
+                    <div>
+                        <h1>士兵总量：{this.state.num}</h1>
+                        <Count name="A" count={this.state.a} change={this.changeNuma}></Count>
+                        <Count name="B" count={this.state.b} change={this.changeNuma}></Count>
+                    </div>
+                )
+            }
+        }
+        class Count extends React.Component{
+            constructor(){
+                super();
+                this.fn = this.fn.bind(this);
+            }
+            fn(){
+                var name;
+                name= this.props.name;
+                var num;
+                num=this.refs.name.value*1;
+                this.props.change(num,name)
+            }
+            render(){
+                return(
+                    <div>
+                        <p>{this.props.name}组士兵数量：{this.props.count}</p>
+                        <input type="number" ref='name'/>
+                        <button onClick={this.fn}>调兵</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(        
+            <Title></Title>,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+
+</html>
