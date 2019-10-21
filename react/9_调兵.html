@@ -25,7 +25,10 @@
                 this.changeNuma = this.changeNuma.bind(this);
             }
             changeNuma(val,name){
-                if(this.state.num>val){
+                if(this.state.num==0){
+                    alert('无可调用士兵')
+                }
+                if(this.state.num>=val){
                     if(name=='A'){
                         this.setState({
                             num:this.state.num-val,

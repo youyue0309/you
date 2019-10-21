@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red{
+            background: #f00;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel" >
+
+        class Main extends React.Component{
+            constructor(){
+                super();
+                this.state = {
+                    list:[
+                        {
+                            id:1,
+                            name:'吃饭',
+                            active:false
+                        },
+                        {
+                            id:2,
+                            name:'睡觉',
+                            active:false
+                        }
+                    ],
+                    id:3
+                },
+                this.add = this.add.bind(this);
+                this.changeActive = this.changeActive.bind(this);
+                this.del=this.del.bind(this);
+            }
+            add(val){
+                let arr = this.state.list;
+                arr.push({
+                    id:this.state.id++,
+                    name:val,
+                    active:false
+                })
+                this.setState({
+                    list:arr
+                })
+            }
+            del(index){
+                let arr = [...this.state.list];
+                arr.splice(index,1);
+                this.setState({
+                    list:arr
+                })
+            }
+            changeActive(index){
+                let arr = [...this.state.list];
+                arr[index].active = !arr[index].active;
+                this.setState({
+                    list:arr
+                },()=>{
+                    console.log(this.state.list)
+                })
+
+                
+            }
+            render(){
+                return (
+                    <div>
+                        <h2>todoList</h2>  
+                        <Add add={this.add}></Add>
+                        <ShowList list={this.state.list} del={this.del} changeActive={this.changeActive}></ShowList>
+                    </div>
+                )
+            }
+        }
+
+        class Add extends React.Component{
+            render(){
+                return(
+                    <div>   
+                        <input type="text" ref={input=>this.myInput = input}/>
+                        <button onClick={()=>{
+                            this.props.add(this.myInput.value);
+                        }}>add</button>
+                    </div>
+                )
+            }
+        }
+
+        class ShowList extends React.Component{
+            render(){
+                return(
+                    <ul>   
+                        {
+                            this.props.list.map((obj,index)=>{
+                                return (
+                                    <li key={obj.id} className={obj.active?"red":''}>
+                                        <input type="checkbox" onClick={()=>{
+                                            this.props.changeActive(index);
+                                        }}/> 
+                                        <span>{obj.name}</span>
+                                        <button onClick={()=>{
+                                            this.props.del(index);
+                                        }}>删除</button>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                )
+            }
+        }
+
+
+        ReactDOM.render(
+            <Main></Main>
+            ,document.getElementById('root')
+        )
+
+
+    </script>
+
+</body>
+</html>
