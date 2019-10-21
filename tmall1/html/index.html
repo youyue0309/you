@@ -265,86 +265,802 @@
         <div class="wrapper">
             <div class="menu-box">
                 <h3 class="menu-title"><span class="iconfont">&#xe606;</span>商品分类</h3>
-                <ul>
+                <ul id="menu-list">
                     <li class="main-list">
                         <span class="iconfont">&#xe600;</span>
                         <a href="#">女装</a>
-                        /<a href="#">内衣</a>
+                        <span class="main-list-line">/</span><a href="#">内衣</a>
+                        <div id="dress">
+                            <div class="dress-left">
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        当季流行
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <a class="dress-list-color" href="#">女装新品</a>
+                                        <a href="#">商场同款</a>
+                                        <a class="dress-list-color" href="#">仙女连衣裙</a>
+                                        <a href="#">T恤</a>
+                                        <a href="#">衬衫</a>
+                                        <a href="#">时髦外套</a>
+                                        <a href="#">休闲裤</a>
+                                        <a href="#">牛仔裤</a>
+                                        <a class="dress-list-color" href="#">无痕文胸</a>
+                                        <a href="#">运动文胸</a>
+                                        <a class="dress-list-color" href="#">潮流家居服</a>
+                                        <a href="#">百搭船袜</a>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        精选上装
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <a class="dress-list-color" href="#">毛呢外套</a>
+                                        <a class="dress-list-color" href="#">羽绒服</a>
+                                        <a class="dress-list-color" href="#">棉服</a>
+                                        <a href="#">丝绒卫衣</a>
+                                        <a href="#">毛针织衫</a>
+                                        <a href="#">皮毛一体</a>
+                                        <a href="#">皮草</a>
+                                        <a href="#">毛衣</a>
+                                        <a href="#">衬衫</a>
+                                        <a href="#">卫衣</a>
+                                        <a href="#">针织衫</a>
+                                        <a class="dress-list-color" href="#">T恤</a>
+                                        <a href="#">短外套</a>
+                                        <a class="dress-list-color" href="#">小西装</a>
+                                        <a href="#">风衣</a>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        浪漫裙装
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <a class="dress-list-color" href="#">连衣裙</a>
+                                        <a href="#">半身裙</a>
+                                        <a class="dress-list-color" href="#">A字裙</a>
+                                        <a class="dress-list-color" href="#">荷叶边裙</a>
+                                        <a href="#">大摆裙</a>
+                                        <a href="#">包臀裙</a>
+                                        <a class="dress-list-color" href="#">百褶裙</a>
+                                        <a href="#">长袖连衣裙</a>
+                                        <a href="#">棉麻连衣裙</a>
+                                        <a href="#">牛仔裙</a>
+                                        <a href="#">蕾丝连衣裙</a>
+                                        <a href="#">真丝连衣裙</a>
+                                        <a href="#">印花连衣裙</a>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        女士下装
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <a class="dress-list-color" href="#">休闲裤</a>
+                                        <a class="dress-list-color" href="#">阔腿裤</a>
+                                        <a href="#">牛仔裤</a>
+                                        <a href="#">打底裤</a>
+                                        <a class="dress-list-color" href="#">开叉运动裤</a>
+                                        <a href="#">哈伦裤</a>
+                                        <a href="#">背带裤</a>
+                                        <a href="#">小脚裤</a>
+                                        <a href="#">西装裤</a>
+                                        <a href="#">短裤</a>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        特色女装
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <a class="dress-list-color" href="#">时尚套装</a>
+                                        <a href="#">休闲套装</a>
+                                        <a class="dress-list-color" href="#">日系女装</a>
+                                        <a class="dress-list-color" href="#">精选妈妈装</a>
+                                        <a href="#">大码女装</a>
+                                        <a href="#">职业套装</a>
+                                        <a href="#">优雅旗袍</a>
+                                        <a href="#">精致礼服</a>
+                                        <a href="#">婚纱</a>
+                                        <a href="#">唐装</a>
+                                        <a href="#">小码女装</a>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        文胸塑身
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <a href="#">光面文胸</a>
+                                        <a href="#">运动文胸</a>
+                                        <a href="#">美背文胸</a>
+                                        <a href="#">聚拢文胸</a>
+                                        <a href="#">大杯文胸</a>
+                                        <a href="#">轻薄塑身</a>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        家居服
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <a href="#">春夏家居服</a>
+                                        <a href="#">纯棉家居服</a>
+                                        <a href="#">莫代尔家居服</a>
+                                        <a href="#">真丝家居服</a>
+                                        <a href="#">春夏睡裙</a>
+                                        <a href="#">男士家居服</a>
+                                        <a href="#">性感睡裙</a>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        内裤背心
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="bottom-line dress-left-list">
+                                        <a href="#">男士内裤</a>
+                                        <a href="#">女式内裤</a>
+                                        <a href="#">男式内裤多条装</a>
+                                        <a href="#">女式内裤多条装</a>
+                                        <a href="#">莫代尔内裤</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dress-right">
+                                <a href="#"><img src="../images/dress/01.jpg" alt=""></a>
+                                <a href="#"><img src="../images/dress/02.jpg" alt=""></a>
+                                <a href="#"><img src="../images/dress/03.jpg" alt=""></a>
+                                <a href="#"><img src="../images/dress/04.jpg" alt=""></a>
+                                <a href="#"><img src="../images/dress/05.png" alt=""></a>
+                                <a href="#"><img src="../images/dress/06.jpg" alt=""></a>
+                                <a href="#"><img src="../images/dress/07.jpg" alt=""></a>
+                                <a href="#"><img src="../images/dress/08.jpg" alt=""></a>
+                                <a href="#"><img src="../images/dress/09.jpg" alt=""></a>
+                                <a href="#"><img src="../images/dress/10.png" alt=""></a>
+                                <a href="#"><img src="../images/dress/11.jpg" alt=""></a>
+                                <a href="#"><img src="../images/dress/12.jpg" alt=""></a>
+                                <a href="#"><img src="../images/dress/13.jpg" alt=""></a>
+                                <a href="#"><img src="../images/dress/14.jpg" alt=""></a>
+                                <a href="#"><img src="../images/dress/15.jpg" alt=""></a>
+                                <a href="#"><img src="../images/dress/16.jpg" alt=""></a>
+                                <div class="dress-right-bottom">
+                                    <a href="#"><img src="../images/dress/17.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
                     </li>
-                    <li class="main-list">
+                    <li class="color-one main-list">
+
                         <span class="iconfont">&#xe604;</span>
                         <a href="#">男装</a>
-                        /<a href="#">运动户外</a>
+                        <span class="main-list-line">/</span><a href="#">运动户外</a>
+                        <div id="dress">
+                            <div class="dress-left">
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        当季流行
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="man-left-list">
+                                            <a class="man-list-color" href="#">当季新品</a>
+                                            <a href="#">商场同款</a>
+                                            <a class="man-list-color" href="#">羽绒服</a>
+                                            <a class="man-list-color" href="#">潮流卫衣</a>
+                                            <a href="#">牛仔衬衫</a>
+                                            <a class="man-list-color" href="#">修身夹克</a>
+                                            <a class="man-list-color" href="#">保暖棉服</a>
+                                            <a href="#">温暖的针织衫</a>
+                                            <a href="#">修身西服</a>
+                                            <a class="man-list-color" href="#">秋冬风衣</a>
+                                            <a class="man-list-color" href="#">束脚裤</a>
+                                            <a href="#">破洞牛仔裤</a>
+                                            <a class="man-list-color" href="#">跑步鞋</a>
+                                            <a class="man-list-color" href="#">休闲鞋</a>
+                                            <a class="man-list-color" href="#">篮球鞋</a>
+                                            <a class="man-list-color" href="#">自行车</a>
+                                            <a href="#">平衡车</a>
+                                            <a href="#">帆布鞋</a>
+                                            <a href="#">运动套装</a>
+                                            <a class="man-list-color" href="#">运动卫衣</a>
+                                            <a class="man-list-color" href="#">鱼竿</a>
+                                            <a class="man-list-color" href="#">冲锋衣</a>
+                                            <a class="man-list-color" href="#">跑步机</a>
+                                            <a class="man-list-color" href="#">电动车</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        男士外套
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="man-left-list">
+                                            <a class="man-list-color" href="#">夹克</a>
+                                            <a href="#">单西</a>
+                                            <a href="#">棒球服</a>
+                                            <a class="man-list-color" href="#">棉衣</a>
+                                            <a class="man-list-color" href="#">毛呢大衣</a>
+                                            <a href="#">风衣</a>
+                                            <a class="man-list-color" href="#">西服套装</a>
+                                            <a class="man-list-color" href="#">羽绒服</a>
+                                            <a href="#">皮衣</a>
+                                            <a href="#">运动服</a>
+                                            <a href="#">工装外套</a>
+                                            <a href="#">针织开衫</a>
+                                            <a href="#">马甲</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        男士内搭
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="man-left-list">
+                                            <a class="man-list-color" href="#">短袖T恤</a>
+                                            <a class="man-list-color" href="#">POLO衫</a>
+                                            <a href="#">短袖衬衫</a>
+                                            <a href="#">背心</a>
+                                            <a class="man-list-color" href="#">卫衣</a>
+                                            <a href="#">针织衫/毛衣</a>
+                                            <a class="man-list-color" href="#">长袖衬衫</a>
+                                            <a href="#">长袖T恤</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        男士裤装
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="man-left-list">
+                                            <a class="man-list-color" href="#">小腿裤</a>
+                                            <a class="man-list-color" href="#">9分裤</a>
+                                            <a href="#">短裤</a>
+                                            <a class="man-list-color" href="#">休闲裤</a>
+                                            <a class="man-list-color" href="#">牛仔裤</a>
+                                            <a class="man-list-color" href="#">针织裤</a>
+                                            <a href="#">西裤</a>
+                                            <a href="#">运动裤</a>
+                                            <a href="#">工装裤</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        特色男装
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="man-left-list">
+                                            <a class="man-list-color" href="#">潮牌</a>
+                                            <a href="#">中老年</a>
+                                            <a class="man-list-color" href="#">加大码</a>
+                                            <a href="#">职场精英</a>
+                                            <a class="man-list-color" href="#">中国风</a>
+                                            <a href="#">情侣装</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        运 动 鞋
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="man-left-list">
+                                            <a class="man-list-color" href="#">跑步鞋</a>
+                                            <a href="#">运动鞋</a>
+                                            <a href="#">板鞋</a>
+                                            <a class="man-list-color" href="#">潮鞋</a>
+                                            <a href="#">休闲鞋</a>
+                                            <a class="man-list-color" href="#">篮球鞋</a>
+                                            <a href="#">足球鞋</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        运 动 服
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="man-left-list">
+                                            <a class="man-list-color" href="#">短袖t恤</a>
+                                            <a class="man-list-color" href="#">运动裤</a>
+                                            <a class="man-list-color" href="#">运动内衣</a>
+                                            <a class="man-list-color" href="#">速干t恤</a>
+                                            <a class="man-list-color" href="#">运动Polo</a>
+                                            <a href="#">运动卫衣</a>
+                                            <a class="man-list-color" href="#">运动套装</a>
+                                            <a class="man-list-color" href="#">运动短裤</a>
+                                            <a class="man-list-color" href="#">健身服</a>
+                                            <a href="#">运动夹克</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        户外鞋服
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="bottom-line dress-left-list">
+                                        <div class="man-left-list">
+                                            <a class="man-list-color" href="#">冲锋衣</a>
+                                            <a class="man-list-color" href="#">抓绒衣</a>
+                                            <a class="man-list-color" href="#">登山鞋</a>
+                                            <a href="#">户外休闲衣</a>
+                                            <a class="man-list-color" href="#">军迷</a>
+                                            <a href="#">钓鱼服</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dress-right">
+                                <a href="#"><img src="../images/man/01.jpg" alt=""></a>
+                                <a href="#"><img src="../images/man/02.jpg" alt=""></a>
+                                <a href="#"><img src="../images/man/03.jpg" alt=""></a>
+                                <a href="#"><img src="../images/man/04.jpg" alt=""></a>
+                                <a href="#"><img src="../images/man/05.jpg" alt=""></a>
+                                <a href="#"><img src="../images/man/06.jpg" alt=""></a>
+                                <a href="#"><img src="../images/man/07.jpg" alt=""></a>
+                                <a href="#"><img src="../images/man/08.jpg" alt=""></a>
+                                <a href="#"><img src="../images/man/09.jpg" alt=""></a>
+                                <a href="#"><img src="../images/man/10.jpg" alt=""></a>
+                                <a href="#"><img src="../images/man/11.png" alt=""></a>
+                                <a href="#"><img src="../images/man/12.png" alt=""></a>
+                                <a href="#"><img src="../images/man/13.jpg" alt=""></a>
+                                <a href="#"><img src="../images/man/14.png" alt=""></a>
+                                <a href="#"><img src="../images/man/15.jpg" alt=""></a>
+                                <a href="#"><img src="../images/man/16.jpg" alt=""></a>
+                                <div class="dress-right-bottom">
+                                    <a href="#"><img src="../images/man/17.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
                     </li>
-                    <li class="main-list">
+                    <li class="color-two main-list">
                         <span class="iconfont">&#xe623;</span>
                         <a href="#">女鞋</a>
-                        /<a href="#">男鞋</a>
-                        /<a href="#">箱包</a>
+                        <span class="main-list-line">/</span><a href="#">男鞋</a>
+                        <span class="main-list-line">/</span><a href="#">箱包</a>
+                        <div id="dress">
+                            <div class="dress-left">
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        推荐女鞋
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="shoes-left-list">
+                                            <a class="shoes-list-color" href="#">潮流过膝靴</a>
+                                            <a class="shoes-list-color" href="#">气质百搭踝靴</a>
+                                            <a href="#">永远的帆布鞋</a>
+                                            <a class="shoes-list-color" href="#">流行松糕底</a>
+                                            <a href="#">英伦牛津鞋</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        潮流男鞋
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="shoes-left-list">
+                                            <a class="shoes-list-color" href="#">商场同款</a>
+                                            <a class="shoes-list-color" href="#">休闲鞋</a>
+                                            <a href="#">正装皮鞋</a>
+                                            <a href="#">休闲皮鞋</a>
+                                            <a class="shoes-list-color" href="#">板鞋</a>
+                                            <a class="shoes-list-color" href="#">户外休闲</a>
+                                            <a href="#">帆布鞋</a>
+                                            <a class="shoes-list-color" href="#">运动休闲</a>
+                                            <a href="#">乐福鞋</a>
+                                            <a class="shoes-list-color" href="#">豆豆鞋</a>
+                                            <a class="shoes-list-color" href="#">布洛克</a>
+                                            <a class="shoes-list-color" href="#">帆船鞋</a>
+                                            <a href="#">布鞋</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        女单鞋
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="shoes-left-list">
+                                            <a class="shoes-list-color" href="#">单鞋</a>
+                                            <a href="#">小白鞋</a>
+                                            <a class="shoes-list-color" href="#">商场同款</a>
+                                            <a href="#">帆布鞋</a>
+                                            <a class="shoes-list-color" href="#">深口单鞋</a>
+                                            <a href="#">浅口单鞋</a>
+                                            <a class="shoes-list-color" href="#">平底单鞋</a>
+                                            <a class="shoes-list-color" href="#">高跟单鞋</a>
+                                            <a class="shoes-list-color" href="#">坡跟单鞋</a>
+                                            <a href="#">豆豆鞋</a>
+                                            <a href="#">乐福鞋</a>
+                                            <a href="#">牛津鞋</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        特色鞋
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="shoes-left-list">
+                                            <a href="#">妈妈鞋</a>
+                                            <a class="shoes-list-color" href="#">大码女鞋</a>
+                                            <a class="shoes-list-color" href="#">小码女鞋</a>
+                                            <a href="#">女内增高</a>
+                                            <a class="shoes-list-color" href="#">男内增高</a>
+                                            <a href="#">软轻风</a>
+                                            <a class="shoes-list-color" href="#">爸爸鞋</a>
+                                            <a class="shoes-list-color" href="#">大码男鞋</a>
+                                            <a href="#">小码男鞋</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        潮流女包
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="shoes-left-list">
+                                            <a class="shoes-list-color" href="#">新品推荐</a>
+                                            <a class="shoes-list-color" href="#">商场同款</a>
+                                            <a class="shoes-list-color" href="#">女士钱包</a>
+                                            <a href="#">单肩包</a>
+                                            <a href="#">斜挎包</a>
+                                            <a href="#">手提包</a>
+                                            <a href="#">手拿包</a>
+                                            <a href="#">腰包</a>
+                                            <a href="#">胸包</a>
+                                            <a href="#">化妆包</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        精品男包
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="shoes-left-list">
+                                            <a class="shoes-list-color" href="#">男士钱包</a>
+                                            <a href="#">收纳包</a>
+                                            <a href="#">胸包</a>
+                                            <a class="shoes-list-color" href="#">腰包</a>
+                                            <a href="#">手拿包</a>
+                                            <a class="shoes-list-color" href="#">手提包</a>
+                                            <a href="#">斜跨包</a>
+                                            <a href="#">单肩包</a>
+                                            <a href="#">商场同款</a>
+                                            <a href="#">新品推荐</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        功能箱包
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="bottom-line dress-left-list">
+                                        <div class="shoes-left-list">
+                                            <a class="shoes-list-color" href="#">旅行箱</a>
+                                            <a href="#">万向轮箱</a>
+                                            <a href="#">旅行袋</a>
+                                            <a class="shoes-list-color" href="#">女士双肩包</a>
+                                            <a href="#">男士双肩包</a>
+                                            <a href="#">韩版双肩包</a>
+                                            <a href="#">铆钉双肩包</a>
+                                            <a href="#">女士钱包</a>
+                                            <a href="#">男士钱包</a>
+                                            <a class="shoes-list-color" href="#">大容量</a>
+                                            <a class="shoes-list-color" href="#">印花</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dress-right">
+                                <a href="#"><img src="../images/shoes/01.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/02.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/03.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/04.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/05.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/06.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/07.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/08.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/09.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/10.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/11.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/12.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/13.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/14.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/15.jpg" alt=""></a>
+                                <a href="#"><img src="../images/shoes/16.jpg" alt=""></a>
+                            </div>
+                        </div>
                     </li>
-                    <li class="main-list">
+                    <li class="color-three main-list">
+
                         <span class="iconfont">&#xe661;</span>
                         <a href="#">美妆</a>
-                        /<a href="#">个人护理</a>
+                        <span class="main-list-line">/</span><a href="#">个人护理</a>
+                        <div id="dress">
+                            <div class="dress-left">
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        护肤品
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="beauty-left-list">
+                                            <a class="beauty-list-color" href="#">官方直售</a>
+                                            <a class="beauty-list-color" href="#">面膜</a>
+                                            <a class="beauty-list-color" href="#">护肤套装</a>
+                                            <a href="#">乳液面霜</a>
+                                            <a href="#">精华液</a>
+                                            <a href="#">护手霜</a>
+                                            <a href="#">爽肤水</a>
+                                            <a href="#">洁面</a>
+                                            <a href="#">眼霜</a>
+                                            <a href="#">身体乳</a>
+                                            <a class="beauty-list-color" href="#">卸妆</a>
+                                            <a href="#">身体护理</a>
+                                            <a href="#">男士护理</a>
+                                            <a href="#">精油芳疗</a>
+                                            <a href="#">丰胸</a>
+                                            <a href="#">面部喷雾</a>
+                                            <a href="#">T区护理</a>
+                                            <a href="#">去角质</a>
+                                            <a class="beauty-list-color" href="#">补水</a>
+                                            <a href="#">祛痘</a>
+                                            <a href="#">敏感维护</a>
+                                            <a href="#">线上专柜</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        彩妆
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="beauty-left-list">
+                                            <a class="beauty-list-color" href="#">时尚彩妆</a>
+                                            <a href="#">香水</a>
+                                            <a class="beauty-list-color" href="#">BB霜</a>
+                                            <a href="#">美容工具</a>
+                                            <a class="beauty-list-color" href="#">口红</a>
+                                            <a href="#">隔离</a>
+                                            <a href="#">粉底</a>
+                                            <a href="#">粉饼</a>
+                                            <a class="beauty-list-color" href="#">气垫bb</a>
+                                            <a href="#">指甲油</a>
+                                            <a href="#">美甲工具</a>
+                                            <a href="#">眉笔</a>
+                                            <a class="beauty-list-color" href="#">睫毛膏</a>
+                                            <a href="#">眼线</a>
+                                            <a href="#">唇彩</a>
+                                            <a href="#">眼影</a>
+                                            <a href="#">蜜粉</a>
+                                            <a href="#">彩妆套装</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        男士护肤
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="beauty-left-list">
+                                            <a href="#">洁面</a>
+                                            <a href="#">爽肤水</a>
+                                            <a href="#">乳液/面霜</a>
+                                            <a href="#">面膜</a>
+                                            <a href="#">面部精华</a>
+                                            <a href="#">眼部护理</a>
+                                            <a href="#">防晒</a>
+                                            <a href="#">唇部护理</a>
+                                            <a href="#">T区护理</a>
+                                            <a href="#">控油</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        肤质推选
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="beauty-left-list">
+                                            <a href="#">混合偏油性</a>
+                                            <a class="beauty-list-color" href="#">中性偏干性</a>
+                                            <a href="#">敏感性</a>
+                                            <a class="beauty-list-color" href="#">干性</a>
+                                            <a class="beauty-list-color" href="#">油性</a>
+                                            <a class="beauty-list-color" href="#">混合型</a>
+                                            <a href="#">中性</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        美发护发
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="beauty-left-list">
+                                            <a class="beauty-list-color" href="#">洗发水</a>
+                                            <a class="beauty-list-color" href="#">进口洗发水</a>
+                                            <a href="#">护发素</a>
+                                            <a href="#">发膜</a>
+                                            <a class="beauty-list-color" href="#">洗护套装</a>
+                                            <a href="#">护发精油</a>
+                                            <a href="#">头发造型</a>
+                                            <a href="#">弹力素</a>
+                                            <a href="#">染发霜</a>
+                                            <a class="beauty-list-color" href="#">整顶假发</a>
+                                            <a href="#">假发配件</a>
+                                            <a href="#">男性假发</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        口腔护理
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="dress-left-list">
+                                        <div class="beauty-left-list">
+                                            <a class="beauty-list-color" href="#">牙膏</a>
+                                            <a href="#">进口牙膏</a>
+                                            <a href="#">牙刷</a>
+                                            <a class="beauty-list-color" href="#">进口牙刷</a>
+                                            <a class="beauty-list-color" href="#">漱口水</a>
+                                            <a href="#">牙线</a>
+                                            <a href="#">牙粉</a>
+                                            <a href="#">口气清新剂</a>
+                                            <a class="beauty-list-color" href="#">牙贴</a>
+                                            <a href="#">口腔美白</a>
+                                            <a href="#">假牙清洁</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dress-left-type">
+                                    <div class="dress-left-title">
+                                        身体女性
+                                        <span class="iconfont">&#xe632;</span>
+                                    </div>
+                                    <div class="bottom-line dress-left-list">
+                                        <div class="beauty-left-list">
+                                            <a class="beauty-list-color" href="#">沐浴露</a>
+                                            <a href="#">香皂</a>
+                                            <a href="#">泡澡浴盐</a>
+                                            <a href="#">护足</a>
+                                            <a class="beauty-list-color" href="#">洗手液</a>
+                                            <a href="#">手动剃须刀</a>
+                                            <a class="beauty-list-color" href="#">卫生巾</a>
+                                            <a href="#">成人护垫</a>
+                                            <a href="#">私处洗液</a>
+                                            <a href="#">卫生棉条</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dress-right">
+                                <a href="#"><img src="../images/beauty/01.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/02.png" alt=""></a>
+                                <a href="#"><img src="../images/beauty/03.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/04.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/05.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/06.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/07.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/08.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/09.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/10.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/11.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/12.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/13.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/14.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/15.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/16.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/17.jpg" alt=""></a>
+                                <a href="#"><img src="../images/beauty/18.jpg" alt=""></a>
+                            </div>
+                        </div>
                     </li>
-                    <li class="main-list">
+                    <li class="color-two main-list">
+
                         <span class="iconfont">&#xe669;</span>
                         <a href="#">腕表</a>
-                        /<a href="#">眼镜</a>
-                        /<a href="#">珠宝饰品</a>
+                        <span class="main-list-line">/</span><a href="#">眼镜</a>
+                        <span class="main-list-line">/</span><a href="#">珠宝饰品</a>
                     </li>
-                    <li class="main-list">
+                    <li class="color-one main-list">
+
                         <span class="iconfont">&#xe65f;</span>
                         <a href="#">手机</a>
-                        /<a href="#">数码</a>
-                        /<a href="#">电脑办公</a>
+                        <span class="main-list-line">/</span><a href="#">数码</a>
+                        <span class="main-list-line">/</span><a href="#">电脑办公</a>
                     </li>
-                    <li class="main-list">
+                    <li class="color-four main-list">
+
                         <span class="iconfont">&#xe631;</span>
                         <a href="#">母婴玩具</a>
                     </li>
-                    <li class="main-list">
+                    <li class="color-five main-list">
+
                         <span class="iconfont">&#xe607;</span>
                         <a href="#">零食</a>
-                        /<a href="#">茶酒</a>
-                        /<a href="#">进口食品</a>
+                        <span class="main-list-line">/</span><a href="#">茶酒</a>
+                        <span class="main-list-line">/</span><a href="#">进口食品</a>
                     </li>
-                    <li class="main-list">
+                    <li class="color-five main-list">
+
                         <span class="iconfont">&#xe614;</span>
                         <a href="#">生鲜水果</a>
                     </li>
-                    <li class="main-list">
+                    <li class="color-one main-list">
+
                         <span class="iconfont">&#xe675;</span>
                         <a href="#">大家电</a>
-                        /<a href="#">生活电器</a>
+                        <span class="main-list-line">/</span><a href="#">生活电器</a>
                     </li>
-                    <li class="main-list">
+                    <li class="color-six main-list">
+
                         <span class="iconfont">&#xe605;</span>
                         <a href="#">家具建材</a>
                     </li>
-                    <li class="main-list">
+                    <li class="color-one main-list">
+
                         <span class="iconfont">&#xe621;</span>
                         <a href="#">汽车</a>
-                        /<a href="#">配件</a>
-                        /<a href="#">用品</a>
+                        <span class="main-list-line">/</span><a href="#">配件</a>
+                        <span class="main-list-line">/</span><a href="#">用品</a>
                     </li>
-                    <li class="main-list">
+                    <li class="color-five main-list">
+
                         <span class="iconfont">&#xe620;</span>
                         <a href="#">家纺</a>
-                        /<a href="#">家饰</a>
-                        /<a href="#">鲜花</a>
+                        <span class="main-list-line">/</span><a href="#">家饰</a>
+                        <span class="main-list-line">/</span><a href="#">鲜花</a>
                     </li>
-                    <li class="main-list">
+                    <li class="color-seven main-list">
+                        <!-- 3bc7b0 -->
                         <span class="iconfont">&#xe601;</span>
                         <a href="#">医药保健</a>
                     </li>
-                    <li class="main-list">
+                    <li class="color-six main-list">
+
                         <span class="iconfont">&#xe664;</span>
                         <a href="#">厨具</a>
-                        /<a href="#">收纳</a>
-                        /<a href="#">宠物</a>
+                        <span class="main-list-line">/</span><a href="#">收纳</a>
+                        <span class="main-list-line">/</span><a href="#">宠物</a>
                     </li>
-                    <li class="main-list">
+                    <li class="color-seven main-list">
+                        <!-- 3bc7b0 -->
                         <span class="iconfont">&#xe603;</span>
                         <a href="#">图书音像</a>
                     </li>
@@ -375,15 +1091,15 @@
         var oBtn = document.getElementById('img-box-btn');
         var aBtn = oBtn.getElementsByTagName('li');
         var index = 0;
-        var color=["#e8e8e8","#e8e8e8","#fd9514","#0f0f0f","#101920","#fe6675"];
-        function change(n){
+        var color = ["#e8e8e8", "#e8e8e8", "#fd9514", "#0f0f0f", "#101920", "#fe6675"];
+        function change(n) {
             for (var i = 0; i < aLi.length; i++) {
                 aLi[i].className = "";
                 aBtn[i].className = "";
             }
             aLi[n].className = "img-active";
             aBtn[n].className = "img-btn";
-            oBack.style.background=color[n];
+            oBack.style.background = color[n];
         }
         function next() {
             index++;
@@ -392,16 +1108,16 @@
             };
             change(index);
         }
-        for(var i = 0;i<aBtn.length;i++){
+        for (var i = 0; i < aBtn.length; i++) {
             aBtn[i].index = i;
-            aBtn[i].onmousemove=function(){
+            aBtn[i].onmousemove = function () {
                 change(this.index);
-                index=this.index;
+                index = this.index;
             }
         }
         var timer = setInterval('next()', 3000);
         oDiv.onmouseout = function () {
-            timer = setInterval('next()',3000);
+            timer = setInterval('next()', 3000);
         }
         oDiv.onmousemove = function () {
             clearInterval(timer);

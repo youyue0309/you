@@ -331,17 +331,18 @@
 }
 .main-list{
     height: 31.2px;
-    line-height: 31.2px;
     font-size: 14px;
-    color:#fff;
-
 }
-.main-list a{
+.main-list .main-list-line{
+    color:#fff;
+}
+.main-list > a{
     color:#fff;
     font-size: 14px;
     height: 31px;
 }
-.main-list .iconfont{
+.main-list > .iconfont{
+    color:#fff;
     font-size: 16px;
     height: 31px;
     line-height: 31px;
@@ -377,3 +378,153 @@
 
 
 /* 轮播图结束 */
+
+
+/* 左侧导航 li开始 */
+.main-list:hover{
+    background: #fff;
+}
+.main-list:hover .main-list-line,.main-list:hover >a,.main-list:hover > .iconfont{
+    color:#e54077;
+    font-weight: 700;
+}
+.color-one:hover .main-list-line,.color-one:hover >a,.color-one:hover > .iconfont{
+    color:#427def;
+}
+.color-two:hover .main-list-line,.color-two:hover >a,.color-two:hover > .iconfont{
+    color:#6347de;
+}
+.color-three:hover .main-list-line,.color-three:hover >a,.color-three:hover > .iconfont{
+    color:#e54077;
+}
+.color-four:hover .main-list-line,.color-four:hover >a,.color-four:hover > .iconfont{
+    color:#fa5c5c;
+}
+.color-five:hover .main-list-line,.color-five:hover >a,.color-five:hover > .iconfont{
+    color:#f7a831;
+}
+.color-six:hover .main-list-line,.color-six:hover >a,.color-six:hover > .iconfont{
+    color:#dd2727;
+}
+.color-seven:hover .main-list-line,.color-seven:hover >a,.color-seven:hover > .iconfont{
+    color:#3bc7b0;
+}
+.main-list:hover > .iconfont{
+    opacity: 1;
+}
+#menu-list{
+    position: relative;
+}
+#dress{
+    display: none;
+    width: 852px;
+    height: 500px;
+    background: #fff;
+    position:absolute;
+    top:0;
+    left:200px;
+    z-index: 1;
+}
+.main-list:hover #dress{
+    display: block;
+}
+.dress-left{
+    width: 583px;
+    height: 462px;
+    background: #fff;
+    float: left;
+    padding:19px 30px;
+}
+.dress-right{
+    width: 189px;
+    height: 480px;
+    background:#fafafa;
+    float: left;
+    padding:10px;
+}
+.dress-right img{
+    width: 73px;
+    margin:0 auto;
+}
+.dress-right > a{
+    width: 73px;
+    height: 37px;
+    margin-bottom: 1px;
+    margin-right:1px;
+    background-color: #fff;
+    padding:5px 10px;
+    float:left;
+}
+.dress-right-bottom a{
+    background-color: #fff;
+}
+
+.dress-right-bottom img{
+    margin-top:10px;
+    width: 189px;
+    height: 87px;
+    float:left;
+}
+
+.dress-left-title{
+    font-family: "Microsoft YaHei",SimSun,'\5b8b\4f53',sans-serif;
+    width: 60px;
+    text-align: justify;
+    position: relative;
+    height: 22px;
+    margin-right:15px;
+    color:#333;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 22px;
+    float: left;
+}
+.dress-left-title .iconfont{
+    color:#333;
+    position: absolute;
+    right:-15px;
+    top:0;
+}
+.dress-left-list a{
+    font-size: 14px;
+    color:#666;
+    margin-left:13px;
+    height: 22px;
+    line-height: 22px;
+    float: left;
+}
+.dress-left-list a:hover{
+    color:#e54077;
+}
+.dress-left-list{
+    width: 493px;
+    float: left;
+    margin-bottom: 10px;
+    padding-bottom:10px;
+    border-bottom:1px dashed #e8e8e8;
+}
+.dress-left-list .dress-list-color{
+    color:#e54077;
+}
+.bottom-line{
+    border-bottom:none;
+}
+.dress-left-list .man-left-list a:hover{
+    color:#427def;
+}
+.dress-left-list .man-list-color{
+    color:#427def;
+}
+.dress-left-list .shoes-left-list a:hover{
+    color:#6347de;
+}
+.dress-left-list .shoes-list-color{
+    color:#6347de;
+}
+.dress-left-list .beauty-left-list a:hover{
+    color:#e54077;
+}
+.dress-left-list .beauty-list-color{
+    color:#e54077;
+}
+/* 左侧导航 li结束 */
