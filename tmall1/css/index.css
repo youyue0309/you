@@ -527,4 +527,28 @@
 .dress-left-list .beauty-list-color{
     color:#e54077;
 }
+.dress-left-list .watch-left-list a:hover{
+    color:#6347de;
+}
+.dress-left-list .watch-list-color{
+    color:#6347de;
+}
+.dress-left-list .phone-left-list a:hover{
+    color:#427def;
+}
+.dress-left-list .phone-list-color{
+    color:#427def;
+}
+.dress-left-list .baby-left-list a:hover{
+    color:#fa5c5c;
+}
+.dress-left-list .baby-list-color{
+    color:#fa5c5c;
+}
+.dress-left-list .food-left-list a:hover{
+    color:#f7a831;
+}
+.dress-left-list .food-list-color{
+    color:#f7a831;
+}
 /* 左侧导航 li结束 */
