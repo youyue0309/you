@@ -23,6 +23,7 @@ export default {
 
 <style lang="scss">
 #main{
-  margin:1rem 0;
+  margin-top:1rem;
+  margin-bottom:1.1rem;
 }
 </style>

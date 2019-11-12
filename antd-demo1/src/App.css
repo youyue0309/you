@@ -1,0 +1,12 @@
+.App {
+  display: flex;
+}
+.menu-box{
+  width:200px;
+}
+.app-left{
+  width:200px;
+}
+.app-right{
+  flex:1;
+}

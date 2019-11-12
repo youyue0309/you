@@ -1,0 +1,12 @@
+.header-box{
+    height: 100px;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);
+}
+.header-box img{
+    width: 50px;
+    float: right;
+}
+.header-box span{
+    float:right;
+}

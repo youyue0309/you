@@ -1,8 +1,10 @@
 <template>
   <div id="header">
-    <span class="search iconfont">&#xe626;</span>
+    <a href="#"><span class="search iconfont">&#xe626;</span></a>
     <span class="title">首页</span>
-    <span class="buycar iconfont">&#xe602;</span>
+    <router-link to="/buycar">
+      <span class="buycar iconfont">&#xe602;</span>
+    </router-link>
   </div>
 </template>
 
@@ -12,6 +14,7 @@ export default {};
 
 <style lang="scss" scoped>
 #header {
+  z-index: 1;
   width: 100%;
   height: 1rem;
   background:rgba(255,192,203,1.0);

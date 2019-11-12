@@ -43,38 +43,48 @@
       </div>
       <div class="line"></div>
       <div class="goods-list-box">
-        <div @mousedown="move($event)" id="goods-list">
+        <div @mousedown="move($event)" :style="{left:-this.leftX+'rem'}" id="goods-list">
           <ul>
-            <li class="hot-goods">
-              <img src="./../assets/images/goods.jpg" alt />
-              <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
-              <span class="price">￥36</span>
-              <span class="pay">36人已付款</span>
-            </li>
-            <li class="hot-goods">
-              <img src="./../assets/images/goods.jpg" alt />
-              <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
-              <span class="price">￥36</span>
-              <span class="pay">36人已付款</span>
-            </li>
-            <li class="hot-goods">
-              <img src="./../assets/images/goods.jpg" alt />
-              <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
-              <span class="price">￥36</span>
-              <span class="pay">36人已付款</span>
-            </li>
-            <li class="hot-goods">
-              <img src="./../assets/images/goods.jpg" alt />
-              <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
-              <span class="price">￥36</span>
-              <span class="pay">36人已付款</span>
-            </li>
-            <li class="hot-goods">
-              <img src="./../assets/images/goods.jpg" alt />
-              <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
-              <span class="price">￥36</span>
-              <span class="pay">36人已付款</span>
-            </li>
+            <a href="#">
+              <li class="hot-goods">
+                <img src="./../assets/images/goods.jpg" alt />
+                <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
+                <span class="price">￥36</span>
+                <span class="pay">36人已付款</span>
+              </li>
+            </a>
+            <a href="#">
+              <li class="hot-goods">
+                <img src="./../assets/images/goods.jpg" alt />
+                <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
+                <span class="price">￥36</span>
+                <span class="pay">36人已付款</span>
+              </li>
+            </a>
+            <a href="#">
+              <li class="hot-goods">
+                <img src="./../assets/images/goods.jpg" alt />
+                <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
+                <span class="price">￥36</span>
+                <span class="pay">36人已付款</span>
+              </li>
+            </a>
+            <a href="#">
+              <li class="hot-goods">
+                <img src="./../assets/images/goods.jpg" alt />
+                <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
+                <span class="price">￥36</span>
+                <span class="pay">36人已付款</span>
+              </li>
+            </a>
+            <a href="#">
+              <li class="hot-goods">
+                <img src="./../assets/images/goods.jpg" alt />
+                <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
+                <span class="price">￥36</span>
+                <span class="pay">36人已付款</span>
+              </li>
+            </a>
           </ul>
         </div>
       </div>
@@ -85,10 +95,16 @@
       </div>
       <div class="line"></div>
       <div class="commend-goods">
-        <img src="./../assets/images/goods.jpg" alt />
-        <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
-        <span class="price">￥36</span>
-        <span class="pay">36人已付款</span>
+        <ul>
+          <a v-for="(obj,index) in goodsList" :key="index" href="#">
+            <li>
+              <img :src="obj.img" alt="">
+              <div class="goods-detail">{{obj.detail}}</div>
+              <span class="price">￥{{obj.price}}</span>
+              <span class="pay">{{obj.pay}}人已付款</span>
+            </li>
+          </a>
+        </ul>
       </div>
     </div>
   </div>
@@ -101,7 +117,39 @@ import { Swipe, SwipeItem } from 'vue-swipe';
 export default {
   data() {
     return {
-      leftX: 1,
+      leftX: 0,
+      goodsList: [
+        {
+          img: require('./../assets/images/goods.jpg'),
+          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
+          price: 36,
+          pay: 35,
+        },
+        {
+          img: require('./../assets/images/goods.jpg'),
+          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
+          price: 36,
+          pay: 35,
+        },
+        {
+          img: require('./../assets/images/goods.jpg'),
+          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
+          price: 36,
+          pay: 35,
+        },
+        {
+          img: require('./../assets/images/goods.jpg'),
+          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
+          price: 36,
+          pay: 35,
+        },
+        {
+          img: require('./../assets/images/goods.jpg'),
+          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
+          price: 36,
+          pay: 311,
+        },
+      ],
     };
   },
   components: {
@@ -114,11 +162,12 @@ export default {
       const odiv = event.target;
       const disX = event.clientX - odiv.offsetLeft;
       console.log(odiv);
-      document.onmousemove = (e) => {
+      odiv.onmousemove = (e) => {
         console.log(e);
         const left = e.clientX - disX;
         this.leftX = left / 50;
-        odiv.style.left = `${this.leftX}rem`;
+        // odiv.style.left = `${this.leftX}rem`;
+        console.log(this.leftX);
       };
       odiv.onmouseup = () => {
         document.onmousemove = null;
@@ -182,6 +231,7 @@ export default {
           background: #f5f5f5;
           text-align: center;
           .goods-detail {
+            color:#000;
             margin: 0.1rem;
             font-size: 13px;
             width: 2.3rem;
@@ -228,18 +278,24 @@ export default {
       background: #f5f5f5;
     }
     .commend-goods{
-          float: left;
-          margin-top: 0.1rem;
-          margin-left: 0.1rem;
-          position: relative;
-          width: 2.5rem;
-          height: 3.5rem;
-          background: #f5f5f5;
-          text-align: center;
-          .goods-detail {
-            margin: 0.1rem;
-            font-size: 13px;
-            width: 2.3rem;
+      overflow: hidden;
+      li{
+        float: left;
+        background: #fff;
+        width: 50%;
+        position: relative;
+        text-align: center;
+        height: 4.5rem;
+        img{
+          margin-top:0.2rem;
+          width: 3rem;
+          height: 3rem;
+        }
+        .goods-detail {
+            color: #000;
+            margin: 0.1rem 0.25rem;
+            font-size: 16px;
+            width: 3rem;
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
@@ -247,22 +303,18 @@ export default {
           .price {
             position: absolute;
             bottom: 0.1rem;
-            left: 0.1rem;
-            font-size: 14px;
+            left: 0.25rem;
+            font-size: 18px;
             color: #ff0036;
           }
           .pay {
             position: absolute;
             bottom: 0.1rem;
-            right: 0.1rem;
+            right: 0.3rem;
             color: #808080;
-            font-size: 12px;
+            font-size: 16px;
           }
-          img {
-            margin-top: 0.1rem;
-            width: 2.3rem;
-            height: 2.3rem;
-          }
+      }
     }
   }
 }
