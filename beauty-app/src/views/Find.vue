@@ -11,6 +11,7 @@
         <li>美容仪器</li>
       </ul>
     </div>
+    <van-button type="primary">主要按钮</van-button>
   </div>
 </template>
 
@@ -21,6 +22,10 @@ export default {};
 <style lang="scss" scoped>
 #find{
   .menu{
+    float: left;
+    width: 2rem;
+    height: 100vm;
+    background: red;
     li{
       width: 2rem;
       height: 0.8rem;

@@ -14,7 +14,7 @@ export default {};
 
 <style lang="scss" scoped>
 #header {
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   height: 1rem;
   background:rgba(255,192,203,1.0);

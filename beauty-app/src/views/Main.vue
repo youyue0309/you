@@ -1,39 +1,9 @@
 <template>
   <div id="main">
     <swipe class="my-swipe">
-      <swipe-item>
+      <swipe-item v-for="(obj,index) in swipeList" :key="index">
         <a href="#">
-          <img src="./../assets/images/1.jpg" alt />
-        </a>
-      </swipe-item>
-      <swipe-item>
-        <a href="#">
-          <img src="./../assets/images/2.jpg" alt />
-        </a>
-      </swipe-item>
-      <swipe-item>
-        <a href="#">
-          <img src="./../assets/images/3.jpg" alt />
-        </a>
-      </swipe-item>
-      <swipe-item>
-        <a href="#">
-          <img src="./../assets/images/4.jpg" alt />
-        </a>
-      </swipe-item>
-      <swipe-item>
-        <a href="#">
-          <img src="./../assets/images/5.jpg" alt />
-        </a>
-      </swipe-item>
-      <swipe-item>
-        <a href="#">
-          <img src="./../assets/images/6.jpg" alt />
-        </a>
-      </swipe-item>
-      <swipe-item>
-        <a href="#">
-          <img src="./../assets/images/7.jpg" alt />
+          <img :src="obj.path" alt />
         </a>
       </swipe-item>
     </swipe>
@@ -42,52 +12,14 @@
         <span class="hot-titled">热门商品</span>
       </div>
       <div class="line"></div>
-      <div class="goods-list-box">
-        <div @mousedown="move($event)" :style="{left:-this.leftX+'rem'}" id="goods-list">
-          <ul>
-            <a href="#">
-              <li class="hot-goods">
-                <img src="./../assets/images/goods.jpg" alt />
-                <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
-                <span class="price">￥36</span>
-                <span class="pay">36人已付款</span>
-              </li>
-            </a>
-            <a href="#">
-              <li class="hot-goods">
-                <img src="./../assets/images/goods.jpg" alt />
-                <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
-                <span class="price">￥36</span>
-                <span class="pay">36人已付款</span>
-              </li>
-            </a>
-            <a href="#">
-              <li class="hot-goods">
-                <img src="./../assets/images/goods.jpg" alt />
-                <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
-                <span class="price">￥36</span>
-                <span class="pay">36人已付款</span>
-              </li>
-            </a>
-            <a href="#">
-              <li class="hot-goods">
-                <img src="./../assets/images/goods.jpg" alt />
-                <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
-                <span class="price">￥36</span>
-                <span class="pay">36人已付款</span>
-              </li>
-            </a>
-            <a href="#">
-              <li class="hot-goods">
-                <img src="./../assets/images/goods.jpg" alt />
-                <div class="goods-detail">李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品</div>
-                <span class="price">￥36</span>
-                <span class="pay">36人已付款</span>
-              </li>
-            </a>
-          </ul>
-        </div>
-      </div>
+      <swiper :options="swiperOption" id="goods-list">
+        <swiper-slide v-for='(hot,index) in goodsList' :key="index" class="hot-goods">
+          <img :src="hot.img" alt />
+          <div class="goods-detail">{{hot.detail}}</div>
+          <span class="price">￥{{hot.price}}</span>
+          <span class="pay">{{hot.pay}}人已付款</span>
+        </swiper-slide>
+      </swiper>
     </div>
     <div class="commend">
       <div class="commend-title">
@@ -112,12 +44,71 @@
 
 <script>
 import 'vue-swipe/dist/vue-swipe.css';
+import 'swiper/dist/css/swiper.css';
 import { Swipe, SwipeItem } from 'vue-swipe';
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
 
 export default {
   data() {
     return {
-      leftX: 0,
+      swiperOption: {
+        slidesPerView: 3,
+      },
+      hotList: [
+        {
+          img: require('./../assets/images/goods.jpg'),
+          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
+          price: 76,
+          pay: 556,
+        },
+        {
+          img: require('./../assets/images/goods.jpg'),
+          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
+          price: 76,
+          pay: 556,
+        },
+        {
+          img: require('./../assets/images/goods.jpg'),
+          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
+          price: 76,
+          pay: 556,
+        },
+        {
+          img: require('./../assets/images/goods.jpg'),
+          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
+          price: 76,
+          pay: 556,
+        },
+        {
+          img: require('./../assets/images/goods.jpg'),
+          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
+          price: 76,
+          pay: 556,
+        },
+      ],
+      swipeList: [
+        {
+          path: require('./../assets/images/1.jpg'),
+        },
+        {
+          path: require('./../assets/images/2.jpg'),
+        },
+        {
+          path: require('./../assets/images/3.jpg'),
+        },
+        {
+          path: require('./../assets/images/4.jpg'),
+        },
+        {
+          path: require('./../assets/images/5.jpg'),
+        },
+        {
+          path: require('./../assets/images/6.jpg'),
+        },
+        {
+          path: require('./../assets/images/7.jpg'),
+        },
+      ],
       goodsList: [
         {
           img: require('./../assets/images/goods.jpg'),
@@ -155,25 +146,8 @@ export default {
   components: {
     Swipe,
     SwipeItem,
-  },
-  methods: {
-    move(event) {
-      console.log(event);
-      const odiv = event.target;
-      const disX = event.clientX - odiv.offsetLeft;
-      console.log(odiv);
-      odiv.onmousemove = (e) => {
-        console.log(e);
-        const left = e.clientX - disX;
-        this.leftX = left / 50;
-        // odiv.style.left = `${this.leftX}rem`;
-        console.log(this.leftX);
-      };
-      odiv.onmouseup = () => {
-        document.onmousemove = null;
-        // document.onmouseup = null;
-      };
-    },
+    swiper,
+    swiperSlide,
   },
 };
 </script>
@@ -210,55 +184,35 @@ export default {
       height: 2px;
       background: #f5f5f5;
     }
-    .goods-list-box{
-      position: relative;
-      width:100%;
-      height: 3.9rem;
-      overflow: hidden;
-      // background: blanchedalmond;
-      #goods-list {
-        // background: #ff0036;
+    #goods-list{
+      text-align: center;
+      height: 3.7rem;
+      img{
+        width: 2.25rem;
+        height: 2.25rem;
+        margin:0.2rem 0;
+      }
+      .goods-detail{
+        color: #000;
+        font-size: 14px;
+        width: 2.25rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .price {
         position: absolute;
-        left:0rem;
-        width:13rem;
-        .hot-goods {
-          float: left;
-          margin-top: 0.1rem;
-          margin-left: 0.1rem;
-          position: relative;
-          width: 2.5rem;
-          height: 3.5rem;
-          background: #f5f5f5;
-          text-align: center;
-          .goods-detail {
-            color:#000;
-            margin: 0.1rem;
-            font-size: 13px;
-            width: 2.3rem;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-          }
-          .price {
-            position: absolute;
-            bottom: 0.1rem;
-            left: 0.1rem;
-            font-size: 14px;
-            color: #ff0036;
-          }
-          .pay {
-            position: absolute;
-            bottom: 0.1rem;
-            right: 0.1rem;
-            color: #808080;
-            font-size: 12px;
-          }
-          img {
-            margin-top: 0.1rem;
-            width: 2.3rem;
-            height: 2.3rem;
-          }
-        }
+        bottom: 0.1rem;
+        left: 0.1rem;
+        font-size: 15px;
+        color: #ff0036;
+      }
+      .pay {
+        position: absolute;
+        bottom: 0.1rem;
+        right: 0.1rem;
+        color: #808080;
+        font-size: 13px;
       }
     }
   }
