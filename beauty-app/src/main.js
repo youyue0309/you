@@ -11,6 +11,8 @@ import './assets/font/iconfont.css';
 
 Vue.use(Button);
 
+import '@/mock/mock.js';
+
 Vue.config.productionTip = false;
 
 // Vue.use(Vant);

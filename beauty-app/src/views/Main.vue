@@ -13,7 +13,7 @@
       </div>
       <div class="line"></div>
       <swiper :options="swiperOption" id="goods-list">
-        <swiper-slide v-for='(hot,index) in goodsList' :key="index" class="hot-goods">
+        <swiper-slide v-for='(hot,index) in hotList' :key="index" class="hot-goods">
           <img :src="hot.img" alt />
           <div class="goods-detail">{{hot.detail}}</div>
           <span class="price">￥{{hot.price}}</span>
@@ -43,10 +43,12 @@
 </template>
 
 <script>
-import 'vue-swipe/dist/vue-swipe.css';
-import 'swiper/dist/css/swiper.css';
 import { Swipe, SwipeItem } from 'vue-swipe';
 import { swiper, swiperSlide } from 'vue-awesome-swiper';
+import 'vue-swipe/dist/vue-swipe.css';
+import 'swiper/dist/css/swiper.css';
+import axios from 'axios';
+import url from '@/servie.config';
 
 export default {
   data() {
@@ -54,93 +56,9 @@ export default {
       swiperOption: {
         slidesPerView: 3,
       },
-      hotList: [
-        {
-          img: require('./../assets/images/goods.jpg'),
-          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
-          price: 76,
-          pay: 556,
-        },
-        {
-          img: require('./../assets/images/goods.jpg'),
-          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
-          price: 76,
-          pay: 556,
-        },
-        {
-          img: require('./../assets/images/goods.jpg'),
-          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
-          price: 76,
-          pay: 556,
-        },
-        {
-          img: require('./../assets/images/goods.jpg'),
-          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
-          price: 76,
-          pay: 556,
-        },
-        {
-          img: require('./../assets/images/goods.jpg'),
-          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
-          price: 76,
-          pay: 556,
-        },
-      ],
-      swipeList: [
-        {
-          path: require('./../assets/images/1.jpg'),
-        },
-        {
-          path: require('./../assets/images/2.jpg'),
-        },
-        {
-          path: require('./../assets/images/3.jpg'),
-        },
-        {
-          path: require('./../assets/images/4.jpg'),
-        },
-        {
-          path: require('./../assets/images/5.jpg'),
-        },
-        {
-          path: require('./../assets/images/6.jpg'),
-        },
-        {
-          path: require('./../assets/images/7.jpg'),
-        },
-      ],
-      goodsList: [
-        {
-          img: require('./../assets/images/goods.jpg'),
-          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
-          price: 36,
-          pay: 35,
-        },
-        {
-          img: require('./../assets/images/goods.jpg'),
-          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
-          price: 36,
-          pay: 35,
-        },
-        {
-          img: require('./../assets/images/goods.jpg'),
-          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
-          price: 36,
-          pay: 35,
-        },
-        {
-          img: require('./../assets/images/goods.jpg'),
-          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
-          price: 36,
-          pay: 35,
-        },
-        {
-          img: require('./../assets/images/goods.jpg'),
-          detail: '李医生芦荟胶补水保湿青春痘面霜男女面膜正品痘膏淡化痘印护肤品',
-          price: 36,
-          pay: 311,
-        },
-      ],
+      hotList: [],
+      swipeList: [],
+      goodsList: [],
     };
   },
   components: {
@@ -148,6 +66,23 @@ export default {
     SwipeItem,
     swiper,
     swiperSlide,
+  },
+  created() {
+    const url1 = url.hotList;
+    const url2 = url.goodsList;
+    const url3 = url.swipeList;
+    axios.get(url1).then((res) => {
+      // console.log(res);
+      this.hotList = res.data;
+    });
+    axios.get(url3).then((res) => {
+      // console.log(res);
+      this.swipeList = res.data;
+    });
+    axios.get(url2).then((res) => {
+      // console.log(res);
+      this.goodsList = res.data;
+    });
   },
 };
 </script>
