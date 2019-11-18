@@ -11,7 +11,6 @@
         <li>美容仪器</li>
       </ul>
     </div>
-    <van-button type="primary">主要按钮</van-button>
   </div>
 </template>
 
