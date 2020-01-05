@@ -6,5 +6,5 @@ setTimeout(function(){
     console.log('Time elapse',end-start,'ms');
 },500);
 
-while(new Date-start<200){};
-// JS:String Date Number Object Function Array 正则
+while(new Date-start<1000){};
+// 原生JS:String Date Number Object Function Array 正则

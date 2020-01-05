@@ -33,7 +33,7 @@ new Promise((resolve,reject)=>{
 //     console.log(data);
 // },'json');   JSON.parse
 
-// Axios.post();  qs.stringfy  qs.parse  序列化 反系列化  
+// Axios.post();  qs.stringfy  qs.parse  序列化 反序列化  
 
 // 同步程序 异步程序
 
