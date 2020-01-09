@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .aa{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <my-component title="111">
+            <div slot="h">
+                <h3>111nnn1</h3>
+                <h3>111nnn1</h3>
+            </div>
+            <p slot="p">111nnn2</p>
+        </my-component>
+        <my-component title="222">
+            <h3>222nnn1</h3>
+            <p>222nnn2</p>
+        </my-component>
+        sdfghjkl
+    </div>
+    <div id="app1">
+        <my-component></my-component>
+        <my-component></my-component>
+    </div>
+    <template id="temp">
+        <div>heheh
+            <h2 class="aa">{{title}}</h2>
+            <p>{{count}}</p>
+            <div>
+                <slot name="h"></slot>
+            </div>
+            <button @click="add()">click</button>
+            <slot name="p"></slot>
+        </div>
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        //局部组件
+        new Vue({
+            el:"#app",
+            data:{
+
+            },
+            components:{
+                "myComponent":{
+                    template:"#temp",
+                    props:['title'],//不能修改  只能在父组件里修改
+                    data(){
+                        return {
+                            count:0
+                        }
+                    },
+                    methods:{
+                        add(){
+                            this.count++;
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

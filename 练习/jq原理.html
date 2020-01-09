@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function $(str){
+            return new Jquery(str);
+        }
+
+        function Jquery(str){
+            this.eles = [];
+            var sel = str.charAt(0);
+            var name = str.substr(1);
+            if(sel == '#'){
+                this.eles.push(document.getElementById(name));
+            }else if(sel =="."){
+                this.eles = [...document.getElementsByClassName(name)];
+                // this.eles.concat(document.getElementsByClassName(name));返回的是一个类数组，不能用concat
+                // this.eles = document.getElementsByClassName(name);   直接赋值，数组没有push等方法
+            }
+        }
+        Jquery.prototype.css = function(arg1,arg2){
+            if(typeof arg1 =="string" && typeof arg2 =="string"){
+                this.eles.map(function(ele,index){
+                    ele.style[arg1] = arg2; //动态属性赋值用中括号
+                })
+            }else if(typeof arg1 == "object" && arg2 == undefined){
+                this.eles.map(function(ele,index){
+                    for(key in arg1){
+                        ele[key] = arg1[key];//将每一个元素的 key属性 设置成arg1[key]
+                    }
+                })
+            }
+            return this; //返回对象，解决链式 $('#div1').css().on()
+        };
+
+        Jquery.prototype.on = function(eventName,handle){
+            this.eles.map(function(ele,index){
+                ele.addEventListener(eventName,handle);
+            })
+        }
+
+    </script>
+</body>
+</html>

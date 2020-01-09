@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        setTimeout(function(){
+            console.log("定时器");
+        },0);
+        new Promise(function(resolve){
+            console.log("for");
+            for(var i = 0;i < 10000;i++){
+                i == 99 &&resolve();
+            }
+        }).then(function(){
+            console.log("回调")
+        })
+        console.log("执行");
+    </script>
+</body>
+</html>

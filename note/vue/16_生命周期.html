@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="add()">add</button>
+        <button @click="del()">destory</button>
+        <h2>{{count}}</h2>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                count:0,
+            },
+            methods:{
+                add(){
+                    this.count++;
+                },
+                del(){
+                    //销毁vm 这个Vue实例
+                    vm.$destroy();
+                }
+            },
+            beforeCreate(){
+                console.log('beforeCreate',this.$el,this.$data);//undefined  undefined
+            },
+            created(){
+                this.add();//方法可以调用
+                console.log('created',this.$el,this.$data);//undefined   输出data对象
+            },
+            beforeMount(){
+                console.log('beforeMount',this.$el,this.$data);//输出app 但count不识别    输出data对象
+            },
+            mounted(){
+                console.log('mounted',this.$el,this.$data);//输出app  count识别       输出data对象
+            },
+            beforeUpdate(){
+                var app = document.getElementById('app');
+                console.log(app.innerHTML);
+                console.log('beforeUpdate',this.$el,this.$data);//有修改时调用  数据未更新
+            },
+            updated(){
+                console.log('updated',this.$el,this.$data);//更新完成后
+            },
+            beforeDestroy(){
+                this.add();
+                console.log('beforeDestroy');
+            },
+            destroyed(){
+                console.log('destroyed');
+            }
+        })
+    </script>
+</body>
+</html>

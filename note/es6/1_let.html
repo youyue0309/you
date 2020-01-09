@@ -9,47 +9,47 @@
 <body>
     <script>
         //1.let 没有变量提升
-        /* console.log(a);//undefined 变量提升
-        var a = 10;
-        console.log(b);//报错 没有变量提升
-        let b = 20; */
+        // console.log(a);//undefined 变量提升
+        // var a = 10;
+        // console.log(b);//报错 没有变量提升
+        // let b = 20; 
 
-       /*  2.let 不能重复定义
-        var a = 10;
-        var a = 20;
-        console.log(a);//20
-        let b = 10;
-        let b = 20;
-        console.log(b);//报错 */
+    //    2.let 不能重复定义
+        // var a = 10;
+        // var a = 20;
+        // console.log(a);//20
+        // let b = 10;
+        // let b = 20;
+        // console.log(b);//报错 
 
 
-        /* 3.let 块级作用域
-        var a = 5;
-        if(a){
-            var n = 5;
-        }
-        console.log(n);//5
-        var b = 5;
-        if(b){
-            let n = 5;
-        }
-        console.log(n);//未被定义 */
+        // 3.let 块级作用域
+        // var a = 5;
+        // if(a){
+        //     var n = 5;
+        // }
+        // console.log(n);//5
+        // var b = 5;
+        // if(b){
+        //     let n = 5;
+        // }
+        // console.log(n);//未被定义 
 
 
 
         //4.临时失效区 （暂时性死区） 当前作用域不允许同名的变量进来
-        /* var a = 10;
-        function test(){//变量提升 相当于定义了a 但是没有赋值
-            console.log(a);//undefined
-            var a = 20;
-        }
-        test(); */
-        /* var a = 10;
-        function test(){//临时失效区 （暂时性死区） 当前作用域不允许同名的变量进来
-            console.log(a);//报错 未被定义
-            let a = 20;
-        }
-        test(); */
+        // var a = 10;
+        // function test(){//变量提升 相当于定义了a 但是没有赋值
+        //     console.log(a);//undefined
+        //     var a = 20;
+        // }
+        // test(); 
+        //  var a = 10;
+        // function test(){//临时失效区 （暂时性死区） 当前作用域不允许同名的变量进来
+        //     console.log(a);//报错 未被定义
+        //     let a = 20;
+        // }
+        // test(); 
     </script>
 </body>
 </html>
