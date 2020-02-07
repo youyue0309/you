@@ -1,5 +1,12 @@
 <template>
   <div id="main">
+    <div id="header">
+      <a href="#"><span class="search iconfont">&#xe626;</span></a>
+      <span class="title">首页</span>
+      <router-link to="/buycar">
+       <span class="buycar iconfont">&#xe602;</span>
+      </router-link>
+    </div>
     <swipe class="my-swipe">
       <swipe-item v-for="(obj,index) in swipeList" :key="index">
         <a href="#">
@@ -89,8 +96,36 @@ export default {
 
 <style lang="scss" scoped>
 #main {
+  #header {
+  z-index: 2;
+  width: 100%;
+  height: 1rem;
+  background:rgba(255,192,203,1.0);
+  position: fixed;
+  top: 0;
+  line-height: 1rem;
+  text-align: center;
+  .iconfont{
+      color: #fff;
+      font-size: 21px;
+  }
+  .search{
+      float: left;
+      margin-left:0.2rem;
+  }
+  .buycar{
+      float: right;
+      margin-right:0.2rem;
+  }
+  .title{
+      font-size: 18px;
+      font-weight: 700;
+      color:#fff;
+  }
+}
   background: #f5f5f5;
   .my-swipe {
+    margin-top: 1rem;
     width: 100%;
     height: 3rem;
     img {
