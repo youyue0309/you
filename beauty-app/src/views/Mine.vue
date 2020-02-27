@@ -7,7 +7,7 @@
           <van-field label="密码" type="password" required clearable placeholder="请输入密码" v-model="loginPassword"></van-field>
         </van-cell-group>
         <div>
-          <van-button class="login-btn" type="primary" size="large">登录</van-button>
+          <van-button @click="loginHandler" class="login-btn" type="primary" size="large">登录</van-button>
         </div>
       </van-tab>
       <van-tab title="注册">
@@ -16,7 +16,7 @@
           <van-field label="密码" type="password" required clearable placeholder="请输入密码" v-model="registPassword"></van-field>
         </van-cell-group>
         <div>
-          <van-button class="login-btn" type="primary" size="large">注册</van-button>
+          <van-button @click="registHandler" class="login-btn" type="primary" size="large">注册</van-button>
         </div>
       </van-tab>
     </van-tabs>
@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+import url from '@/servie.config.js'
 export default {
   data() {
     return {
@@ -32,6 +34,60 @@ export default {
       registUsername: "",
       registPassword: ""
     };
+  },
+  methods: {
+    //注册的处理方法
+    registHandler(){
+      axios({
+        url: url.registUser,
+        method: 'post',
+        data: {
+          userName: this.registUsername,
+          password: this.registPassword,
+        }
+      }).then(res=>{
+        // console.log(res);
+        if(res.data.code ==200){
+          this.$toast.success('注册成功');
+          this.registUsername = "";
+          this.registPassword = "";
+        }else{
+          this.$toast.fail('注册失败');
+        }
+      }).catch(err=>{
+        // console.log(err);
+        this.$toast.fail('注册失败');
+      });
+    },
+    //登陆的处理方法
+    loginHandler(){
+      axios({
+        url: url.loginUser,
+        method: 'post',
+        data: {
+          userName: this.loginUsername,
+          password: this.loginPassword
+        }
+      }).then(res=>{
+        console.log(res);
+        if(res.data.code == 200){
+          new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+              resolve();
+            },1000);
+          }).then(()=>{
+            this.$toast.success('登录成功');
+            this.$router.push('/');
+          }).catch((err)=>{
+            this.$toast.fail('保存登录信息失败');
+            console.log(err);
+          });
+        }
+      }).catch(err=>{
+        console.log(err);
+        this.$toast.fail('登录失败');
+      });
+    }
   }
 };
 </script>
