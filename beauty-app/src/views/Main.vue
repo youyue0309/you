@@ -3,8 +3,8 @@
     <div id="header">
       <a href="#"><span class="search iconfont">&#xe626;</span></a>
       <span class="title">首页</span>
-      <router-link to="/buycar">
-       <span class="buycar iconfont">&#xe602;</span>
+      <router-link to="/mine">
+       <span class="buycar iconfont">{{userInfo.userName}}</span>
       </router-link>
     </div>
     <swipe class="my-swipe">
@@ -56,6 +56,7 @@ import 'vue-swipe/dist/vue-swipe.css';
 import 'swiper/dist/css/swiper.css';
 import axios from 'axios';
 import url from '@/servie.config';
+import { mapState } from 'vuex';
 
 export default {
   data() {
@@ -73,6 +74,9 @@ export default {
     SwipeItem,
     swiper,
     swiperSlide,
+  },
+  computed: {
+    ...mapState(['userInfo'])
   },
   created() {
     const url1 = url.hotList;
@@ -116,6 +120,7 @@ export default {
   .buycar{
       float: right;
       margin-right:0.2rem;
+      font-size:18px;
   }
   .title{
       font-size: 18px;
