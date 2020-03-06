@@ -6,7 +6,9 @@ const URL = {
   goodsList: MOCKURL + 'goodsList',
   swipeList: MOCKURL + 'swipeList',
   registUser: SERVERURL + 'user/registUser',
-  loginUser: SERVERURL + 'user/loginUser'
+  loginUser: SERVERURL + 'user/loginUser',
+  getTypes: SERVERURL + 'type/getTypes',
+  getProductsByType: SERVERURL + 'product/getProductsByType'
 };
 
 export default URL;
