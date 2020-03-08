@@ -4,7 +4,7 @@
       <a href="#"><span class="search iconfont">&#xe626;</span></a>
       <span class="title">首页</span>
       <router-link to="/mine">
-       <span class="buycar iconfont">{{userInfo.userName}}</span>
+       <span class="buycar iconfont">{{JSON.stringify(userInfo) === '{}' ? '未登录' : userInfo.userName}}</span>
       </router-link>
     </div>
     <swipe class="my-swipe">

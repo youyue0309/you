@@ -4,6 +4,8 @@ import Main from '../views/Main.vue';
 import Mine from '../views/Mine.vue';
 import Buycar from '../views/Buycar.vue';
 import Find from '../views/Find.vue';
+import Detail from '../views/Detail.vue';
+import CommonFooter from '../components/CommonFooter.vue';
 
 Vue.use(VueRouter);
 
@@ -11,22 +13,43 @@ const routes = [
   {
     path: '/',
     name: 'main',
-    component: Main,
+    // component: Main,
+    components: {
+      default: Main,
+      'common-footer': CommonFooter
+    }
   },
   {
     path: '/find',
     name: 'find',
-    component: Find,
+    // component: Find,
+    components: {
+      default: Find,
+      'common-footer': CommonFooter
+    }
   },
   {
     path: '/buycar',
     name: 'buycar',
-    component: Buycar,
+    // component: Buycar,
+    components: {
+      default: Buycar,
+      'common-footer': CommonFooter
+    }
   },
   {
     path: '/mine',
     name: 'mine',
-    component: Mine,
+    // component: Mine,
+    components: {
+      default: Mine,
+      'common-footer': CommonFooter
+    }
+  },
+  {
+    path: '/detail/:id',
+    name: 'detail',
+    component: Detail,
   },
 ];
 

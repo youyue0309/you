@@ -13,7 +13,7 @@
         <van-col span="18" class="container">
           <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
             <van-list @load="onLoad" v-model="isLoading" class="content" :finished="finished">
-            <div class="content-item" v-for="(item, index) in productList" :key="index">
+            <div @click="goDetail(item._id)" class="content-item" v-for="(item, index) in productList" :key="index">
               <img :src="item.img" alt="">
               <p class="content-item-name">{{item.name}}</p>
               <p class="content-item-price">￥{{item.price}}</p>
@@ -94,6 +94,28 @@ export default {
         this.productList = [];
         this.getProductList();
       }, 2000);
+    },
+    goDetail(id){
+      // console.log(id);
+      //路由命名方式传值 刷新界面传的参数会丢失
+      // this.$router.push({
+      //   name: 'detail',
+      //   params: {
+      //     id: id,
+      //   },
+      // });
+
+
+      //路径 会把传的参加进地址栏 刷新界面传的参数不会丢失
+      // this.$router.push({
+      //   path: '/detail',
+      //   query: {
+      //     id: id
+      //   }
+      // });
+
+
+      this.$router.push(`/detail/${id}`);
     }
   }
 };

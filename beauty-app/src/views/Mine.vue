@@ -71,7 +71,7 @@ export default {
           password: this.loginPassword
         }
       }).then(res=>{
-        console.log(res);
+        // console.log(res);
         if(res.data.code == 200){
           new Promise((resolve, reject)=>{
             setTimeout(()=>{
@@ -81,7 +81,7 @@ export default {
             this.$toast.success('登录成功');
             //保存登录状态
             this.loginAction(res.data.userInfo);
-            this.$router.push('/');
+            this.$router.go(-1);
           }).catch((err)=>{
             this.$toast.fail('保存登录信息失败');
             console.log(err);

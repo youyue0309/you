@@ -3,17 +3,17 @@
     <div id="main">
       <router-view />
     </div>
-    <common-footer></common-footer>
+    <router-view name="common-footer"></router-view>
   </div>
 </template>
 
 <script>
-import CommonFooter from './components/CommonFooter.vue';
+// import CommonFooter from './components/CommonFooter.vue';
 
 export default {
-  components: {
-    CommonFooter,
-  },
+  // components: {
+  //   CommonFooter,
+  // },
 };
 </script>
 
