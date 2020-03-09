@@ -1,0 +1,27 @@
+[
+    {
+        "typeId": 1,
+        "typeName": "护肤品" 
+    },{
+        "typeId": 2,
+        "typeName": "美妆工具" 
+    },{
+        "typeId": 3,
+        "typeName": "彩妆" 
+    },{
+        "typeId": 4,
+        "typeName": "保健品" 
+    },{
+        "typeId": 5,
+        "typeName": "个护品类" 
+    },{
+        "typeId": 6,
+        "typeName": "洁面" 
+    },{
+        "typeId": 7,
+        "typeName": "美容仪器" 
+    },{
+        "typeId": 8,
+        "typeName": "眼妆" 
+    }
+]

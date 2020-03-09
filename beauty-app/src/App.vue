@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     <div id="main">
-      <router-view />
+      <keep-alive>
+        <router-view />
+      </keep-alive>
     </div>
+    
     <router-view name="common-footer"></router-view>
   </div>
 </template>
@@ -19,7 +22,7 @@ export default {
 
 
 <style lang="scss">
-#main{
-  margin-bottom:1.1rem;
+#main {
+  margin-bottom: 1.1rem;
 }
 </style>
