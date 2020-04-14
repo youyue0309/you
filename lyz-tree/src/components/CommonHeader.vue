@@ -8,12 +8,17 @@
             <router-link to="/order">订单</router-link>
             <router-link to="/cart">购物车</router-link>
             <router-link to="/mine">我的</router-link>
+            <span class="name">{{userInfo.userName}}</span>
         </div>
     </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
     export default {
+        computed: {
+            ...mapState(['userInfo'])
+        }
         
     }
 </script>
@@ -53,6 +58,12 @@
                 background: #fff;
             }
         }
+    }
+    .name{
+        float: right;
+        margin-right: 20px;
+        color: #fff;
+        font-size: 20px;
     }
 }
 </style>

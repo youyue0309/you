@@ -9,14 +9,18 @@
                 <router-link to="/order">订单</router-link>
             </div>
             <div class="right-title">
-                <router-link to="/login">登录/注册</router-link>
+                <router-link to="/login">{{userInfo.userName}}</router-link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
     export default {
+        computed: {
+            ...mapState(['userInfo'])
+        }
         
     }
 </script>

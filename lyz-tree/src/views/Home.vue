@@ -69,6 +69,7 @@
 <script>
 import axios from "axios";
 import url from "@/servie.config.js";
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -77,6 +78,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['loginAction']),
     //注册的处理方法
     registHandler() {
       axios({
@@ -144,6 +146,7 @@ export default {
               });
               this.username = "";
               this.password = "";
+              this.loginAction(res.data.userInfo);
               this.$router.push('/category');
             }).catch(err=>{
               this.$message({
@@ -152,6 +155,13 @@ export default {
                 type: "error",
                 center: true
               });
+            });
+          }else{
+            this.$message({
+              showClose: true,
+              message: "登录失败",
+              type: "error",
+              center: true
             });
           }
         })

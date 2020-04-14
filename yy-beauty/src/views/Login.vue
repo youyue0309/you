@@ -12,6 +12,7 @@
 <script>
 import axios from "axios";
 import url from "@/servie.config.js";
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -20,6 +21,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['loginAction']),
     registHandler() {
       axios({
         url: url.registUser,
@@ -85,6 +87,8 @@ export default {
                 });
                 this.username = "";
                 this.password = "";
+                //保存登录状态
+                this.loginAction(res.data.userInfo);
                 this.$router.push("/");
               })
               .catch(err => {
@@ -95,6 +99,13 @@ export default {
                   center: true
                 });
               });
+          }else{
+            this.$message({
+              showClose: true,
+              message: "登录失败",
+              type: "error",
+              center: true
+            });
           }
         })
         .catch(err => {
@@ -117,6 +128,7 @@ export default {
   height: 600px;
   width: 1300px;
   background-image: url("../assets/image/login.webp");
+  background-size:1300px 600px;
   .login {
     height: 215px;
     width: 300px;
