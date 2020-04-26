@@ -20,7 +20,7 @@
             <div v-for="(it,index) in hotList" :key="index" class="hot-box">
               <img :src="it.img" alt />
               <span class="name">{{it.product}}</span>
-              <span class="price">{{it.price}}</span>
+              <span class="price">{{it.price}}￥/棵</span>
             </div>
           </div>
         </div>
@@ -60,11 +60,11 @@
             <el-col :span="19">
               <div class="shop-cate-right">
                 <ul class="infinite-list" v-infinite-scroll="load" style="overflow:auto">
-                  <li v-for="(it,index) in 20" :key="index" class="infinite-list-item">
+                  <li v-for="(it,index) in productList" :key="index" class="infinite-list-item">
                     <el-card class="shop-card" :body-style="{ padding: '0px' }">
-                      <img src="../assets/image/4.jpg" />
-                      <span class="name">小树苗</span>
-                      <span class="price">22￥/株</span>
+                      <img :src=it.img />
+                      <span class="name">{{it.product}}</span>
+                      <span class="price">{{it.price}}￥/棵</span>
                     </el-card>
                   </li>
                 </ul>
@@ -139,12 +139,12 @@ export default {
       active: 0,
       typeId: 1,
       start: 0,
-      limit: 10,
+      limit: 8,
       types: [],
       hotList: [
         {
           product: "连翘苗价格",
-          price: "1.80元/棵",
+          noprice: "1.80元/棵",
           img:
             "http://img.xbmiaomu.com/file/upload/201701/04/19-37-13-45-96885.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "山西 运城",
@@ -154,11 +154,12 @@ export default {
           guanfu: "0",
           dijing: "0.3",
           lessnum: "1000 棵",
-          productsum: "500000 棵"
+          productsum: "500000 棵",
+          price: 1.80
         },
         {
           product: "苹果苗",
-          price: "3.50元/棵",
+          noprice: "3.50元/棵",
           img:
             "http://img.xbmiaomu.com/file/upload/202003/13/18340788103589.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "山东 泰安",
@@ -168,11 +169,12 @@ export default {
           guanfu: "10",
           dijing: "5",
           lessnum: "100 棵",
-          productsum: "1000000 棵"
+          productsum: "1000000 棵",
+          price: 3.50
         },
         {
           product: "苹果苗",
-          price: "2.00元/棵",
+          noprice: "2.00元/棵",
           img:
             "http://img.xbmiaomu.com/file/upload/202003/12/20010876108875.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "山东 泰安",
@@ -182,11 +184,12 @@ export default {
           guanfu: "2",
           dijing: "5",
           lessnum: "100 棵",
-          productsum: "9999 棵"
+          productsum: "9999 棵",
+          price: 2.00
         },
         {
           product: "云南拟单性木兰",
-          price: "面议",
+          noprice: "面议",
           img:
             "http://img.xbmiaomu.com/file/upload/201902/27/17260227105477.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "云南 文山壮族苗族自治州",
@@ -196,11 +199,12 @@ export default {
           guanfu: "null",
           dijing: "null",
           lessnum: "null",
-          productsum: "null"
+          productsum: "null",
+          price: 3.15
         },
         {
           product: "新疆杨、北京杨",
-          price: "面议",
+          noprice: "面议",
           img:
             "http://img.xbmiaomu.com/file/upload/201609/19/16-48-59-39-74849.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "内蒙古 巴彦淖尔",
@@ -210,11 +214,12 @@ export default {
           guanfu: "null",
           dijing: "null",
           lessnum: "null",
-          productsum: "null"
+          productsum: "null",
+          price: 6.10
         },
         {
           product: "花椒树苗种植前景",
-          price: "0.35元/棵",
+          noprice: "0.35元/棵",
           img:
             "http://img.xbmiaomu.com/file/upload/201809/18/0953473699871.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "山西 运城",
@@ -224,11 +229,12 @@ export default {
           guanfu: "20",
           dijing: "0.5",
           lessnum: "1000 棵",
-          productsum: "6000000 棵"
+          productsum: "6000000 棵",
+          price: 0.35
         },
         {
           product: "当年结果核桃苗",
-          price: "1.00元/棵",
+          noprice: "1.00元/棵",
           img:
             "http://img.xbmiaomu.com/file/upload/201709/24/07-39-04-11-10687.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "山西 运城",
@@ -238,11 +244,12 @@ export default {
           guanfu: "20",
           dijing: "1",
           lessnum: "100 棵",
-          productsum: "1680000 棵"
+          productsum: "1680000 棵",
+          price:1.00
         },
         {
           product: "白皮松",
-          price: "面议",
+          noprice: "面议",
           img:
             "http://img.xbmiaomu.com/file/upload/201404/04/08-18-29-64-77822.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "山西 运城",
@@ -252,11 +259,12 @@ export default {
           guanfu: "null",
           dijing: "null",
           lessnum: "null",
-          productsum: "null"
+          productsum: "null",
+          price:3.00
         },
         {
           product: "月季树",
-          price: "面议",
+          noprice: "面议",
           img:
             "http://img.xbmiaomu.com/file/upload/201706/24/13-14-53-29-98029.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "河南 南阳",
@@ -266,11 +274,12 @@ export default {
           guanfu: "null",
           dijing: "null",
           lessnum: "null",
-          productsum: "null"
+          productsum: "null",
+          price: 5.12
         },
         {
           product: "蜀侩",
-          price: "面议",
+          noprice: "面议",
           img:
             "http://img.xbmiaomu.com/file/upload/201709/26/14-03-42-10-99889.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "山西 运城",
@@ -280,11 +289,12 @@ export default {
           guanfu: "60",
           dijing: "null",
           lessnum: "100 棵",
-          productsum: "100000 棵"
+          productsum: "100000 棵",
+          price: 6.23
         },
         {
           product: "山楂苗",
-          price: "3.00元/棵",
+          noprice: "3.00元/棵",
           img:
             "http://img.xbmiaomu.com/file/upload/201709/07/17-58-35-43-99665.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "山西 运城",
@@ -294,11 +304,12 @@ export default {
           guanfu: "null",
           dijing: "null",
           lessnum: "100 棵",
-          productsum: "100000 棵"
+          productsum: "100000 棵",
+          price: 3.00
         },
         {
           product: "山楂树价格",
-          price: "面议",
+          noprice: "面议",
           img:
             "http://img.xbmiaomu.com/file/upload/201803/15/15-21-44-34-101152.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "山西 运城",
@@ -308,11 +319,12 @@ export default {
           guanfu: "null",
           dijing: "null",
           lessnum: "100 棵",
-          productsum: "100000 棵"
+          productsum: "100000 棵",
+          price: 1.32
         },
         {
           product: "白皮松价格",
-          price: "1.00元/棵",
+          noprice: "1.00元/棵",
           img:
             "http://img.xbmiaomu.com/file/upload/201803/11/19-02-26-26-101233.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "山西 运城",
@@ -322,11 +334,12 @@ export default {
           guanfu: "null",
           dijing: "null",
           lessnum: "null",
-          productsum: "1000000 棵"
+          productsum: "1000000 棵",
+          price: 4.23
         },
         {
           product: "老人葵",
-          price: "面议",
+          noprice: "面议",
           img:
             "http://img.xbmiaomu.com/file/upload/201111/05/11-13-36-85-29387.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "福建 漳州",
@@ -336,11 +349,12 @@ export default {
           guanfu: "null",
           dijing: "null",
           lessnum: "null",
-          productsum: "null"
+          productsum: "null",
+          price:2.00
         },
         {
           product: "6公分山楂树价格",
-          price: "面议",
+          noprice: "面议",
           img:
             "http://img.xbmiaomu.com/file/upload/201711/11/12-08-04-99-100101.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "山西 运城",
@@ -350,11 +364,12 @@ export default {
           guanfu: "null",
           dijing: "null",
           lessnum: "100 棵",
-          productsum: "100000 棵"
+          productsum: "100000 棵",
+          price: 3.00
         },
         {
           product: "油松",
-          price: "20.00元/棵",
+          noprice: "20.00元/棵",
           img:
             "http://img.xbmiaomu.com/file/upload/201802/26/14-09-41-87-100594.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "山西 运城",
@@ -364,11 +379,12 @@ export default {
           guanfu: "120",
           dijing: "null",
           lessnum: "10 棵",
-          productsum: "100000 棵"
+          productsum: "100000 棵",
+          price: 1.00
         },
         {
           product: "8公分梨树价格",
-          price: "面议",
+          noprice: "面议",
           img:
             "http://img.xbmiaomu.com/file/upload/201702/25/21-05-30-82-97345.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "山西 运城",
@@ -378,11 +394,12 @@ export default {
           guanfu: "null",
           dijing: "null",
           lessnum: "null",
-          productsum: "10000 棵"
+          productsum: "10000 棵",
+          price: 5.00
         },
         {
           product: "3公分樱桃树价格",
-          price: "30.00元/棵",
+          noprice: "30.00元/棵",
           img:
             "http://img.xbmiaomu.com/file/upload/201909/05/2018067299529.gif?x-oss-process=style/PC_sell-list.120x120",
           city: "山西 运城",
@@ -392,11 +409,12 @@ export default {
           guanfu: "null",
           dijing: "3",
           lessnum: "100 棵",
-          productsum: "100000 棵"
+          productsum: "100000 棵",
+          price:1.00
         },
         {
           product: "草莓苗",
-          price: "0.35元/棵",
+          noprice: "0.35元/棵",
           img:
             "http://img.xbmiaomu.com/file/upload/201706/06/13-19-13-77-98891.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "山东 泰安",
@@ -406,11 +424,12 @@ export default {
           guanfu: "null",
           dijing: "null",
           lessnum: "100 棵",
-          productsum: "500000 棵"
+          productsum: "500000 棵",
+          price:3.00
         },
         {
           product: "垂柳 旱柳 ",
-          price: "面议",
+          noprice: "面议",
           img:
             "http://img.xbmiaomu.com/file/upload/201509/13/16-17-13-64-90106.jpg?x-oss-process=style/PC_sell-list.120x120",
           city: "河北 保定",
@@ -420,7 +439,8 @@ export default {
           guanfu: "null",
           dijing: "null",
           lessnum: "null",
-          productsum: "null"
+          productsum: "null",
+          price:5.00
         }
       ],
       imgList: [
@@ -430,6 +450,7 @@ export default {
         { url: require("../assets/image/4.jpg") },
         { url: require("../assets/image/5.jpg") }
       ],
+      productList: [],
       left: 0
     };
   },
@@ -439,8 +460,8 @@ export default {
     })
       .then(res => {
         this.types = res.data;
-        this.selectCategory(this.typeId,this.active);
-        console.log(res);
+        this.selectCategory(this.typeId, this.active);
+        // console.log(res);
       })
       .catch(err => {
         console.log(err);
@@ -450,6 +471,7 @@ export default {
     selectCategory(typeId, index) {
       this.active = index;
       this.typeId = typeId;
+      this.productList = [];
 
       this.getProductList();
     },
@@ -475,17 +497,29 @@ export default {
     getProductList() {
       axios({
         url: url.getProductsByType,
-        method: 'get',
+        method: "get",
         params: {
           typeId: this.typeId,
-          start: this.start,
+          start: this.productList.length,
           limit: this.limit
         }
-      }).then(res => {
-        console.log(res);
-      }).catch(err => {
-        console.log(err);
-      });
+      })
+        .then(res => {
+          if (res.data.length != 0) {
+            this.productList = this.productList.concat(res.data);
+          }else{
+            console.log("no more");
+          }
+          // console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    load() {
+      setTimeout(() => {
+        this.getProductList();
+      }, 500);
     }
   }
 };
@@ -600,9 +634,9 @@ export default {
         }
       }
       .shop-cate-box {
-        height: 570px;
+        height: 600px;
         .shop-cate-left {
-          height: 570px;
+          height: 600px;
           background: rgba($color: rgb(107, 194, 53), $alpha: 0.5);
           .left-btn {
             .active {
@@ -631,30 +665,36 @@ export default {
         .shop-cate-right {
           height: 570px;
           // background: blue;
-          .shop-card {
-            box-shadow: 10px 10px 5px #ccc;
-            background: #eee;
-            position: relative;
-            margin-left: 20px;
-            width: 220px;
-            height: 270px;
-            img {
-              width: 200px;
-              height: 200px;
-              margin: 10px;
-            }
-            .name {
-              font-size: 16px;
-              position: absolute;
-              bottom: 10px;
-              left: 10px;
-            }
-            .price {
-              font-size: 18px;
-              position: absolute;
-              bottom: 10px;
-              right: 10px;
-              color: rgba(228, 63, 13, 0.89);
+          .infinite-list {
+            height: 600px;
+            li {
+              float: left;
+              .shop-card {
+                box-shadow: 10px 10px 5px #ccc;
+                background: #eee;
+                position: relative;
+                margin: 15px;
+                width: 220px;
+                height: 270px;
+                img {
+                  width: 200px;
+                  height: 200px;
+                  margin: 10px;
+                }
+                .name {
+                  font-size: 16px;
+                  position: absolute;
+                  bottom: 10px;
+                  left: 10px;
+                }
+                .price {
+                  font-size: 18px;
+                  position: absolute;
+                  bottom: 10px;
+                  right: 10px;
+                  color: rgba(228, 63, 13, 0.89);
+                }
+              }
             }
           }
         }

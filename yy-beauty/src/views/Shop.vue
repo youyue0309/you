@@ -7,27 +7,28 @@
             <div class="left-nav">
               <ul>
                 <li class="title">专区</li>
-                <li>护肤养肤</li>
-                <li>彩妆专区</li>
-                <li>香水专区</li>
-                <li>基础清洁</li>
-                <li>男士专区</li>
-                <li>底妆专区</li>
-                <li>专业工具</li>
+                <li
+                  v-for="(it,index) in types"
+                  @click="selectCategory(it.typeId,index)"
+                  :class="{active:active==index}"
+                  :key="index"
+                >{{it.typeName}}</li>
               </ul>
             </div>
           </el-col>
           <el-col :span="19">
             <div class="shop-bigbox">
-              <div v-for="(it,index) in 6" :key="index" class="card">
-                <img src="../assets/image/lunbo/6.jpg" alt />
-                <div class="name">
-                  <span>name</span>
-                </div>
-                <div class="price">
-                  <span>price￥</span>
-                </div>
-              </div>
+              <ul class="infinite-list" v-infinite-scroll="load" style="overflow:auto">
+                <li v-for="(it,index) in productList" :key="index" class="card">
+                  <img :src="it.img" alt />
+                  <div class="name">
+                    <span>{{it.chname}}</span>
+                  </div>
+                  <div class="price">
+                    <span>￥{{it.price}}</span>
+                  </div>
+                </li>
+              </ul>
             </div>
           </el-col>
         </el-row>
@@ -68,7 +69,69 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+import url from "@/servie.config.js";
+export default {
+  data() {
+    return {
+      active: 0,
+      typeId: 1,
+      types: [],
+      start: 0,
+      limit: 6,
+      productList: [],
+    };
+  },
+  created() {
+    axios({
+      url: url.getType
+    })
+      .then(res => {
+        this.types = res.data;
+        this.selectCategory(this.typeId, this.active);
+        // console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  },
+  methods: {
+    selectCategory(typeId, index) {
+      this.active = index;
+      this.typeId = typeId;
+      this.productList = [];
+
+      this.getProductList();
+    },
+    getProductList() {
+      axios({
+        url: url.getProductsByType,
+        method: "get",
+        params: {
+          typeId: this.typeId,
+          start: this.productList.length,
+          limit: this.limit
+        }
+      })
+        .then(res => {
+          if (res.data.length != 0) {
+            this.productList = this.productList.concat(res.data);
+          }else{
+            console.log("no more");
+          }
+          // console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    load() {
+      setTimeout(() => {
+        this.getProductList();
+      }, 500);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -82,6 +145,10 @@ export default {};
         margin-top: 15px;
         background-color: rgba($color: black, $alpha: 0.7);
         height: 785px;
+        .active {
+          color: black;
+          background-color: white;
+        }
         li {
           // padding-bottom: 2px;
           text-align: center;
@@ -97,23 +164,26 @@ export default {};
         }
       }
       .shop-bigbox {
+        .infinite-list{
+          height: 785px;
+        }
         .card {
           float: left;
           margin: 20px;
-          width: 300px;
+          width: 296px;
           height: 360px;
           // border: 1px solid #ccc;
           border-radius: 2%;
           background-color: #f8f8f8;
           box-shadow: 10px 10px 5px #ccc;
           img {
-            width: 280px;
-            height: 280px;
-            padding: 10px;
+            width: 270px;
+            height: 270px;
+            padding: 10px 13px;
           }
           .name {
             text-align: center;
-            height: 20px;
+            height: 40px;
           }
           .price {
             text-align: center;

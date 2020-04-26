@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="font/iconfont.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            width: 1300px;
+            margin: 0 auto;
+        }
+
+        .box {
+            list-style: none;
+            height: 280px;
+            width: 1300px;
+            background-color: #f8f8f8;
+            margin-top: 15px;
+
+        }
+
+        .car-img {
+            width: 250px;
+            height: 220px;
+            padding: 10px;
+        }
+
+        .img {
+            height: 280px;
+            width: 270px;
+            text-align: center;
+        }
+
+        .buju {
+            float: left;
+        }
+
+        .start {
+            height: 280px;
+            width: 240px;
+            position: relative;
+        }
+        .start-adr{
+            font-size: 20px;
+            font-weight: bolder;
+            position: absolute;
+            top:107px;
+            right: 10px;
+        }
+        .tiji{
+            position: absolute;
+            top:150px;
+            right: 10px;
+            font-size: 16px;
+        }
+        .send{
+            height: 280px;
+            width: 80px;
+            position: relative;
+        }
+        .iconfont{
+            font-size: 50px;
+            position: absolute;
+            top:95px;
+            left:10px;
+        }
+        .hour{
+            position: absolute;
+            top:90px;
+            left:10px;
+        }
+        .long{
+            position: absolute;
+            top:133px;
+            left:10px;
+        }
+        .end{
+            height: 280px;
+            width: 270px;
+            position: relative;
+        }
+        .end-adr{
+            font-size: 20px;
+            font-weight: bolder;
+            position: absolute;
+            top:107px;
+            left: 10px;
+        }
+        .weight{
+            position: absolute;
+            top:150px;
+            left: 10px;
+            font-size: 16px;
+        }
+        .price{
+            height: 280px;
+            width: 270px;
+            position: relative;
+        }
+        .price-num{
+            font-size: 20px;
+            font-weight: bolder;
+            color:orangered;
+            position: absolute;
+            top:100px;
+            left:10px;
+        }
+        .count{
+            position: absolute;
+            top:130px;
+            left:10px;
+        }
+        .btn{
+            height: 280px;
+            width: 170px;
+            position: relative;
+        }
+        .click{
+            width: 130px;
+            height: 50px;
+            background-color: orange;
+            color: white;
+            border: none;
+            position: absolute;
+            top: 100px;
+            right: 40px;
+            font-size: 18px;
+            border-radius: 2%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <div class="wrapper">
+            <ul>
+                <li class="box" v-for="it in list">
+                    <div class="buju img">
+                        <img class="car-img" :src="it.car.carTypeImage" alt="">
+                        <span class="name">{{it.car.typeName}}</span>
+                    </div>
+                    <div class="buju start">
+                        <div class="start-adr">
+                            <span>{{it.startAddress.province.name}}{{it.startAddress.city.name}}{{it.startAddress.district.name}}</span>
+                        </div>
+                        <div class="tiji">
+                            <span>载货体积：{{it.car.carLong}}*{{it.car.carWidth}}*{{it.car.carHeight}}m</span>
+                        </div>
+                    </div>
+                    <div class="buju send">
+                        <div class="hour">
+                            <span>{{it.hoursLength}}h</span>
+                        </div>
+                        <div class="icon">
+                            <span class="iconfont">&#xe601;</span>
+                        </div>
+                        <div class="long">
+                            <span>{{it.distance}}km</span>
+                        </div>
+                    </div>
+                    <div class="buju end">
+                        <div class="end-adr">
+                            <span>{{it.endAddress.province.name}}{{it.endAddress.city.name}}{{it.endAddress.district.name}}</span>
+                        </div>
+                        <div class="weight">
+                            <span>载货重量：{{it.car.carLoad}}吨</span>
+                        </div>
+                    </div>
+                    <div class="buju price">
+                        <div class="price-num">
+                            <span>一口价：￥{{it.price}}</span>
+                        </div>
+                        <div class="count">
+                            <span>累计已发：{{it.usageCount}}车</span>
+                        </div>
+                    </div>
+                    <div class="buju btn">
+                        <button class="click">立即用车</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: "#div1",
+            data: {
+                list: [
+                    {
+                        "id": 1,
+                        "lineNo": "10000000000000",
+                        "distance": 0.63,
+                        "hoursLength": 0.37,
+                        "price": 11122.32,
+                        "usageCount": 0,
+                        "startAddress": {
+                            "province": {
+                                "name": "山西省",
+                                "code": "140000",
+                                "level": {
+                                    "value": "first",
+                                    "desc": "first level"
+                                },
+                                "postCode": "",
+                                "longitude": "112.549248",
+                                "latitude": "37.857014"
+                            },
+                            "city": {
+                                "name": "太原市",
+                                "code": "140100",
+                                "level": {
+                                    "value": "second",
+                                    "desc": "second level"
+                                },
+                                "postCode": "030082",
+                                "longitude": "112.549248",
+                                "latitude": "37.857014"
+                            },
+                            "district": {
+                                "name": "晋源区",
+                                "code": "140110",
+                                "level": {
+                                    "value": "third",
+                                    "desc": "third level"
+                                },
+                                "postCode": "030025",
+                                "longitude": "112.47985",
+                                "latitude": "37.72479"
+                            },
+                            "street": null,
+                            "detailAddress": null
+                        },
+                        "endAddress": {
+                            "province": {
+                                "name": "内蒙古自治区",
+                                "code": "150000",
+                                "level": {
+                                    "value": "first",
+                                    "desc": "first level"
+                                },
+                                "postCode": "",
+                                "longitude": "111.670801",
+                                "latitude": "40.818311"
+                            },
+                            "city": {
+                                "name": "包头市",
+                                "code": "150200",
+                                "level": {
+                                    "value": "second",
+                                    "desc": "second level"
+                                },
+                                "postCode": "014025",
+                                "longitude": "109.840405",
+                                "latitude": "40.658168"
+                            },
+                            "district": {
+                                "name": "东河区",
+                                "code": "150202",
+                                "level": {
+                                    "value": "third",
+                                    "desc": "third level"
+                                },
+                                "postCode": "014040",
+                                "longitude": "110.0462",
+                                "latitude": "40.58237"
+                            },
+                            "street": null,
+                            "detailAddress": null
+                        },
+                        "car": {
+                            "id": 3,
+                            "typeName": "小微货",
+                            "typeDesc": "≤80km运输，可在日用品、生鲜、建材、小家具、纺织品",
+                            "loadingType": {
+                                "value": "low_bar",
+                                "desc": "低栏"
+                            },
+                            "carLong": 2.70,
+                            "carLoad": 1500.00,
+                            "carHeight": 1.50,
+                            "carWidth": 1.70,
+                            "loadVolume": 6.88,
+                            "carTypeImage": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3370849059,189162407&fm=26&gp=0.jpg"
+                        }
+                    }
+
+
+                ],
+            },
+        })
+    </script>
+</body>
+
+</html>

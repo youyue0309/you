@@ -5,6 +5,8 @@ const URL = {
   loginUser: SERVERURL + 'user/loginUser',
   getType: SERVERURL + 'type/getTypes',
   getProductsByType: SERVERURL + 'product/getProductsByType',
+  getProvinceId: SERVERURL + 'province/getProvinceId',
+  getProductsByProvince: SERVERURL + 'product/getProductsByProvince'
 };
 
 export default URL;
