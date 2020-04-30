@@ -6,7 +6,11 @@ const URL = {
   getType: SERVERURL + 'type/getTypes',
   getProductsByType: SERVERURL + 'product/getProductsByType',
   getProvinceId: SERVERURL + 'province/getProvinceId',
-  getProductsByProvince: SERVERURL + 'product/getProductsByProvince'
+  getProductsByProvince: SERVERURL + 'product/getProductsByProvince',
+  getUserList: SERVERURL + 'user/getUserList',
+  deleteUser: SERVERURL + 'user/deleteUser',
+  getProductList: SERVERURL + 'product/getProductList',
+  searchProduct: SERVERURL + 'product/searchProduct',
 };
 
 export default URL;
