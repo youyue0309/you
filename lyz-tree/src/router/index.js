@@ -10,6 +10,8 @@ import Admin from '../views/Admin.vue';
 import User from '../views/User.vue';
 import Hello from '../views/Hello.vue';
 import Shop from '../views/Shop.vue';
+import Addproduct from '../views/Addproduct.vue';
+import Update from '../views/Update.vue';
 import CommonHeader from '../components/CommonHeader.vue';
 
 Vue.use(VueRouter);
@@ -87,6 +89,16 @@ const routes = [
         path: '/admin/shop',
         name: 'shop',
         component: Shop
+      },
+      {
+        path: '/admin/addproduct',
+        name: 'addproduct',
+        component: Addproduct
+      },
+      {
+        path: '/admin/update',
+        name: 'update',
+        component: Update
       },
     ]
   },

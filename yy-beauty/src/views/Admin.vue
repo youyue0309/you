@@ -1,7 +1,7 @@
 <template>
   <div id="admin">
     <div class="header">
-      <span class="header-title">知树网-树苗销售管理系统</span>
+      <span class="header-title">Beauty美妆销售管理系统</span>
     </div>
     <el-row class="main">
       <el-col class="main-left" :span="5">
@@ -15,7 +15,7 @@
               <i class="el-icon-s-goods"></i>
               <span>商品信息</span>
             </template>
-            <el-menu-item index="2-1" @click="$router.push('/admin/shop')">商品信息查询</el-menu-item>
+            <el-menu-item index="2-1" @click="$router.push('/admin/shopmsg')">商品信息查询</el-menu-item>
             <el-submenu index="2-2">
               <template slot="title">商品信息应用</template>
               <el-menu-item index="2-2-1" @click="$router.push('/admin/update')">商品修改</el-menu-item>
@@ -54,7 +54,7 @@ export default {
   .header {
     height: 40px;
     width: 100%;
-    background-color: #545c64;
+    background-color: black;
     line-height: 40px;
     color: white;
     .header-title {

@@ -11,6 +11,8 @@ const URL = {
   deleteUser: SERVERURL + 'user/deleteUser',
   getProductList: SERVERURL + 'product/getProductList',
   searchProduct: SERVERURL + 'product/searchProduct',
+  addProduct: SERVERURL + 'product/addProduct',
+  updateProduct: SERVERURL + 'product/updateProduct'
 };
 
 export default URL;
