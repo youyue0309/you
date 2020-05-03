@@ -11,18 +11,29 @@
           >{{it.provinceName}}</li>
         </ul>
       </div>
+      <div class="search">
+        <el-input placeholder="请输入内容" v-model="search" class="input-with-select">
+          <el-button class="btn" slot="append" icon="el-icon-search"></el-button>
+        </el-input>
+      </div>
       <div id="main-shop">
         <ul>
           <li v-for="(it,index) in productList" :key="index">
             <img :src="it.img" />
             <div class="list title">
               <h2>{{it.product}}</h2>
+              <h3>高度：{{it.high}}</h3>
+              <h3>直径：{{it.r}}</h3>
+            </div>
+            <div class="list city">
+              <span>城市：{{it.city}}</span>
             </div>
             <div class="list price">
+              <h2>价格</h2>
               <span>{{it.price}}￥/棵</span>
             </div>
             <div class="list btn">
-              <span>查看详情</span>
+              <span @click="getDetail(it._id)">查看详情</span>
             </div>
           </li>
         </ul>
@@ -38,6 +49,7 @@ import url from "@/servie.config.js";
 export default {
   data() {
     return {
+      search: "",
       productList: [],
       provinceList: [],
       activeName: "first",
@@ -126,6 +138,14 @@ export default {
         .catch(err => {
           console.log(err);
         });
+    },
+    getDetail(id) {
+      this.$router.push({
+        path: "/detail",
+        query: {
+          id: id
+        }
+      });
     }
   }
 };
@@ -155,6 +175,23 @@ export default {
         text-decoration-line: underline;
       }
     }
+    .search {
+      position: relative;
+      height: 50px;
+      padding-bottom: 20px;
+      .input-with-select {
+        position: absolute;
+        top: 15px;
+        right: 30px;
+        border: 1px solid yellowgreen;
+        width: 400px;
+        float: right;
+        .btn {
+          background-color: yellowgreen;
+          color: green;
+        }
+      }
+    }
     #main-shop {
       #none {
         text-align: center;
@@ -163,21 +200,41 @@ export default {
       }
       li {
         width: 1300px;
-        height: 200px;
+        height: 180px;
         background-color: #f8f8f8;
         margin-top: 10px;
         img {
           float: left;
           width: 270px;
-          height: 190px;
+          height: 170px;
           padding: 5px;
         }
         .list {
           float: left;
           text-align: center;
-          line-height: 200px;
-          width: 340px;
-          height: 200px;
+          // line-height: 200px;
+          width: 255px;
+          height: 180px;
+        }
+        .title {
+          h2 {
+            margin-top: 40px;
+          }
+        }
+        .price {
+          // line-height: 180px;
+          color: #f6580e;
+          font-size: 20px;
+          h2 {
+            margin-top: 45px;
+          }
+        }
+        .city {
+          line-height: 180px;
+          font-size: 20px;
+        }
+        .btn {
+          line-height: 180px;
         }
       }
     }

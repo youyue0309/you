@@ -5,6 +5,7 @@ import Category from '../views/Category.vue';
 import Cart from '../views/Cart.vue';
 import Mine from '../views/Mine.vue';
 import Order from '../views/Order.vue';
+import Detail from '../views/Detail.vue';
 import Province from '../views/Province.vue';
 import Admin from '../views/Admin.vue';
 import User from '../views/User.vue';
@@ -61,6 +62,15 @@ const routes = [
       default: Order,
       "common-header": CommonHeader
     }
+  },
+  {
+    path: '/detail',
+    name: 'detail',
+    component: Detail,
+    // components: {
+    //   default: Order,
+    //   "common-header": CommonHeader
+    // }
   },
   {
     path: '/province',

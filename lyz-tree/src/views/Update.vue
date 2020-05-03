@@ -100,7 +100,7 @@ export default {
     };
   },
   created(){
-      console.log(this.$route.query.res);
+      // console.log(this.$route.query.res);
       this.ruleForm.price = this.$route.query.res.price;
       this.ruleForm.product = this.$route.query.res.product;
       this.ruleForm.productsum = this.$route.query.res.productsum;
