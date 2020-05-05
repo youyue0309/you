@@ -7,6 +7,7 @@ import Mine from '../views/Mine.vue';
 import Order from '../views/Order.vue';
 import Detail from '../views/Detail.vue';
 import Province from '../views/Province.vue';
+import Updatepassword from '../views/Updatepassword.vue';
 import Admin from '../views/Admin.vue';
 import User from '../views/User.vue';
 import Hello from '../views/Hello.vue';
@@ -51,6 +52,14 @@ const routes = [
     // component: Mine,
     components: {
       default: Mine,
+      "common-header": CommonHeader
+    }
+  },
+  {
+    path: '/password',
+    name: 'password',
+    components: {
+      default: Updatepassword,
       "common-header": CommonHeader
     }
   },
