@@ -13,7 +13,7 @@
       </div>
       <div class="search">
         <el-input placeholder="请输入内容" v-model="search" class="input-with-select">
-          <el-button class="btn" slot="append" icon="el-icon-search"></el-button>
+          <el-button @click="searchProduct" class="btn" slot="append" icon="el-icon-search"></el-button>
         </el-input>
       </div>
       <div id="main-shop">
@@ -72,7 +72,7 @@ export default {
       .then(res => {
         this.provinceList = res.data;
         this.selectProvince(this.provinceId, this.provinceName, this.active);
-        console.log(res);
+        // console.log(res);
       })
       .catch(err => {
         console.log(err);
@@ -85,7 +85,7 @@ export default {
       var scrollHeight =
         document.documentElement.scrollHeight || document.body.scrollHeight;
       if (scrollTop + windowHeight > scrollHeight) {
-        console.log("dao");
+        // console.log("dao");
         that.load();
       }
     };
@@ -121,7 +121,7 @@ export default {
           if (res.data.length != 0) {
             this.productList = this.productList.concat(res.data);
           } else {
-            console.log("no more");
+            // console.log("no more");
             var oDiv = document.getElementById("none");
             this.content = "没有更多商品啦~~~";
             oDiv.innerHTML = this.content;
@@ -146,7 +146,26 @@ export default {
           id: id
         }
       });
-    }
+    },
+    searchProduct() {
+      axios({
+        url: url.searchProduct,
+        method: "get",
+        params: {
+          search: this.search,
+          start: this.start,
+          limit: this.limit
+        }
+      })
+        .then(res => {
+          // console.log(res);
+          this.productList = [];
+          this.productList = res.data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
   }
 };
 </script>

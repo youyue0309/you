@@ -23,66 +23,87 @@
 </template>
 
 <script>
+import axios from "axios";
+import url from "@/servie.config.js";
+import { mapState } from "vuex";
+import { mapActions } from "vuex";
 export default {
-     data() {
-      var validatePass = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请输入密码'));
-        } else {
-          if (this.ruleForm.checkPass !== '') {
-            this.$refs.ruleForm.validateField('checkPass');
-          }
-          callback();
+  data() {
+    var validatePass = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("请输入密码"));
+      } else {
+        if (this.ruleForm.checkPass !== "") {
+          this.$refs.ruleForm.validateField("checkPass");
         }
-      };
-      var validatePass2 = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请再次输入密码'));
-        } else if (value !== this.ruleForm.pass) {
-          callback(new Error('两次输入密码不一致!'));
-        } else {
-          callback();
-        }
-      };
-      return {
-        ruleForm: {
-          pass: '',
-          checkPass: '',
-        },
-        rules: {
-          pass: [
-            { validator: validatePass, trigger: 'blur' }
-          ],
-          checkPass: [
-            { validator: validatePass2, trigger: 'blur' }
-          ],
-        }
-      };
-    },
-    methods: {
-      submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            alert('submit!');
-          } else {
-            console.log('error submit!!');
-            return false;
-          }
-        });
-      },
-      resetForm(formName) {
-        this.$refs[formName].resetFields();
+        callback();
       }
+    };
+    var validatePass2 = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("请再次输入密码"));
+      } else if (value !== this.ruleForm.pass) {
+        callback(new Error("两次输入密码不一致!"));
+      } else {
+        callback();
+      }
+    };
+    return {
+      ruleForm: {
+        pass: "",
+        checkPass: ""
+      },
+      rules: {
+        pass: [{ validator: validatePass, trigger: "blur" }],
+        checkPass: [{ validator: validatePass2, trigger: "blur" }]
+      }
+    };
+  },
+  computed: {
+    ...mapState(["userInfo"])
+  },
+  methods: {
+    ...mapActions(['loginAction']),
+    submitForm(formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          axios({
+            url: url.updatePassword,
+            method: "get",
+            params: {
+              id: this.$route.query.id,
+              password: this.ruleForm.pass
+            }
+          })
+            .then(res => {
+              // console.log(res);
+              alert("修改成功");
+              var user = {};
+              this.$router.push('/');
+              this.loginAction(user);
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
     }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-#password{
-  .demo-ruleForm{
+#password {
+  .demo-ruleForm {
     width: 400px;
     margin: 100px auto;
-    .btn{
+    .btn {
       width: 400px;
       text-align: center;
     }

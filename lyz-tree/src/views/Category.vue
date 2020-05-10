@@ -17,7 +17,12 @@
         </div>
         <div class="hot-shop">
           <div id="bigbox">
-            <div v-for="(it,index) in hotList" :key="index" class="hot-box">
+            <div
+              v-for="(it,index) in hotList"
+              :key="index"
+              @click="getDetail(it._id)"
+              class="hot-box"
+            >
               <img :src="it.img" alt />
               <span class="name">{{it.product}}</span>
               <span class="price">{{it.price}}￥/棵</span>
@@ -60,9 +65,9 @@
             <el-col :span="19">
               <div class="shop-cate-right">
                 <ul class="infinite-list" v-infinite-scroll="load" style="overflow:auto">
-                  <li v-for="(it,index) in productList" :key="index" class="infinite-list-item">
+                  <li v-for="(it,index) in productList" :key="index" @click="getDetail(it._id)" class="infinite-list-item">
                     <el-card class="shop-card" :body-style="{ padding: '0px' }">
-                      <img :src=it.img />
+                      <img :src="it.img" />
                       <span class="name">{{it.product}}</span>
                       <span class="price">{{it.price}}￥/棵</span>
                     </el-card>
@@ -141,308 +146,7 @@ export default {
       start: 0,
       limit: 8,
       types: [],
-      hotList: [
-        {
-          product: "连翘苗价格",
-          noprice: "1.80元/棵",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201701/04/19-37-13-45-96885.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "山西 运城",
-          data: "2020/4/6 11:48",
-          high: "50",
-          r: "0",
-          guanfu: "0",
-          dijing: "0.3",
-          lessnum: "1000 棵",
-          productsum: "500000 棵",
-          price: 1.80
-        },
-        {
-          product: "苹果苗",
-          noprice: "3.50元/棵",
-          img:
-            "http://img.xbmiaomu.com/file/upload/202003/13/18340788103589.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "山东 泰安",
-          data: "2020/4/6 10:49",
-          high: "150",
-          r: "3",
-          guanfu: "10",
-          dijing: "5",
-          lessnum: "100 棵",
-          productsum: "1000000 棵",
-          price: 3.50
-        },
-        {
-          product: "苹果苗",
-          noprice: "2.00元/棵",
-          img:
-            "http://img.xbmiaomu.com/file/upload/202003/12/20010876108875.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "山东 泰安",
-          data: "2020/4/6 10:41",
-          high: "150",
-          r: "2",
-          guanfu: "2",
-          dijing: "5",
-          lessnum: "100 棵",
-          productsum: "9999 棵",
-          price: 2.00
-        },
-        {
-          product: "云南拟单性木兰",
-          noprice: "面议",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201902/27/17260227105477.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "云南 文山壮族苗族自治州",
-          data: "2020/4/6 10:25",
-          high: "null",
-          r: "null",
-          guanfu: "null",
-          dijing: "null",
-          lessnum: "null",
-          productsum: "null",
-          price: 3.15
-        },
-        {
-          product: "新疆杨、北京杨",
-          noprice: "面议",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201609/19/16-48-59-39-74849.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "内蒙古 巴彦淖尔",
-          data: "2020/4/5 22:54",
-          high: "null",
-          r: "null",
-          guanfu: "null",
-          dijing: "null",
-          lessnum: "null",
-          productsum: "null",
-          price: 6.10
-        },
-        {
-          product: "花椒树苗种植前景",
-          noprice: "0.35元/棵",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201809/18/0953473699871.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "山西 运城",
-          data: "2020/4/5 20:51",
-          high: "50",
-          r: "1",
-          guanfu: "20",
-          dijing: "0.5",
-          lessnum: "1000 棵",
-          productsum: "6000000 棵",
-          price: 0.35
-        },
-        {
-          product: "当年结果核桃苗",
-          noprice: "1.00元/棵",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201709/24/07-39-04-11-10687.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "山西 运城",
-          data: "2020/4/5 20:50",
-          high: "100",
-          r: "1",
-          guanfu: "20",
-          dijing: "1",
-          lessnum: "100 棵",
-          productsum: "1680000 棵",
-          price:1.00
-        },
-        {
-          product: "白皮松",
-          noprice: "面议",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201404/04/08-18-29-64-77822.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "山西 运城",
-          data: "2020/4/5 19:33",
-          high: "null",
-          r: "null",
-          guanfu: "null",
-          dijing: "null",
-          lessnum: "null",
-          productsum: "null",
-          price:3.00
-        },
-        {
-          product: "月季树",
-          noprice: "面议",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201706/24/13-14-53-29-98029.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "河南 南阳",
-          data: "2020/4/5 15:27",
-          high: "null",
-          r: "null",
-          guanfu: "null",
-          dijing: "null",
-          lessnum: "null",
-          productsum: "null",
-          price: 5.12
-        },
-        {
-          product: "蜀侩",
-          noprice: "面议",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201709/26/14-03-42-10-99889.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "山西 运城",
-          data: "2020/4/5 14:57",
-          high: "100",
-          r: "null",
-          guanfu: "60",
-          dijing: "null",
-          lessnum: "100 棵",
-          productsum: "100000 棵",
-          price: 6.23
-        },
-        {
-          product: "山楂苗",
-          noprice: "3.00元/棵",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201709/07/17-58-35-43-99665.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "山西 运城",
-          data: "2020/4/5 14:56",
-          high: "null",
-          r: "null",
-          guanfu: "null",
-          dijing: "null",
-          lessnum: "100 棵",
-          productsum: "100000 棵",
-          price: 3.00
-        },
-        {
-          product: "山楂树价格",
-          noprice: "面议",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201803/15/15-21-44-34-101152.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "山西 运城",
-          data: "2020/4/5 14:56",
-          high: "null",
-          r: "null",
-          guanfu: "null",
-          dijing: "null",
-          lessnum: "100 棵",
-          productsum: "100000 棵",
-          price: 1.32
-        },
-        {
-          product: "白皮松价格",
-          noprice: "1.00元/棵",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201803/11/19-02-26-26-101233.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "山西 运城",
-          data: "2020/4/5 14:56",
-          high: "null",
-          r: "null",
-          guanfu: "null",
-          dijing: "null",
-          lessnum: "null",
-          productsum: "1000000 棵",
-          price: 4.23
-        },
-        {
-          product: "老人葵",
-          noprice: "面议",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201111/05/11-13-36-85-29387.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "福建 漳州",
-          data: "2020/4/5 14:55",
-          high: "null",
-          r: "null",
-          guanfu: "null",
-          dijing: "null",
-          lessnum: "null",
-          productsum: "null",
-          price:2.00
-        },
-        {
-          product: "6公分山楂树价格",
-          noprice: "面议",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201711/11/12-08-04-99-100101.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "山西 运城",
-          data: "2020/4/5 14:55",
-          high: "null",
-          r: "null",
-          guanfu: "null",
-          dijing: "null",
-          lessnum: "100 棵",
-          productsum: "100000 棵",
-          price: 3.00
-        },
-        {
-          product: "油松",
-          noprice: "20.00元/棵",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201802/26/14-09-41-87-100594.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "山西 运城",
-          data: "2020/4/5 14:55",
-          high: "200",
-          r: "null",
-          guanfu: "120",
-          dijing: "null",
-          lessnum: "10 棵",
-          productsum: "100000 棵",
-          price: 1.00
-        },
-        {
-          product: "8公分梨树价格",
-          noprice: "面议",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201702/25/21-05-30-82-97345.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "山西 运城",
-          data: "2020/4/5 14:54",
-          high: "null",
-          r: "null",
-          guanfu: "null",
-          dijing: "null",
-          lessnum: "null",
-          productsum: "10000 棵",
-          price: 5.00
-        },
-        {
-          product: "3公分樱桃树价格",
-          noprice: "30.00元/棵",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201909/05/2018067299529.gif?x-oss-process=style/PC_sell-list.120x120",
-          city: "山西 运城",
-          data: "2020/4/5 14:54",
-          high: "null",
-          r: "null",
-          guanfu: "null",
-          dijing: "3",
-          lessnum: "100 棵",
-          productsum: "100000 棵",
-          price:1.00
-        },
-        {
-          product: "草莓苗",
-          noprice: "0.35元/棵",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201706/06/13-19-13-77-98891.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "山东 泰安",
-          data: "2020/4/5 13:17",
-          high: "15",
-          r: "null",
-          guanfu: "null",
-          dijing: "null",
-          lessnum: "100 棵",
-          productsum: "500000 棵",
-          price:3.00
-        },
-        {
-          product: "垂柳 旱柳 ",
-          noprice: "面议",
-          img:
-            "http://img.xbmiaomu.com/file/upload/201509/13/16-17-13-64-90106.jpg?x-oss-process=style/PC_sell-list.120x120",
-          city: "河北 保定",
-          data: "2020/4/5 10:02",
-          high: "null",
-          r: "null",
-          guanfu: "null",
-          dijing: "null",
-          lessnum: "null",
-          productsum: "null",
-          price:5.00
-        }
-      ],
+      hotList: [],
       imgList: [
         { url: require("../assets/image/1.jpg") },
         { url: require("../assets/image/2.jpg") },
@@ -461,6 +165,21 @@ export default {
       .then(res => {
         this.types = res.data;
         this.selectCategory(this.typeId, this.active);
+        // console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    axios({
+      url: url.getProductList,
+      method: "get",
+      params: {
+        start: 15,
+        limit: 15
+      }
+    })
+      .then(res => {
+        this.hotList = res.data;
         // console.log(res);
       })
       .catch(err => {
@@ -507,7 +226,7 @@ export default {
         .then(res => {
           if (res.data.length != 0) {
             this.productList = this.productList.concat(res.data);
-          }else{
+          } else {
             console.log("no more");
           }
           // console.log(res);
@@ -520,6 +239,14 @@ export default {
       setTimeout(() => {
         this.getProductList();
       }, 500);
+    },
+    getDetail(id) {
+      this.$router.push({
+        path: "/detail",
+        query: {
+          id: id
+        }
+      });
     }
   }
 };

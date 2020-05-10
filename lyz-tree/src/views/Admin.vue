@@ -22,14 +22,10 @@
               <el-menu-item @click="$router.push('/admin/addproduct')" index="2-2-2">商品添加</el-menu-item>
             </el-submenu>
           </el-submenu>
-          <el-submenu index="3">
-            <template slot="title">
-              <i class="el-icon-s-order"></i>
-              <span>订单信息</span>
-            </template>
-            <el-menu-item index="3-1">订单查询</el-menu-item>
-            <el-menu-item index="3-2">订单查看</el-menu-item>
-          </el-submenu>
+          <el-menu-item @click="$router.push('/admin/orderselect')" index="3">
+            <i class="el-icon-s-order"></i>
+            <span>订单信息</span>
+          </el-menu-item>
         </el-menu>
       </el-col>
       <el-col :span="19">

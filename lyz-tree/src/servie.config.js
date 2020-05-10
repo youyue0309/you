@@ -14,7 +14,18 @@ const URL = {
   addProduct: SERVERURL + 'product/addProduct',
   updateProduct: SERVERURL + 'product/updateProduct',
   getDetail: SERVERURL + 'product/getDetail',
-  getuserDetail: SERVERURL + 'user/getuserDetail'
+  getuserDetail: SERVERURL + 'user/getuserDetail',
+  addCart: SERVERURL + 'cart/addCart',
+  getCart: SERVERURL + 'cart/getCart',
+  delCart: SERVERURL + 'cart/delCart',
+  updatePassword: SERVERURL + 'user/updatePassword',
+  updateAddress: SERVERURL + 'user/updateAddress',
+  addOrder: SERVERURL + 'order/addOrder',
+  getOrder: SERVERURL + 'order/getOrder',
+  delOrder: SERVERURL + 'order/delOrder',
+  getOrderList: SERVERURL + 'order/getOrderList',
+  searchOrder: SERVERURL + 'order/searchOrder',
+  delProduct: SERVERURL + 'product/delProduct'
 };
 
 export default URL;

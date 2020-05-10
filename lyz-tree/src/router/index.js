@@ -9,6 +9,7 @@ import Detail from '../views/Detail.vue';
 import Province from '../views/Province.vue';
 import Updatepassword from '../views/Updatepassword.vue';
 import Admin from '../views/Admin.vue';
+import Orderselect from '../views/Orderselect.vue';
 import User from '../views/User.vue';
 import Hello from '../views/Hello.vue';
 import Shop from '../views/Shop.vue';
@@ -118,6 +119,11 @@ const routes = [
         path: '/admin/update',
         name: 'update',
         component: Update
+      },
+      {
+        path: '/admin/orderselect',
+        name: 'orderselect',
+        component: Orderselect
       },
     ]
   },

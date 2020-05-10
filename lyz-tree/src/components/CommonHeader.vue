@@ -8,7 +8,7 @@
             <router-link to="/order">订单</router-link>
             <router-link to="/cart">购物车</router-link>
             <router-link to="/mine">我的</router-link>
-            <span class="name">{{userInfo.userName}}</span>
+            <span class="name">{{JSON.stringify(userInfo) === '{}' ? '未登录' : userInfo.userName}}</span>
         </div>
     </div>
 </template>

@@ -19,13 +19,9 @@
           <h3>价格：</h3>
           <span class="text">￥{{detail.price}}元 地头价</span>
         </div>
-        <div class="sum">
-          <h3>数量：</h3>
-          <el-input-number v-model="num" @change="handleChange" :min="1" :max="9999" label="描述文字"></el-input-number>
-        </div>
         <div class="btn">
-          <button class="buy">立即购买</button>
-          <button class="addcart">加入购物车</button>
+          <button @click="addOrder" class="buy">立即购买</button>
+          <button @click="addCart" class="addcart">加入购物车</button>
         </div>
       </div>
     </div>
@@ -88,11 +84,13 @@
 <script>
 import axios from "axios";
 import url from "@/servie.config.js";
+import { mapState } from "vuex";
 export default {
   data() {
     return {
       num: 1,
-      detail: {}
+      detail: {},
+      arr: []
     };
   },
   created() {
@@ -112,9 +110,64 @@ export default {
         console.log(err);
       });
   },
+  computed: {
+    ...mapState(["userInfo"])
+  },
   methods: {
     handleChange(value) {
       console.log(value);
+    },
+    addCart() {
+      //检查用户是否登录 前端vuex保存登录状态
+      //如果后端保存登录状态 koa-session redis
+      if (JSON.stringify(this.userInfo) === "{}") {
+        alert("请先登录");
+        setTimeout(() => {
+          this.$router.push("/");
+        }, 1000);
+      } else {
+        //插入购物车
+        axios({
+          url: url.addCart,
+          method: "post",
+          data: {
+            productId: this.detail._id,
+            userId: this.userInfo._id
+          }
+        })
+          .then(res => {
+            //   console.log(res);
+            if (res.data.code == 200) {
+              this.$message({
+                showClose: true,
+                message: res.data.message,
+                type: "success",
+                center: true
+              });
+            } else {
+              console.log("error");
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
+    },
+    addOrder() {
+      if (JSON.stringify(this.userInfo) === "{}") {
+        alert("请先登录");
+        setTimeout(() => {
+          this.$router.push("/");
+        }, 1000);
+      } else {
+        this.arr.push(this.detail);
+        this.$router.push({
+          path: "/order",
+          query: {
+            product: this.arr
+          }
+        });
+      }
     }
   }
 };
