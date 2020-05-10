@@ -1,0 +1,34 @@
+[
+    {
+        "typeId":1,
+        "typeName": "造型苗木"
+    },
+    {
+        "typeId":2,
+        "typeName": "大规模苗木"
+    },
+    {
+        "typeId":3,
+        "typeName": "精品苗木"
+    },
+    {
+        "typeId":4,
+        "typeName": "竹类植物"
+    },
+    {
+        "typeId":5,
+        "typeName": "果树小苗"
+    },
+    {
+        "typeId":6,
+        "typeName": "藤本植物"
+    },
+    {
+        "typeId":7,
+        "typeName": "地被植物"
+    },
+    {
+        "typeId":8,
+        "typeName": "棕榈植物"
+    }
+]
