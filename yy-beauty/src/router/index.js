@@ -10,6 +10,7 @@ import User from '../views/User.vue';
 import Hello from '../views/Hello.vue';
 import Shopmsg from '../views/Shopmsg.vue';
 import Addproduct from '../views/Addproduct.vue';
+import Detail from '../views/Detail.vue';
 import Update from '../views/Update.vue';
 import CommonHeader from '../components/CommonHeader.vue';
 
@@ -43,6 +44,11 @@ const routes = [
       default: Cart,
       "common-header": CommonHeader
     }
+  },
+  {
+    path: '/detail',
+    name: 'detail',
+    component: Detail,
   },
   {
     path: '/order',

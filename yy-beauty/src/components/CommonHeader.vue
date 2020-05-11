@@ -9,7 +9,7 @@
                 <router-link to="/order">订单</router-link>
             </div>
             <div class="right-title">
-                <router-link to="/login">{{userInfo.userName}}</router-link>
+                <router-link to="/login">{{JSON.stringify(userInfo) === '{}' ? '登录/注册' : userInfo.userName}}</router-link>
             </div>
         </div>
     </div>

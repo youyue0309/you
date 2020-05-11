@@ -19,7 +19,7 @@
           <el-col :span="19">
             <div class="shop-bigbox">
               <ul class="infinite-list" v-infinite-scroll="load" style="overflow:auto">
-                <li v-for="(it,index) in productList" :key="index" class="card">
+                <li v-for="(it,index) in productList" :key="index" @click="getDetail(it._id)" class="card">
                   <img :src="it.img" alt />
                   <div class="name">
                     <span>{{it.chname}}</span>
@@ -102,6 +102,14 @@ export default {
       this.productList = [];
 
       this.getProductList();
+    },
+    getDetail(id) {
+      this.$router.push({
+        path: "/detail",
+        query: {
+          id: id
+        }
+      });
     },
     getProductList() {
       axios({

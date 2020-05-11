@@ -5,9 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    userInfo: {
-      userName:'登录/注册'
-    }
+    userInfo: {}
   },
   mutations: {
     changeLogin(state, status){

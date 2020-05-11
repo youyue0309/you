@@ -10,7 +10,8 @@ const URL = {
   getProductList: SERVERURL + 'product/getProductList',
   searchProduct: SERVERURL + 'product/searchProduct',
   addProduct: SERVERURL + 'product/addProduct',
-  updateProduct: SERVERURL + 'product/updateProduct'
+  updateProduct: SERVERURL + 'product/updateProduct',
+  getDetail: SERVERURL + 'product/getDetail',
 };
 
 export default URL;
