@@ -103,7 +103,7 @@ export default {
       if (JSON.stringify(this.userInfo) === "{}") {
         alert("请先登录");
         setTimeout(() => {
-          this.$router.push("/");
+          this.$router.push("/login");
         }, 1000);
       } else {
         //插入购物车
@@ -137,7 +137,7 @@ export default {
       if (JSON.stringify(this.userInfo) === "{}") {
         alert("请先登录");
         setTimeout(() => {
-          this.$router.push("/");
+          this.$router.push("/login");
         }, 1000);
       } else {
         this.arr.push(this.detail);

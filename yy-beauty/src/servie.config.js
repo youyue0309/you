@@ -12,6 +12,12 @@ const URL = {
   addProduct: SERVERURL + 'product/addProduct',
   updateProduct: SERVERURL + 'product/updateProduct',
   getDetail: SERVERURL + 'product/getDetail',
+  addCart: SERVERURL + 'cart/addCart',
+  getCart: SERVERURL + 'cart/getCart',
+  delCart: SERVERURL + 'cart/delCart',
+  addOrder: SERVERURL + 'order/addOrder',
+  getOrder: SERVERURL + 'order/getOrder',
+  delOrder: SERVERURL + 'order/delOrder',
 };
 
 export default URL;
