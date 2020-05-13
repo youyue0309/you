@@ -18,6 +18,12 @@ const URL = {
   addOrder: SERVERURL + 'order/addOrder',
   getOrder: SERVERURL + 'order/getOrder',
   delOrder: SERVERURL + 'order/delOrder',
+  updatePassword: SERVERURL + 'user/updatePassword',
+  updateAddress: SERVERURL + 'user/updateAddress',
+  getuserDetail: SERVERURL + 'user/getuserDetail',
+  getOrderList: SERVERURL + 'order/getOrderList',
+  searchOrder: SERVERURL + 'order/searchOrder',
+  delProduct: SERVERURL + 'product/delProduct'
 };
 
 export default URL;

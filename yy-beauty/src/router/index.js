@@ -5,12 +5,15 @@ import Login from '../views/Login.vue';
 import Cart from '../views/Cart.vue';
 import Order from '../views/Order.vue';
 import Shop from '../views/Shop.vue';
+import Mine from '../views/Mine.vue';
+import Updatepassword from '../views/Updatepassword.vue';
 import Admin from '../views/Admin.vue';
 import User from '../views/User.vue';
 import Hello from '../views/Hello.vue';
 import Shopmsg from '../views/Shopmsg.vue';
 import Addproduct from '../views/Addproduct.vue';
 import Detail from '../views/Detail.vue';
+import Orderselect from '../views/Orderselect.vue';
 import Update from '../views/Update.vue';
 import CommonHeader from '../components/CommonHeader.vue';
 
@@ -69,6 +72,24 @@ const routes = [
     }
   },
   {
+    path: '/mine',
+    name: 'mine',
+    // component: Shop,
+    components: {
+      default: Mine,
+      "common-header": CommonHeader
+    }
+  },
+  {
+    path: '/password',
+    name: 'password',
+    // component: Shop,
+    components: {
+      default: Updatepassword,
+      "common-header": CommonHeader
+    }
+  },
+  {
     path: '/admin',
     name: 'admin',
     component: Admin, children: [
@@ -96,6 +117,11 @@ const routes = [
         path: '/admin/update',
         name: 'update',
         component: Update
+      },
+      {
+        path: '/admin/orderselect',
+        name: 'orderselect',
+        component: Orderselect
       },
     ]
   },

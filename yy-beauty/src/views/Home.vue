@@ -16,7 +16,7 @@
           <i @click="moveRight" class="right el-icon-arrow-right"></i>
           <div class="sp-mid">
             <div id="large">
-              <div v-for="(it,index) in spList" :key="index" class="sp-mid-box">
+              <div @click="getDetail(it._id)" v-for="(it,index) in spList" :key="index" class="sp-mid-box">
                 <img :src="it.img" alt />
                 <div class="name">
                   <span>{{it.chname}}</span>
@@ -44,7 +44,7 @@
           <i class="el-icon-bottom"></i>
         </div>
         <div class="bigbox">
-          <div v-for="(it,index) in hotList" :key="index" class="more-box">
+          <div @click="getDetail(it._id)" v-for="(it,index) in hotList" :key="index" class="more-box">
             <img :src="it.img" alt />
             <div class="name">
               <span>{{it.chname}}</span>
@@ -95,221 +95,13 @@
 </template>
 
 <script>
+import axios from "axios";
+import url from "@/servie.config.js";
 export default {
   data() {
     return {
-      hotList: [
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/1/118000_7.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "10.97",
-          chname:
-            "：ST.MORIZ ADVANCED PRO FORMULA exfoliating skin primer 200 m",
-          Enname: "：ADVANCED PRO FORMULA exfoliating skin primer 200 m",
-          ml: "：200"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/1/118001_7.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "6.38",
-          chname: "：ST.MORIZ ADVANCED PRO FORMULA tan enhancer 200 ml",
-          Enname: "：ADVANCED PRO FORMULA tan enhancer 200 ml",
-          ml: "：200"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/1/118002_7.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "9.58",
-          chname:
-            "：ST.MORIZ ADVANCED PRO FORMULA 5in1 tanning mousse #medium 2",
-          Enname: "：ADVANCED PRO FORMULA 5in1 tanning mousse #medium 2",
-          ml: "：200"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/1/118003_7.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "16.46",
-          chname:
-            "：ST.MORIZ ADVANCED PRO FORMULA 5in1 tanning mousse #dark 200",
-          Enname: "：ADVANCED PRO FORMULA 5in1 tanning mousse #dark 200",
-          ml: "：200"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/1/118007_7.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "20.87",
-          chname:
-            "：ST.MORIZ ADVANCED PRO FORMULA dry oil self tanning mist 100",
-          Enname: "：ADVANCED PRO FORMULA dry oil self tanning mist 100",
-          ml: "：150"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/1/118356_14.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "41.86",
-          chname: "：CHANEL香奈儿 山茶花唇膏限量版 3.5g #327-camélia blanc",
-          Enname: "：ROUGE ALLURE CAMÉLIA #327-camélia blanc",
-          color: "：#327"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/1/118357_14.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "41.97",
-          chname: "：CHANEL香奈儿 山茶花唇膏限量版 3.5g #337-camélia rose",
-          Enname: "：ROUGE ALLURE CAMÉLIA #337-camélia rose",
-          color: "：#337"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/1/118358_14.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "41.90",
-          chname:
-            "：CHANEL香奈儿 山茶花唇膏限量版 3.5g #607-camélia rouge métal",
-          Enname: "：ROUGE ALLURE CAMÉLIA #607-camélia rouge métal",
-          color: "：#607"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/1/118359_14.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "41.92",
-          chname: "：CHANEL香奈儿 山茶花唇膏限量版 3.5g #637-camélia pourpre",
-          Enname: "：ROUGE ALLURE CAMÉLIA #637-camélia pourpre",
-          color: "：#637"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/1/118360_14.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "42.06",
-          chname: "：CHANEL香奈儿 炫亮魅力唇膏 3.5g #347-camélia fuchsia",
-          Enname: "：ROUGE ALLURE VELVET CAMÉLIA #347-camélia fuchsia",
-          color: "：#347"
-        }
-      ],
-      spList: [
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/3/1350-44210_11_1.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "20.86",
-          chname:
-            " DR.HAUSCHKA 德国世家 遮瑕膏 2.5ml #02-chestnut  Dr. Hauschka",
-          Enname: " Concealer #02-chestnut  Dr. Hauschka 2 5 ml",
-          color: " 02 Chestnut"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/3/1350-43862_11_1.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "28.77",
-          chname: " DR.HAUSCHKA 德国世家 粉饼 8g #01-macadamia  Dr. Hauschka",
-          Enname: " Compact Powder #01-macadamia  Dr. Hauschka 8 g",
-          color: " 01 Macadamia"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/3/1350-44227_11_1.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "20.86",
-          chname: " DR.HAUSCHKA 德国世家 遮瑕膏 2.5ml #03-nutmeg  Dr. Hauschka",
-          Enname: " Concealer #03-nutmeg  Dr. Hauschka 2 5 ml",
-          color: " 03 Nutmeg"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/3/1350-43855_11_1.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "28.77",
-          chname: " DR.HAUSCHKA 德国世家 粉饼 8g #02-chestnut  Dr. Hauschka",
-          Enname: " Compact Powder #02-chestnut  Dr. Hauschka 8 g",
-          color: " 02 Chestnut"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/3/1350-43848_11_1.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "28.77",
-          chname: " DR.HAUSCHKA 德国世家 粉饼 8g #03-nutmeg  Dr. Hauschka",
-          Enname: " Compact Powder #03-nutmeg  Dr. Hauschka 8 g",
-          color: " 03 Nutmeg"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/3/1350-43664_11_1.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "32.67",
-          chname:
-            " DR.HAUSCHKA 德国世家 半透明散粉 12g #00-translucent  Dr. Hauschka",
-          Enname: " Loose Powder #00-translucent  Dr. Hauschka 12 g",
-          ml: " 12"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/3/1350-43718_11_1.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "31.50",
-          chname: " DR.HAUSCHKA 德国世家 修容粉 10g #01-bronze Dr. Hauschka",
-          Enname: " Bronzing Powder #01-bronze Dr. Hauschka 10 g",
-          ml: " 10"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/3/1350-43794_11_1.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "17.92",
-          chname: " DR.HAUSCHKA 德国世家  双头眼线笔 1.05g #01-black",
-          Enname: " Eye Definer #01-black 1 05 Gr 1 05 g",
-          color: " 01 Black"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/1/118081_31.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "6.89",
-          chname: " Real Techniques SINGLE POCKET expert organizer #pink",
-          Enname: " SINGLE POCKET expert organizer #pink",
-          color: " #Pink"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/1/118080_31.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "6.89",
-          chname: " Real Techniques SINGLE POCKET expert organizer #grey",
-          Enname: " SINGLE POCKET expert organizer #grey",
-          color: " #grey"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/1/118082_31.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "13.03",
-          chname: " Real Techniques 3 POCKET expert organizer #pink",
-          Enname: " 3 POCKET expert organizer #pink",
-          color: " #Pink"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/1/118083_31.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "15.25",
-          chname: " Real Techniques 3 POCKET expert organizer #grey",
-          Enname: " 3 POCKET expert organizer #grey",
-          color: " #grey"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/3/1388-50909_4_2.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "12.54",
-          chname: " ST.MORIZ Professional Fast Tanning Mousse St. Moriz 200 ml",
-          Enname: " Professional Fast Tanning Mousse St. Moriz 200 ml",
-          ml: " 200"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/3/1388-51722_17_2.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "20.87",
-          chname: " ST.MORIZ Advanced Pro Formula Ultra Finish With Applicator",
-          Enname: " Advanced Pro Formula Ultra Finish With Applicator ",
-          ml: " 100"
-        },
-        {
-          img:
-            "https://pb-assets.azoyacdn.com/media/catalog/product/1/3/1388-50183_17_2.jpg?imageMogr2/thumbnail/800x800/extent/800x800/background/d2hpdGU=",
-          price: "10.12",
-          chname:
-            " ST.MORIZ Professional Self Tanning Lotion #dark St. Moriz 2",
-          Enname: " Professional Self Tanning Lotion #dark St. Moriz 2",
-          ml: " 250"
-        }
-      ],
+      hotList: [],
+      spList: [],
       left: 0,
       imgList: [
         { url: require("../assets/image/lunbo/1.jpg") },
@@ -320,6 +112,38 @@ export default {
         { url: require("../assets/image/lunbo/6.jpg") }
       ]
     };
+  },
+  created(){
+    axios({
+      url: url.getProductList,
+      method: "get",
+      params: {
+        start: 15,
+        limit: 10
+      }
+    })
+      .then(res => {
+        this.hotList = res.data;
+        // console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+      axios({
+      url: url.getProductList,
+      method: "get",
+      params: {
+        start: 15,
+        limit: 15
+      }
+    })
+      .then(res => {
+        this.spList = res.data;
+        // console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   },
   methods: {
     moveLeft() {
@@ -351,6 +175,14 @@ export default {
           clearInterval(timer);
         }
       }, 1);
+    },
+    getDetail(id) {
+      this.$router.push({
+        path: "/detail",
+        query: {
+          id: id
+        }
+      });
     }
   }
 };

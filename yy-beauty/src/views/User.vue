@@ -31,8 +31,10 @@
           </div>
         </li>
       </ul>
-      <div class="page">
-        <el-pagination layout="prev, pager, next" :total="1000"></el-pagination>
+      <div class="btn">
+        <i @click="prev" class="el-icon-arrow-left"></i>
+        <span>{{sum}}</span>
+        <i @click="next" class="el-icon-arrow-right"></i>
       </div>
     </div>
   </div>
@@ -44,6 +46,8 @@ import url from "@/servie.config.js";
 export default {
   data() {
     return {
+      issearch: false,
+      sum: 1,
       userList: [],
       start: 0,
       limit: 10
@@ -53,6 +57,18 @@ export default {
     this.getUserList();
   },
   methods: {
+    prev() {
+      if (this.start > 0) {
+        this.start = this.start - 10;
+        this.sum = Math.floor(this.start / 10) + 1;
+        this.getUserList();
+      }
+    },
+    next() {
+      this.start = this.start + 10;
+      this.sum = Math.floor(this.start / 10) + 1;
+      this.getUserList();
+    },
     getUserList() {
       axios({
         url: url.getUserList,
@@ -161,9 +177,13 @@ export default {
         }
       }
     }
-    .page {
-      padding: 40px;
+    .btn {
+      width: 100%;
       text-align: center;
+      i {
+        padding: 10px;
+        font-size: 20px;
+      }
     }
   }
 }

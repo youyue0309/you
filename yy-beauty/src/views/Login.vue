@@ -77,28 +77,49 @@ export default {
               setTimeout(() => {
                 resolve();
               }, 1000);
-            })
-              .then(() => {
-                this.$message({
-                  showClose: true,
-                  message: "登录成功",
-                  type: "success",
-                  center: true
-                });
-                this.username = "";
-                this.password = "";
-                //保存登录状态
-                this.loginAction(res.data.userInfo);
-                this.$router.push("/");
-              })
-              .catch(err => {
-                this.$message({
-                  showClose: true,
-                  message: "保存登录失败",
-                  type: "error",
-                  center: true
-                });
+            }).then(() => {
+              this.$message({
+                showClose: true,
+                message: "登录成功",
+                type: "success",
+                center: true
               });
+              this.username = "";
+              this.password = "";
+              this.loginAction(res.data.userInfo);
+              this.$router.push('/');
+            }).catch(err=>{
+              this.$message({
+                showClose: true,
+                message: "保存登录失败",
+                type: "error",
+                center: true
+              });
+            });
+          }else if(res.data.code == 100){
+            new Promise((resolve, reject) => {
+              //模拟请求时间
+              setTimeout(() => {
+                resolve();
+              }, 1000);
+            }).then(() => {
+              this.$message({
+                showClose: true,
+                message: "登录成功",
+                type: "success",
+                center: true
+              });
+              this.username = "";
+              this.password = "";
+              this.$router.push('/admin');
+            }).catch(err=>{
+              this.$message({
+                showClose: true,
+                message: "保存登录失败",
+                type: "error",
+                center: true
+              });
+            });
           }else{
             this.$message({
               showClose: true,
