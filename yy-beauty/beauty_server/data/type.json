@@ -1,0 +1,30 @@
+[
+    {
+        "typeId":1,
+        "typeName": "彩妆专区"
+    },
+    {
+        "typeId":2,
+        "typeName": "专业工具"
+    },
+    {
+        "typeId":3,
+        "typeName": "护肤养肤"
+    },
+    {
+        "typeId":4,
+        "typeName": "香水专区"
+    },
+    {
+        "typeId":5,
+        "typeName": "基础清洁"
+    },
+    {
+        "typeId":6,
+        "typeName": "男士专区"
+    },
+    {
+        "typeId":7,
+        "typeName": "底妆专区"
+    }
+]
